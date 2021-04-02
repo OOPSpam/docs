@@ -1,15 +1,21 @@
 ---
-title: API Reference
+title: OOPSpam API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
+  - shell: cURL
   - ruby
   - python
+  - php
   - javascript
+  - java
+  - csharp
+  - go
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='https://app.oopspam.com'>Get your API Key via Dashboard</a>
+  - <a href='https://rapidapi.com/oopspam/api/oopspam-spam-filter/'>Get your API Key via RapidAPI</a>
+  - <hr/> 
+  - <a href='https://oopspam.com'>⬅ Back to OOPSpam</a>
 
 includes:
   - errors
@@ -19,223 +25,765 @@ search: true
 code_clipboard: true
 ---
 
-# Introduction
+# 👋 Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+> BASE URLs
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+> RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com">https://oopspam.p.rapidapi.com</a>
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+> OOPSpam: <a href="https://api.oopspam.com">https://api.oopspam.com/</a>
 
-# Authentication
+Welcome to the [OOPSpam API](https://oopspam.com)!
 
-> To authorize, use this code:
+OOPSpam API is a privacy-first and highly accurate anti-spam filter.
 
-```ruby
-require 'kittn'
+It is usually used for:
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+1. Contact forms
+2. Comment systems
+3. Live chats
+4. and any platform where contents exchaged
 
-```python
-import kittn
+You submit messages to us via the API and it produces Spam Score with a detailed report. Using ```Score``` you can adjust the sensitivity level of spam filter to your use case.
 
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Example request and all possible response fields
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+{
+    "senderIP": "91.203.67.110",
+    "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    "checkForLength": true,
+    "allowedLanguages" : ["en"],
+    "allowedCountries" : ["it","us"]
+}
+```
+
+```json
+{
+  "Score": 6,
+  "Details": {
+    "isIPBlocked": false,
+    "isContentSpam": "spam",
+    "langMatch": true,
+    "countryMatch": false,
+    "numberOfSpamWords": 0,
+    "isContentTooShort": false
   }
-]
+}
 ```
 
-This endpoint retrieves all kittens.
+![OOPSpam API request and response example](/images/reqresp.png)
 
-### HTTP Request
+You can test the API right on your browser with your data on [OOPSpam Dashboard](https://app.oopspam.com/#test-with-your-data) or [the RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter).
 
-`GET http://example.com/api/kittens`
+The API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.
 
-### Query Parameters
+# 👩‍🏫 Developer Support
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+As Developers we understand that no API Reference can answer every question.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+We have a Developer to Developer support system where if you are working with our API you can speak directly to a developer.
+
+If you have a question about our API just start a conversation with us using the chat widget on this page or via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a>.
+
+# 🔑 Authentication
+
+The OOPSpam API uses API keys to identify and authorise calls. You can register for a new API key in two ways:
+
+1. [OOPSpam on RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter/)
+2. [Directly on our dashboard](https://app.oopspam.com/Identity/Account/Register)
+
+The account on RapidAPI and on our Dashboard are dissociated. Each of these registration methods has its own base URL and API-KEY. You must therefore adapt your scripts according to your subscription by adapting the URL and your API KEY.
+
+OOPSpam API expects the API key to be included in all API requests to the server in a header that looks like the following:
+
+- For RapidAPI endpoint: ```X-Rapidapi-Key: API_KEY```
+- For OOPSpam Dashboard endpoint: ```X-Api-Key: API_KEY```
+
+<aside>
+<div  class="success">
+👉 Replace <code>API_KEY</code> with your API key
+</div>
 </aside>
 
-## Get a Specific Kitten
+Check out [Using the API via Dashboard](#using-the-api-via-dashboard) and [Using the API via RapidAPI](#using-the-api-via-rapidapi) for additional information.
+
+<aside>
+<div class="warning">
+🚧 <strong>Keep your API keys secret</strong>
+
+<p>Do not share your API keys in publicly accessible areas or put them in version control or client-side code. It's a good practice to set secrets like the API key as environment variable and then read it in the code.</p>
+</div>
+</aside>
+
+## Using the API via Dashboard
+
+The base URL : `https://api.oopspam.com/`
+
+If you decided to subscribe directly on our site, you have [OOPSpam Dashboard](https://app.oopspam.com/Identity/Account/Register) at your disposal.
+
+It allows you to:
+
+- To follow your consumption in real time
+- Manage your subscription and change it if necessary
+- Test the endpoint without writing a line of code.
+
+<aside>
+<div class="success">
+👉 Make sure to include <code>X-Api-Key: API_KEY</code> in a request header and replace <code>API_KEY</code> with your API key.
+</div>
+</aside>
+
+![OOPSpam Dashboard](images/screenshots/sc1.png)
+![OOPSpam Dashboard](images/screenshots/sc2.png)
+![OOPSpam Dashboard](images/screenshots/sc3.png)
+
+## Using the API via RapidAPI
+
+The base URL : `https://oopspam.p.rapidapi.com/`
+
+<aside>
+<div class="notice">
+ℹ️ <strong>What is RapidAPI?</strong>
+<p> RapidAPI, the world's largest API Marketplace, is used by over one million developers to find, test, and connect to thousands of > APIs — all with a single account, API Key, and SDK. You can learn more about it <a href="https://docs.rapidapi.com/docs/what-is-rapidapi">here</a>. </p>
+</div>
+</aside>
+
+If you decided to subscribe to the API via [RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter/) then all information related to your subscription are available on the RapidAPI developer dashboard.
+
+The RapidAPI developer dashboard is where you can see all of your apps, locate API keys, view analytics, and manage billing settings.
+
+To access the dashboard, simply login to RapidAPI and select 'My Apps' in the top-right menu. Alternatively, you can head directly to [https://rapidapi.com/developer/dashboard](https://rapidapi.com/developer/dashboard).
+
+In the main dashboard, you will see account-wide analytics and account information. To get more detailed information, you can select tabs on the left-hand side of the screen.
+
+### App Specific Analytics
+
+Using the RapidAPI dashboard, you can also view analytics specific to each app in your account. To do so, switch over to the 'Analytics' tab of your application in the dashboard.
+
+On the top of the page, you'll be able to see:
+
+- A chart with all the calls being made to the API
+- Logs with all the request data
+
+In each graph, you can view the following metrics:
+
+- ```API Calls```: how many requests are being made
+- ```Error rates```: how many requests are error some
+- ```Latency```: how long (on average) requests take to execute
+
+You can find your API KEY under 'Security' tab.
+
+![RapidAPI Developer Dashboard](/images/screenshots/sc_rapidApi.png)
+
+# 🚦 Rate Limiting
+
+> Headers via RapidAPI endpoint
+
+```sass
+x-ratelimit-requests-limit: 40
+x-ratelimit-requests-remaining: 1
+```
+
+> Headers via OOPSpam endpoint
+
+```sass
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 998
+```
+
+Depending on your subscription, limits are placed on the number of API requests you may make using your API key.
+All responses from the API contain information about the current state of rate-limiting. The special ```X-RateLimit-```
+headers have the following meaning:
+
+Header | Description
+--------- | -----------
+```X-RateLimit-Limit``` ```x-ratelimit-requests-limit`` |  The number of requests per month for the plan you are currently subscribed
+```X-RateLimit-Remaining``` ```x-ratelimit-requests-remaining``` |  The number of requests remaining before you reach the limit of requests your application is allowed to make
+```x-ratelimit-requests-reset``` |  Time at which the request counter is reset. Available only to RapidAPI endpoint
+
+If you exceeds this threshold your application will be unable to make further requests until the rate limit resets.
+
+<aside>
+<div class="notice">
+ℹ️ <strong>How Do I See My Current Usage?</strong>
+<p>Besides the above headers, you can see your API usage via RapidAPI Developer dashboard and OOPSpam Dashboard according to your subscription.</p>
+</div>
+</aside>
+
+#  🎯 Endpoints
+
+## Spam Detection
+
+> Example request
 
 ```ruby
-require 'kittn'
+require 'uri'
+require 'net/http'
+require 'openssl'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+# Make sure to use correct base URL
+url = URI("https://oopspam.p.rapidapi.com/v1/spamdetection")
+# url = URI("https://api.oopspam.com/v1/spamdetection")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url)
+request["content-type"] = 'application/json'
+
+# Make sure to use correct HEADERS based on your endpoint
+request["x-rapidapi-key"] = 'YOUR_API_KEY'
+request["x-rapidapi-host"] = 'oopspam.p.rapidapi.com'
+# request["X-Api-Key"] = 'YOUR_API_KEY'
+
+request.body = "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\"\n}"
+
+response = http.request(request)
+puts response.read_body
 ```
 
 ```python
-import kittn
+import requests
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+# Make sure to use correct base URL
+url = "https://oopspam.p.rapidapi.com/v1/spamdetection"
+# url = "https://api.oopspam.com/v1/spamdetection"
+
+payload = "{\n    \"checkForLength\": true,\n    \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n    \"senderIP\": \"185.234.219.246\"\n}"
+
+# Make sure to use correct HEADERS based on your endpoint
+headers = {
+    'content-type': "application/json",
+    # 'X-Api-Key': "YOUR_API_KEY",
+    'x-rapidapi-key': "YOUR_API_KEY",
+    'x-rapidapi-host': "oopspam.p.rapidapi.com"
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
+curl --request POST \
+# Make sure to use correct base URL
+# --url https://api.oopspam.com/v1/spamdetection \
+	--url https://oopspam.p.rapidapi.com/v1/spamdetection \
+	--header 'content-type: application/json' \
+# Make sure to use correct HEADERS based on your endpoint
+# --header 'X-Api-Key: YOUR_API_KEY'
+	--header 'x-rapidapi-host: oopspam.p.rapidapi.com' \
+	--header 'x-rapidapi-key: YOUR_API_KEY' \
+	--data '{
+    "checkForLength": true,
+    "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    "senderIP": "185.234.219.246",
+    "allowedCountries": [
+        "it",
+        "us"
+    ],
+    "allowedLanguages": [
+        "en"
+    ]
+}'
 ```
 
 ```javascript
-const kittn = require('kittn');
+const data = JSON.stringify({
+	"checkForLength": true,
+	"content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+	"senderIP": "185.234.219.246",
+  "allowedCountries": [
+		"it",
+		"us"
+	],
+	"allowedLanguages": [
+		"en"
+	]
+});
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+	if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+	}
+});
+
+// Make sure to use correct base URL
+xhr.open("POST", "https://oopspam.p.rapidapi.com/v1/spamdetection");
+// xhr.open("POST", "https://api.oopspam.com/v1/spamdetection");
+
+xhr.setRequestHeader("content-type", "application/json");
+
+// Make sure to use correct HEADERS based on your endpoint
+// xhr.setRequestHeader("X-Api-Key", "YOUR_API_KEY");
+xhr.setRequestHeader("x-rapidapi-key", "YOUR_API_KEY");
+xhr.setRequestHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
+
+xhr.send(data);
 ```
 
-> The above command returns JSON structured like this:
+```java
+HttpRequest request = HttpRequest.newBuilder()
+//  Make sure to use correct base URL
+//  .uri(URI.create("https://oopspam.p.rapidapi.com/v1/spamdetection"))
+		.uri(URI.create("https://api.oopspam.com/v1/spamdetection"))
+		.header("content-type", "application/json")
+    // Make sure to use correct HEADERS based on your endpoint
+    // .header("X-Api-Key", "YOUR_API_KEY")
+		.header("x-rapidapi-key", "YOUR_API_KEY")
+		.header("x-rapidapi-host", "oopspam.p.rapidapi.com")
+		.method("POST", HttpRequest.BodyPublishers.ofString("{\n  \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n \"senderIP\": \"185.234.219.246\"\n}"))
+		.build();
+HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+```csharp
+//  Make sure to use correct base URL
+// var client = new RestClient("https://api.oopspam.com/v1/spamdetection");
+var client = new RestClient("https://oopspam.p.rapidapi.com/v1/spamdetection");
+
+var request = new RestRequest(Method.POST);
+request.AddHeader("content-type", "application/json");
+// Make sure to use correct HEADERS based on your endpoint
+// request.AddHeader("X-Api-Key", "YOUR_API_KEY");
+request.AddHeader("x-rapidapi-key", "YOUR_API_KEY");
+request.AddHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
+request.AddParameter("application/json", "{\n  \"checkForLength\": true,\n  \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\"\n}", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+```
+
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+	"net/http"
+	"io/ioutil"
+)
+
+func main() {
+
+// Make sure to use correct base URL
+// url := "https://api.oopspam.com/v1/spamdetection"
+	url := "https://oopspam.p.rapidapi.com/v1/spamdetection"
+
+	payload := strings.NewReader("{\n    \"checkForLength\": true,\n    \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n    \"senderIP\": \"185.234.219.246\"\n}")
+
+	req, _ := http.NewRequest("POST", url, payload)
+
+	req.Header.Add("content-type", "application/json")
+// Make sure to use correct HEADERS based on your endpoint
+// req.Header.Add("X-Api-Key", "YOUR_API_KEY")
+	req.Header.Add("x-rapidapi-key", "YOUR_API_KEY")
+	req.Header.Add("x-rapidapi-host", "oopspam.p.rapidapi.com")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := ioutil.ReadAll(res.Body)
+
+	fmt.Println(res)
+	fmt.Println(string(body))
+
 }
 ```
 
-This endpoint retrieves a specific kitten.
+```php
+<?php
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+$client = new http\Client;
+$request = new http\Client\Request;
 
-### HTTP Request
+$body = new http\Message\Body;
+$body->append('{
+    "checkForLength": true,
+    "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    "senderIP": "185.234.219.246"
+}');
 
-`GET http://example.com/kittens/<ID>`
+// Make sure to use correct base URL
+// $request->setRequestUrl('https://api.oopspam.com/v1/spamdetection');
+$request->setRequestUrl('https://oopspam.p.rapidapi.com/v1/spamdetection');
+$request->setRequestMethod('POST');
+$request->setBody($body);
 
-### URL Parameters
+// Make sure to use correct HEADERS based on your endpoint
+// $request->setHeaders([
+// 	'content-type' => 'application/json',
+// 	'X-Api-Key' => 'YOUR_API_KEY'
+// ]);
+$request->setHeaders([
+	'content-type' => 'application/json',
+	'x-rapidapi-key' => 'YOUR_API_KEY',
+	'x-rapidapi-host' => 'oopspam.p.rapidapi.com'
+]);
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+$client->enqueue($request)->send();
+$response = $client->getResponse();
 
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
+echo $response->getBody();
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
+> The above command may return JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+  "Score": 6,
+  "Details": {
+    "isIPBlocked": true,
+    "isContentSpam": "spam",
+    "langMatch": true,
+    "countryMatch": false,
+    "numberOfSpamWords": 0,
+    "isContentTooShort": false
+  }
 }
 ```
 
-This endpoint deletes a specific kitten.
+> Note that OOPSpam API tries to return the result as soon as one of the analyses fails. Hence some field may not appear in the response body. Say ```senderIP``` is blocked then it will return following response without doing other analyses:
+
+```json
+{
+  "Score": 6,
+  "Details": {
+    "isIPBlocked": true,
+    "isContentTooShort": false
+  }
+}
+```
+
+
+The endpoint analyses given parameters and returns overall spam score (```Score```) including detailed detection results in structured JSON.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`POST /v1/spamdetection/`
 
-### URL Parameters
+<aside>
+<div  class="success">
+👉 <strong>Reminder - the base URLs</strong>
+<p>You can consume OOPSpam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
+<ul>
+<li>RapidAPI: <code>https://oopspam.p.rapidapi.com</code></li>
+<li>OOPSpam: <code>https://api.oopspam.com</code></li>
+</ul>
+</div>
+</aside>
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+### Request Body Parameters
 
+<table class="table">
+                  <thead>
+                  <tr>
+                      <th scope="col">Field</th>
+                      <th scope="col">Definition</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                        <td><code>content</code></td>
+                      <td><strong>string (required)</strong> Is a content/message you would like to be analyzed.</td>
+                    </tr>
+                    <tr>
+                      <td><code>senderIP</code></td>
+                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple blocklisted IPs lists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
+                            <p><strong>Important:</strong> </p>
+                            <ul>
+                                <li>This field should include spammer's IP, in other words, whoever submitted regarding content to you, not your IP.</li>
+                                <li>IP addresses <i>127.0.0.1</i>, <i>1.1.1.1</i>, <i>::1</i> including private IPs are by default blocked.</li>
+                            </ul>
+                            </td>
+                    </tr>
+                  <tr>
+                      <td><code>checkForLength</code> <small style="background-color: #fbcf50;">default:true</small></td>
+                      <td><strong>boolean (optional)</strong> If the content is shorter than 20 characters, it will be considered spam (<code>Score: 5</code>) and returns <code>isContentTooShort: true</code>.</td>
+                  </tr>
+                  <tr>
+                      <td><code>allowedLanguages</code></td>
+                      <td><strong>array (optional)</strong> This allows blocking content based on a content language. Let us know in what language(s) you expect the content to be by passing <a href="#iso-639">two-letter language(s) code</a> to the parameter as an array.</td>
+                  </tr>
+                  <tr>
+                      <td><code>allowedCountries</code></td>
+                      <td><strong>array (optional)</strong> Allow content only from a certain country or countries. All you need to do is pass <a target="_blank" href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">the two-letter country code</a> as an array.
+                          <p><strong>Important:</strong> </p>
+                          <code>senderIP</code> is required for this to work. </td>
+                      </tr>
+                  </tbody>
+                </table>
+
+### HTTP Response Body Parameters
+
+<table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Field</th>
+                                <th scope="col">Definition</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>Score</code></td>
+                                <td><strong>number</strong> - A value between 0-6 representing an overall spam score based on passed parameters. The higher this value, the more likely to be spam.
+                                <aside  >
+                                <div class="success">
+                            👉 While it depends on a use case, usually a <code>Score</code> 3 or higher can be considered spam.</div></aside>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>Details</code></td>
+                                <td>A dictionary containing the result of different analyses. </td>
+                            </tr>
+                            <tr>
+                                <td><code>isIPBlocked</code></td>
+                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>senderIP</code> is blocklisted.</td>
+                            </tr>
+                            <tr>
+                                <td><code>langMatch</code></td>
+                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>allowedLanguages</code> matches with the detected language by Language Detection algorithm.</td>
+                            </tr>
+                            <tr>
+                                <td><code>isContentSpam</code></td>
+                                <td><strong>string</strong> - Represents the result of a Machine Learning algorithm on whether the content is a <i>spam</i> or <i>nospam</i>.</td>
+                            </tr>
+                            <tr>
+                                <td><code>numberOfSpamWords</code></td>
+                                <td><strong>number</strong> - A value representing a number of spam words within the content.</td>
+                            </tr>
+                            <tr>
+                                <td><code>isContentTooShort</code></td>
+                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>content</code> is too short (max. 20 characters) to be considered a meaningful sentence. Any content that is too short will be considered spam. </td>
+                            </tr>
+                            <tr>
+                                <td><code>countryMatch</code></td>
+                                <td><strong>boolean</strong> - Represents whether an IP address (the value of <code>senderIP</code>) originates from one of the countries you passed through <code>allowedCountries</code> parameter. In case of a mismatch, the API returns the maximum spam <code>Score</code> of 6. </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+
+<details id="iso-639"><summary>See support language codes for <code>allowedLanguages</code> field</summary>
+<div style="padding-top:1em;">
+
+<table class="table">
+                            <thead>
+                                <tr>
+                                    <th><strong>Language</strong></th>
+                                    <th>ISO 639-1 code</th>
+                                    <th>Language</th>
+                                    <th>ISO 639-1 code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Afrikaans</td>
+                                    <td><em>af</em></td>
+                                    <td>Japanese</td>
+                                    <td><em>ja</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Albanian</td>
+                                    <td><em>sq</em></td>
+                                    <td>Korean</td>
+                                    <td><em>ko</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Arabic</td>
+                                    <td><em>ar</em></td>
+                                    <td>Latin</td>
+                                    <td><em>la</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Basque</td>
+                                    <td><em>eu</em></td>
+                                    <td>Latvian</td>
+                                    <td><em>lv</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Belarusian</td>
+                                    <td><em>be</em></td>
+                                    <td>Lithuanian</td>
+                                    <td><em>lt</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Bengali</td>
+                                    <td><em>bn</em></td>
+                                    <td>Malay</td>
+                                    <td><em>ms</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Bokmal</td>
+                                    <td><em>nb</em></td>
+                                    <td>Norwegian</td>
+                                    <td><em>no</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Bulgarian</td>
+                                    <td><em>bg</em></td>
+                                    <td>Nynorsk</td>
+                                    <td><em>nn</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Catalan</td>
+                                    <td><em>ca</em></td>
+                                    <td>Persian</td>
+                                    <td><em>fa</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Chinese</td>
+                                    <td><em>zh</em></td>
+                                    <td>Polish</td>
+                                    <td><em>pl</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Croatian</td>
+                                    <td><em>hr</em></td>
+                                    <td>Portuguese</td>
+                                    <td><em>pt</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Czech</td>
+                                    <td><em>cs</em></td>
+                                    <td>Punjabi</td>
+                                    <td><em>pa</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Danish</td>
+                                    <td><em>da</em></td>
+                                    <td>Romanian</td>
+                                    <td><em>ro</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Dutch</td>
+                                    <td><em>nl</em></td>
+                                    <td>Russian</td>
+                                    <td><em>ru</em></td>
+                                </tr>
+                                <tr>
+                                    <td>English</td>
+                                    <td><em>en</em></td>
+                                    <td>Slovak</td>
+                                    <td><em>sk</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Estonian</td>
+                                    <td><em>et</em></td>
+                                    <td>Slovene</td>
+                                    <td><em>sl</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Finnish</td>
+                                    <td><em>fi</em></td>
+                                    <td>Somali</td>
+                                    <td><em>so</em></td>
+                                </tr>
+                                <tr>
+                                    <td>French</td>
+                                    <td><em>fr</em></td>
+                                    <td>Spanish</td>
+                                    <td><em>es</em></td>
+                                </tr>
+                                <tr>
+                                    <td>German</td>
+                                    <td><em>de</em></td>
+                                    <td>Swedish</td>
+                                    <td><em>sv</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Greek</td>
+                                    <td><em>el</em></td>
+                                    <td>Tagalog</td>
+                                    <td><em>tl</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Gujarati</td>
+                                    <td><em>gu</em></td>
+                                    <td>Tamil</td>
+                                    <td><em>ta</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Hebrew</td>
+                                    <td><em>he</em></td>
+                                    <td>Telugu</td>
+                                    <td><em>te</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Hindi</td>
+                                    <td><em>hi</em></td>
+                                    <td>Thai</td>
+                                    <td><em>th</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Hungarian</td>
+                                    <td><em>hu</em></td>
+                                    <td>Turkish</td>
+                                    <td><em>tr</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Icelandic</td>
+                                    <td><em>is</em></td>
+                                    <td>Urdu</td>
+                                    <td><em>ur</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Indonesian</td>
+                                    <td><em>id</em></td>
+                                    <td>Vietnamese</td>
+                                    <td><em>vi</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Irish</td>
+                                    <td><em>ga</em></td>
+                                    <td>Welsh</td>
+                                    <td><em>cy</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Italian</td>
+                                    <td><em>it</em></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+</div>
+</details>
+  
+
+# 🔌 Integration
+
+You can integrate OOPSpam API with any platform where content is exchanged. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into your platform, [let us know](#developer-support). We'd be happy to publish it here.
+
+## WordPress
+
+OOPSpam has [a WordPress plugin](https://wordpress.org/plugins/oopspam-anti-spam/) that integrates with the API. It filters both comments and contact form submissions.
+
+### Supported Contact Form solutions
+
+- Ninja Forms
+- Gravity Forms
+
+As the plugin works with OOPSpam API, it supports all spam protection capabilities out of the box.
+
+The plugin currently supports the following settings:
+
+- Sensitivity level adjustment
+- Do not analyze IP addresses
+- Country Restrictions
+- Language Restrictions
+- and other settings
+
+!["OOPSpam WordPress plugin screenshot"](images/screenshots/sc_wp.png)
+
+
+# 💡 Tips
+
+- Responded ```Score``` parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.
+- Make async HTTP request instead of sync as the system check senderIP against multiple blocklisted IPs lists until it finds it.
+- Don't send 127.0.0.1, ::1, 1.1.1.1 including private IPs as a value of ```senderIP```, they are by default blocked.

@@ -53,6 +53,7 @@ under the License.
       $(function() { setupCodeCopy(); });
     </script>
     <% end %>
+    <script type="text/javascript"> window.$crisp=[];window.CRISP_WEBSITE_ID="36e091c4-1a19-426d-a99c-979131f7fa04";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})(); </script>
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
@@ -63,7 +64,7 @@ under the License.
       </span>
     </a>
     <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo' %>
+      <%= image_tag "logo.png", class: 'logo', loading: 'lazy' %>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>

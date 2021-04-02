@@ -49,6 +49,7 @@ html, body {
 
 .toc-wrapper {
   transition: left 0.3s ease-in-out;
+  border-right: 2px solid #e0e0e0;
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -59,7 +60,7 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
 
   // language selector for mobile devices
@@ -162,6 +163,13 @@ html, body {
     background-color: $nav-active-parent-bg;
     color: $nav-active-parent-text;
   }
+  .toc-link {
+    margin: 0 10px;
+    margin-bottom: 0px;
+border-radius: 4px;
+overflow: hidden;
+margin-bottom: 4px;
+  }
 
   .toc-list-h2 {
     display: none;
@@ -171,13 +179,19 @@ html, body {
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
+    border-top: 1px solid $nav-footer-border-color;
+
+    hr {
+      width: 30%;
+      float: left;
+      color: #d5d0d080;
+    }
 
     li,a {
       color: $nav-text;
@@ -314,6 +328,38 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////
 // This is all the stuff with the light background in the left half of the page
 
+details {
+  border: 1px solid #f5f5f5;
+  border-radius: 6px;
+  margin-top: 10px;
+  overflow: hidden;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+}
+
+details summary::-webkit-details-marker {
+  color: #000;
+}
+
+summary::-webkit-details-marker {
+  display: none
+}
+summary:after {
+  border-radius: 5px; 
+  content: "→"; 
+  color: #000; 
+  float: left; 
+  font-size: 1.5em; 
+  font-weight: bold; 
+  margin: -5px 10px 0 0; 
+  padding: 0; 
+  text-align: center; 
+  width: 20px;
+}
+details[open] summary:after {
+  content: "↓";
+}
+
 .content {
   // fixes webkit rendering bug for some: see #538
   -webkit-transform: translateZ(0);
@@ -327,7 +373,7 @@ html, body {
     clear: both;
   }
 
-  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl, &>details {
     margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
@@ -348,13 +394,14 @@ html, body {
   h1 {
     @extend %header-font;
     font-size: 25px;
-    padding-top: 0.5em;
+    padding-top: 2em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-top: .1em solid #f5f5f5;
     background-color: #fdfdfd;
+    background-color: #fdfdfd;
+
   }
 
   h1:first-child, div:first-child + h1 {
@@ -462,20 +509,27 @@ html, body {
     padding: 0;
   }
 
-  aside {
-    padding-top: 1em;
-    padding-bottom: 1em;
+  aside > div {
+    padding: 10px 15px;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    border-radius: 5px;
 
     &.warning {
       background-color: $aside-warning-bg;
+      border: 1px solid #fa680729;
     }
 
     &.success {
       background-color: $aside-success-bg;
+      border: 1px solid #a0f1bd;
+    }
+
+    &.notice {
+      background-color: $aside-notice-bg;
+      border: 1px solid #1036ac2e;
     }
   }
 
