@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>OOPSpam API Reference</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -282,16 +282,17 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+    <link href="stylesheets/screen-9010de3d.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-586b2ab0.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-a9fde460.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
     </script>
+    <script type="text/javascript"> window.$crisp=[];window.CRISP_WEBSITE_ID="36e091c4-1a19-426d-a99c-979131f7fa04";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})(); </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;java&quot;,&quot;csharp&quot;,&quot;go&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -299,12 +300,16 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-8e04eb90.png" class="logo" loading="lazy" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="shell">cURL</a>
               <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="php">php</a>
               <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="csharp">csharp</a>
+              <a href="#" data-language-name="go">go</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -312,222 +317,791 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="👋 Introduction">👋 Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#developer-support" class="toc-h1 toc-link" data-title="👩‍🏫 Developer Support">👩‍🏫 Developer Support</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="🔑 Authentication">🔑 Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#using-the-api-via-dashboard" class="toc-h2 toc-link" data-title="Using the API via Dashboard">Using the API via Dashboard</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#using-the-api-via-rapidapi" class="toc-h2 toc-link" data-title="Using the API via RapidAPI">Using the API via RapidAPI</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#rate-limiting" class="toc-h1 toc-link" data-title="🚦 Rate Limiting">🚦 Rate Limiting</a>
+          </li>
+          <li>
+            <a href="#endpoints" class="toc-h1 toc-link" data-title="🎯 Endpoints">🎯 Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#spam-detection" class="toc-h2 toc-link" data-title="Spam Detection">Spam Detection</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#integration" class="toc-h1 toc-link" data-title="🔌 Integration">🔌 Integration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#wordpress" class="toc-h2 toc-link" data-title="WordPress">WordPress</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tips" class="toc-h1 toc-link" data-title="💡 Tips">💡 Tips</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="🚨 Errors">🚨 Errors</a>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://app.oopspam.com'>Get your API Key via Dashboard</a></li>
+            <li><a href='https://rapidapi.com/oopspam/api/oopspam-spam-filter/'>Get your API Key via RapidAPI</a></li>
+            <li><hr/></li>
+            <li><a href='https://oopspam.com'>⬅ Back to OOPSpam</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+        <h1 id='introduction'>👋 Introduction</h1>
 <blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>BASE URLs</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com">https://oopspam.p.rapidapi.com</a></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>OOPSpam: <a href="https://api.oopspam.com">https://api.oopspam.com/</a></p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Welcome to the <a href="https://oopspam.com">OOPSpam API</a>!</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>OOPSpam API is a privacy-first and highly accurate anti-spam filter.</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>It is usually used for:</p>
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<ol>
+<li>Contact forms</li>
+<li>Comment systems</li>
+<li>Live chats</li>
+<li>and any platform where contents exchaged</li>
+</ol>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>You submit messages to us via the API and it produces Spam Score with a detailed report. Using <code>Score</code> you can adjust the sensitivity level of spam filter to your use case.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
-</code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example request and all possible response fields</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"senderIP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91.203.67.110"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"allowedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"isIPBlocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isContentSpam"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spam"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"langMatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"countryMatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numberOfSpamWords"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isContentTooShort"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
+<p><img src="images/reqresp-a7ab0e4a.png" alt="OOPSpam API request and response example" /></p>
+
+<p>You can test the API right on your browser with your data on <a href="https://app.oopspam.com/#test-with-your-data">OOPSpam Dashboard</a> or <a href="https://rapidapi.com/oopspam/api/oopspam-spam-filter">the RapidAPI marketplace</a>.</p>
+
+<p>The API is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>. All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.</p>
+<h1 id='developer-support'>👩‍🏫 Developer Support</h1>
+<p>As Developers we understand that no API Reference can answer every question.</p>
+
+<p>We have a Developer to Developer support system where if you are working with our API you can speak directly to a developer.</p>
+
+<p>If you have a question about our API just start a conversation with us using the chat widget on this page or via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a>.</p>
+<h1 id='authentication'>🔑 Authentication</h1>
+<p>The OOPSpam API uses API keys to identify and authorise calls. You can register for a new API key in two ways:</p>
+
+<ol>
+<li><a href="https://rapidapi.com/oopspam/api/oopspam-spam-filter/">OOPSpam on RapidAPI marketplace</a></li>
+<li><a href="https://app.oopspam.com/Identity/Account/Register">Directly on our dashboard</a></li>
+</ol>
+
+<p>The account on RapidAPI and on our Dashboard are dissociated. Each of these registration methods has its own base URL and API-KEY. You must therefore adapt your scripts according to your subscription by adapting the URL and your API KEY.</p>
+
+<p>OOPSpam API expects the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<ul>
+<li>For RapidAPI endpoint: <code>X-Rapidapi-Key: API_KEY</code></li>
+<li>For OOPSpam Dashboard endpoint: <code>X-Api-Key: API_KEY</code></li>
+</ul>
+
+<aside>
+<div  class="success">
+👉 Replace <code>API_KEY</code> with your API key
+</div>
+</aside>
+
+<p>Check out <a href="#using-the-api-via-dashboard">Using the API via Dashboard</a> and <a href="#using-the-api-via-rapidapi">Using the API via RapidAPI</a> for additional information.</p>
+
+<aside>
+<div class="warning">
+🚧 <strong>Keep your API keys secret</strong>
+
+<p>Do not share your API keys in publicly accessible areas or put them in version control or client-side code. It's a good practice to set secrets like the API key as environment variable and then read it in the code.</p>
+</div>
+</aside>
+<h2 id='using-the-api-via-dashboard'>Using the API via Dashboard</h2>
+<p>The base URL : <code>https://api.oopspam.com/</code></p>
+
+<p>If you decided to subscribe directly on our site, you have <a href="https://app.oopspam.com/Identity/Account/Register">OOPSpam Dashboard</a> at your disposal.</p>
+
+<p>It allows you to:</p>
+
+<ul>
+<li>To follow your consumption in real time</li>
+<li>Manage your subscription and change it if necessary</li>
+<li>Test the endpoint without writing a line of code.</li>
+</ul>
+
+<aside>
+<div class="success">
+👉 Make sure to include <code>X-Api-Key: API_KEY</code> in a request header and replace <code>API_KEY</code> with your API key.
+</div>
+</aside>
+
+<p><img src="images/screenshots/sc1-5a5b70c2.png" alt="OOPSpam Dashboard" />
+<img src="images/screenshots/sc2-64802d52.png" alt="OOPSpam Dashboard" />
+<img src="images/screenshots/sc3-a0a886dc.png" alt="OOPSpam Dashboard" /></p>
+<h2 id='using-the-api-via-rapidapi'>Using the API via RapidAPI</h2>
+<p>The base URL : <code>https://oopspam.p.rapidapi.com/</code></p>
+
+<aside>
+<div class="notice">
+ℹ️ <strong>What is RapidAPI?</strong>
+<p> RapidAPI, the world's largest API Marketplace, is used by over one million developers to find, test, and connect to thousands of > APIs — all with a single account, API Key, and SDK. You can learn more about it <a href="https://docs.rapidapi.com/docs/what-is-rapidapi">here</a>. </p>
+</div>
+</aside>
+
+<p>If you decided to subscribe to the API via <a href="https://rapidapi.com/oopspam/api/oopspam-spam-filter/">RapidAPI marketplace</a> then all information related to your subscription are available on the RapidAPI developer dashboard.</p>
+
+<p>The RapidAPI developer dashboard is where you can see all of your apps, locate API keys, view analytics, and manage billing settings.</p>
+
+<p>To access the dashboard, simply login to RapidAPI and select &#39;My Apps&#39; in the top-right menu. Alternatively, you can head directly to <a href="https://rapidapi.com/developer/dashboard">https://rapidapi.com/developer/dashboard</a>.</p>
+
+<p>In the main dashboard, you will see account-wide analytics and account information. To get more detailed information, you can select tabs on the left-hand side of the screen.</p>
+<h3 id='app-specific-analytics'>App Specific Analytics</h3>
+<p>Using the RapidAPI dashboard, you can also view analytics specific to each app in your account. To do so, switch over to the &#39;Analytics&#39; tab of your application in the dashboard.</p>
+
+<p>On the top of the page, you&#39;ll be able to see:</p>
+
+<ul>
+<li>A chart with all the calls being made to the API</li>
+<li>Logs with all the request data</li>
+</ul>
+
+<p>In each graph, you can view the following metrics:</p>
+
+<ul>
+<li><code>API Calls</code>: how many requests are being made</li>
+<li><code>Error rates</code>: how many requests are error some</li>
+<li><code>Latency</code>: how long (on average) requests take to execute</li>
+</ul>
+
+<p>You can find your API KEY under &#39;Security&#39; tab.</p>
+
+<p><img src="images/screenshots/sc_rapidApi-c0901abe.png" alt="RapidAPI Developer Dashboard" /></p>
+<h1 id='rate-limiting'>🚦 Rate Limiting</h1>
+<blockquote>
+<p>Headers via RapidAPI endpoint</p>
+</blockquote>
+<div class="highlight"><pre class="highlight sass tab-sass"><code><span class="na">x-ratelimit-requests-limit</span><span class="p">:</span> <span class="m">40</span>
+<span class="na">x-ratelimit-requests-remaining</span><span class="p">:</span> <span class="m">1</span>
+</code></pre></div>
+<blockquote>
+<p>Headers via OOPSpam endpoint</p>
+</blockquote>
+<div class="highlight"><pre class="highlight sass tab-sass"><code><span class="na">X-RateLimit-Limit</span><span class="p">:</span> <span class="m">1000</span>
+<span class="na">X-RateLimit-Remaining</span><span class="p">:</span> <span class="m">998</span>
+</code></pre></div>
+<p>Depending on your subscription, limits are placed on the number of API requests you may make using your API key.
+All responses from the API contain information about the current state of rate-limiting. The special <code>X-RateLimit-</code>
+headers have the following meaning:</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>X-RateLimit-Limit</code> `<code>x-ratelimit-requests-limit</code></td>
+<td>The number of requests per month for the plan you are currently subscribed</td>
+</tr>
+<tr>
+<td><code>X-RateLimit-Remaining</code> <code>x-ratelimit-requests-remaining</code></td>
+<td>The number of requests remaining before you reach the limit of requests your application is allowed to make</td>
+</tr>
+<tr>
+<td><code>x-ratelimit-requests-reset</code></td>
+<td>Time at which the request counter is reset. Available only to RapidAPI endpoint</td>
+</tr>
+</tbody></table>
+
+<p>If you exceeds this threshold your application will be unable to make further requests until the rate limit resets.</p>
+
+<aside>
+<div class="notice">
+ℹ️ <strong>How Do I See My Current Usage?</strong>
+<p>Besides the above headers, you can see your API usage via RapidAPI Developer dashboard and OOPSpam Dashboard according to your subscription.</p>
+</div>
+</aside>
+<h1 id='endpoints'>🎯 Endpoints</h1><h2 id='spam-detection'>Spam Detection</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
+<span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'openssl'</span>
+
+<span class="c1"># Make sure to use correct base URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://oopspam.p.rapidapi.com/v1/spamdetection"</span><span class="p">)</span>
+<span class="c1"># url = URI("https://api.oopspam.com/v1/spamdetection")</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/json'</span>
+
+<span class="c1"># Make sure to use correct HEADERS based on your endpoint</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"x-rapidapi-key"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'YOUR_API_KEY'</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"x-rapidapi-host"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'oopspam.p.rapidapi.com'</span>
+<span class="c1"># request["X-Api-Key"] = 'YOUR_API_KEY'</span>
+
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">checkForLength</span><span class="se">\"</span><span class="s2">: true,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">content</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">senderIP</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">185.234.219.246</span><span class="se">\"\n</span><span class="s2">}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Make sure to use correct base URL
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"https://oopspam.p.rapidapi.com/v1/spamdetection"</span>
+<span class="c1"># url = "https://api.oopspam.com/v1/spamdetection"
+</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">checkForLength</span><span class="se">\"</span><span class="s">: true,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">content</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">senderIP</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">185.234.219.246</span><span class="se">\"\n</span><span class="s">}"</span>
+
+<span class="c1"># Make sure to use correct HEADERS based on your endpoint
+</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
+    <span class="c1"># 'X-Api-Key': "YOUR_API_KEY",
+</span>    <span class="s">'x-rapidapi-key'</span><span class="p">:</span> <span class="s">"YOUR_API_KEY"</span><span class="p">,</span>
+    <span class="s">'x-rapidapi-host'</span><span class="p">:</span> <span class="s">"oopspam.p.rapidapi.com"</span>
+    <span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
+<span class="c"># Make sure to use correct base URL</span>
+<span class="c"># --url https://api.oopspam.com/v1/spamdetection \</span>
+    <span class="nt">--url</span> https://oopspam.p.rapidapi.com/v1/spamdetection <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+<span class="c"># Make sure to use correct HEADERS based on your endpoint</span>
+<span class="c"># --header 'X-Api-Key: YOUR_API_KEY'</span>
+    <span class="nt">--header</span> <span class="s1">'x-rapidapi-host: oopspam.p.rapidapi.com'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'x-rapidapi-key: YOUR_API_KEY'</span> <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{
+    "checkForLength": true,
+    "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    "senderIP": "185.234.219.246",
+    "allowedCountries": [
+        "it",
+        "us"
+    ],
+    "allowedLanguages": [
+        "en"
+    ]
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">checkForLength</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">content</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">senderIP</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">185.234.219.246</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">allowedCountries</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">it</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">us</span><span class="dl">"</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">allowedLanguages</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">en</span><span class="dl">"</span>
+    <span class="p">]</span>
+<span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">readystatechange</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">DONE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Make sure to use correct base URL</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://oopspam.p.rapidapi.com/v1/spamdetection</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// xhr.open("POST", "https://api.oopspam.com/v1/spamdetection");</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">content-type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Make sure to use correct HEADERS based on your endpoint</span>
+<span class="c1">// xhr.setRequestHeader("X-Api-Key", "YOUR_API_KEY");</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">x-rapidapi-key</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">YOUR_API_KEY</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">x-rapidapi-host</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">oopspam.p.rapidapi.com</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">HttpRequest</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+<span class="c1">//  Make sure to use correct base URL</span>
+<span class="c1">//  .uri(URI.create("https://oopspam.p.rapidapi.com/v1/spamdetection"))</span>
+        <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="no">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"https://api.oopspam.com/v1/spamdetection"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+    <span class="c1">// Make sure to use correct HEADERS based on your endpoint</span>
+    <span class="c1">// .header("X-Api-Key", "YOUR_API_KEY")</span>
+        <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"x-rapidapi-key"</span><span class="o">,</span> <span class="s">"YOUR_API_KEY"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"x-rapidapi-host"</span><span class="o">,</span> <span class="s">"oopspam.p.rapidapi.com"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="nc">HttpRequest</span><span class="o">.</span><span class="na">BodyPublishers</span><span class="o">.</span><span class="na">ofString</span><span class="o">(</span><span class="s">"{\n  \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n \"senderIP\": \"185.234.219.246\"\n}"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">HttpClient</span><span class="o">.</span><span class="na">newHttpClient</span><span class="o">().</span><span class="na">send</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="nc">HttpResponse</span><span class="o">.</span><span class="na">BodyHandlers</span><span class="o">.</span><span class="na">ofString</span><span class="o">());</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">());</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="c1">//  Make sure to use correct base URL</span>
+<span class="c1">// var client = new RestClient("https://api.oopspam.com/v1/spamdetection");</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://oopspam.p.rapidapi.com/v1/spamdetection"</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"content-type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
+<span class="c1">// Make sure to use correct HEADERS based on your endpoint</span>
+<span class="c1">// request.AddHeader("X-Api-Key", "YOUR_API_KEY");</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"x-rapidapi-key"</span><span class="p">,</span> <span class="s">"YOUR_API_KEY"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"x-rapidapi-host"</span><span class="p">,</span> <span class="s">"oopspam.p.rapidapi.com"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\n  \"checkForLength\": true,\n  \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\"\n}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+<span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+    <span class="s">"fmt"</span>
+    <span class="s">"strings"</span>
+    <span class="s">"net/http"</span>
+    <span class="s">"io/ioutil"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="c">// Make sure to use correct base URL</span>
+<span class="c">// url := "https://api.oopspam.com/v1/spamdetection"</span>
+    <span class="n">url</span> <span class="o">:=</span> <span class="s">"https://oopspam.p.rapidapi.com/v1/spamdetection"</span>
+
+    <span class="n">payload</span> <span class="o">:=</span> <span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">checkForLength</span><span class="se">\"</span><span class="s">: true,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">content</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">senderIP</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">185.234.219.246</span><span class="se">\"\n</span><span class="s">}"</span><span class="p">)</span>
+
+    <span class="n">req</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+    <span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"content-type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
+<span class="c">// Make sure to use correct HEADERS based on your endpoint</span>
+<span class="c">// req.Header.Add("X-Api-Key", "YOUR_API_KEY")</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"x-rapidapi-key"</span><span class="p">,</span> <span class="s">"YOUR_API_KEY"</span><span class="p">)</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"x-rapidapi-host"</span><span class="p">,</span> <span class="s">"oopspam.p.rapidapi.com"</span><span class="p">)</span>
+
+    <span class="n">res</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+
+    <span class="k">defer</span> <span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span>
+
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
+
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">http\Client</span><span class="p">;</span>
+<span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">http\Client\Request</span><span class="p">;</span>
+
+<span class="nv">$body</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">http\Message\Body</span><span class="p">;</span>
+<span class="nv">$body</span><span class="o">-&gt;</span><span class="nf">append</span><span class="p">(</span><span class="s1">'{
+    "checkForLength": true,
+    "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    "senderIP": "185.234.219.246"
+}'</span><span class="p">);</span>
+
+<span class="c1">// Make sure to use correct base URL</span>
+<span class="c1">// $request-&gt;setRequestUrl('https://api.oopspam.com/v1/spamdetection');</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setRequestUrl</span><span class="p">(</span><span class="s1">'https://oopspam.p.rapidapi.com/v1/spamdetection'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setRequestMethod</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setBody</span><span class="p">(</span><span class="nv">$body</span><span class="p">);</span>
+
+<span class="c1">// Make sure to use correct HEADERS based on your endpoint</span>
+<span class="c1">// $request-&gt;setHeaders([</span>
+<span class="c1">//  'content-type' =&gt; 'application/json',</span>
+<span class="c1">//  'X-Api-Key' =&gt; 'YOUR_API_KEY'</span>
+<span class="c1">// ]);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setHeaders</span><span class="p">([</span>
+    <span class="s1">'content-type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-rapidapi-key'</span> <span class="o">=&gt;</span> <span class="s1">'YOUR_API_KEY'</span><span class="p">,</span>
+    <span class="s1">'x-rapidapi-host'</span> <span class="o">=&gt;</span> <span class="s1">'oopspam.p.rapidapi.com'</span>
+<span class="p">]);</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">enqueue</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span><span class="o">-&gt;</span><span class="nf">send</span><span class="p">();</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">getResponse</span><span class="p">();</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="nf">getBody</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>The above command may return JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"isIPBlocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isContentSpam"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spam"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"langMatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"countryMatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numberOfSpamWords"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isContentTooShort"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Note that OOPSpam API tries to return the result as soon as one of the analyses fails. Hence some field may not appear in the response body. Say <code>senderIP</code> is blocked then it will return following response without doing other analyses:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"isIPBlocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isContentTooShort"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The endpoint analyses given parameters and returns overall spam score (<code>Score</code>) including detailed detection results in structured JSON.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p><code>POST /v1/spamdetection/</code></p>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside>
+<div  class="success">
+👉 <strong>Reminder - the base URLs</strong>
+<p>You can consume OOPSpam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
+<ul>
+<li>RapidAPI: <code>https://oopspam.p.rapidapi.com</code></li>
+<li>OOPSpam: <code>https://api.oopspam.com</code></li>
+</ul>
+</div>
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<table class="table">
+                  <thead>
+                  <tr>
+                      <th scope="col">Field</th>
+                      <th scope="col">Definition</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                        <td><code>content</code></td>
+                      <td><strong>string (required)</strong> Is a content/message you would like to be analyzed.</td>
+                    </tr>
+                    <tr>
+                      <td><code>senderIP</code></td>
+                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple blocklisted IPs lists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
+                            <p><strong>Important:</strong> </p>
+                            <ul>
+                                <li>This field should include spammer's IP, in other words, whoever submitted regarding content to you, not your IP.</li>
+                                <li>IP addresses <i>127.0.0.1</i>, <i>1.1.1.1</i>, <i>::1</i> including private IPs are by default blocked.</li>
+                            </ul>
+                            </td>
+                    </tr>
+                  <tr>
+                      <td><code>checkForLength</code> <small style="background-color: #fbcf50;">default:true</small></td>
+                      <td><strong>boolean (optional)</strong> If the content is shorter than 20 characters, it will be considered spam (<code>Score: 5</code>) and returns <code>isContentTooShort: true</code>.</td>
+                  </tr>
+                  <tr>
+                      <td><code>allowedLanguages</code></td>
+                      <td><strong>array (optional)</strong> This allows blocking content based on a content language. Let us know in what language(s) you expect the content to be by passing <a href="#iso-639">two-letter language(s) code</a> to the parameter as an array.</td>
+                  </tr>
+                  <tr>
+                      <td><code>allowedCountries</code></td>
+                      <td><strong>array (optional)</strong> Allow content only from a certain country or countries. All you need to do is pass <a target="_blank" href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">the two-letter country code</a> as an array.
+                          <p><strong>Important:</strong> </p>
+                          <code>senderIP</code> is required for this to work. </td>
+                      </tr>
+                  </tbody>
+                </table>
+<h3 id='http-response-body-parameters'>HTTP Response Body Parameters</h3>
+<table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Field</th>
+                                <th scope="col">Definition</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>Score</code></td>
+                                <td><strong>number</strong> - A value between 0-6 representing an overall spam score based on passed parameters. The higher this value, the more likely to be spam.
+                                <aside  >
+                                <div class="success">
+                            👉 While it depends on a use case, usually a <code>Score</code> 3 or higher can be considered spam.</div></aside>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>Details</code></td>
+                                <td>A dictionary containing the result of different analyses. </td>
+                            </tr>
+                            <tr>
+                                <td><code>isIPBlocked</code></td>
+                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>senderIP</code> is blocklisted.</td>
+                            </tr>
+                            <tr>
+                                <td><code>langMatch</code></td>
+                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>allowedLanguages</code> matches with the detected language by Language Detection algorithm.</td>
+                            </tr>
+                            <tr>
+                                <td><code>isContentSpam</code></td>
+                                <td><strong>string</strong> - Represents the result of a Machine Learning algorithm on whether the content is a <i>spam</i> or <i>nospam</i>.</td>
+                            </tr>
+                            <tr>
+                                <td><code>numberOfSpamWords</code></td>
+                                <td><strong>number</strong> - A value representing a number of spam words within the content.</td>
+                            </tr>
+                            <tr>
+                                <td><code>isContentTooShort</code></td>
+                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>content</code> is too short (max. 20 characters) to be considered a meaningful sentence. Any content that is too short will be considered spam. </td>
+                            </tr>
+                            <tr>
+                                <td><code>countryMatch</code></td>
+                                <td><strong>boolean</strong> - Represents whether an IP address (the value of <code>senderIP</code>) originates from one of the countries you passed through <code>allowedCountries</code> parameter. In case of a mismatch, the API returns the maximum spam <code>Score</code> of 6. </td>
+                            </tr>
+                            </tbody>
+                        </table>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<details id="iso-639"><summary>See support language codes for <code>allowedLanguages</code> field</summary>
+<div style="padding-top:1em;">
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<table class="table">
+                            <thead>
+                                <tr>
+                                    <th><strong>Language</strong></th>
+                                    <th>ISO 639-1 code</th>
+                                    <th>Language</th>
+                                    <th>ISO 639-1 code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Afrikaans</td>
+                                    <td><em>af</em></td>
+                                    <td>Japanese</td>
+                                    <td><em>ja</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Albanian</td>
+                                    <td><em>sq</em></td>
+                                    <td>Korean</td>
+                                    <td><em>ko</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Arabic</td>
+                                    <td><em>ar</em></td>
+                                    <td>Latin</td>
+                                    <td><em>la</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Basque</td>
+                                    <td><em>eu</em></td>
+                                    <td>Latvian</td>
+                                    <td><em>lv</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Belarusian</td>
+                                    <td><em>be</em></td>
+                                    <td>Lithuanian</td>
+                                    <td><em>lt</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Bengali</td>
+                                    <td><em>bn</em></td>
+                                    <td>Malay</td>
+                                    <td><em>ms</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Bokmal</td>
+                                    <td><em>nb</em></td>
+                                    <td>Norwegian</td>
+                                    <td><em>no</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Bulgarian</td>
+                                    <td><em>bg</em></td>
+                                    <td>Nynorsk</td>
+                                    <td><em>nn</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Catalan</td>
+                                    <td><em>ca</em></td>
+                                    <td>Persian</td>
+                                    <td><em>fa</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Chinese</td>
+                                    <td><em>zh</em></td>
+                                    <td>Polish</td>
+                                    <td><em>pl</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Croatian</td>
+                                    <td><em>hr</em></td>
+                                    <td>Portuguese</td>
+                                    <td><em>pt</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Czech</td>
+                                    <td><em>cs</em></td>
+                                    <td>Punjabi</td>
+                                    <td><em>pa</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Danish</td>
+                                    <td><em>da</em></td>
+                                    <td>Romanian</td>
+                                    <td><em>ro</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Dutch</td>
+                                    <td><em>nl</em></td>
+                                    <td>Russian</td>
+                                    <td><em>ru</em></td>
+                                </tr>
+                                <tr>
+                                    <td>English</td>
+                                    <td><em>en</em></td>
+                                    <td>Slovak</td>
+                                    <td><em>sk</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Estonian</td>
+                                    <td><em>et</em></td>
+                                    <td>Slovene</td>
+                                    <td><em>sl</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Finnish</td>
+                                    <td><em>fi</em></td>
+                                    <td>Somali</td>
+                                    <td><em>so</em></td>
+                                </tr>
+                                <tr>
+                                    <td>French</td>
+                                    <td><em>fr</em></td>
+                                    <td>Spanish</td>
+                                    <td><em>es</em></td>
+                                </tr>
+                                <tr>
+                                    <td>German</td>
+                                    <td><em>de</em></td>
+                                    <td>Swedish</td>
+                                    <td><em>sv</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Greek</td>
+                                    <td><em>el</em></td>
+                                    <td>Tagalog</td>
+                                    <td><em>tl</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Gujarati</td>
+                                    <td><em>gu</em></td>
+                                    <td>Tamil</td>
+                                    <td><em>ta</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Hebrew</td>
+                                    <td><em>he</em></td>
+                                    <td>Telugu</td>
+                                    <td><em>te</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Hindi</td>
+                                    <td><em>hi</em></td>
+                                    <td>Thai</td>
+                                    <td><em>th</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Hungarian</td>
+                                    <td><em>hu</em></td>
+                                    <td>Turkish</td>
+                                    <td><em>tr</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Icelandic</td>
+                                    <td><em>is</em></td>
+                                    <td>Urdu</td>
+                                    <td><em>ur</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Indonesian</td>
+                                    <td><em>id</em></td>
+                                    <td>Vietnamese</td>
+                                    <td><em>vi</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Irish</td>
+                                    <td><em>ga</em></td>
+                                    <td>Welsh</td>
+                                    <td><em>cy</em></td>
+                                </tr>
+                                <tr>
+                                    <td>Italian</td>
+                                    <td><em>it</em></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
+</div>
+</details>
+  
+<h1 id='integration'>🔌 Integration</h1>
+<p>You can integrate OOPSpam API with any platform where content is exchanged. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into your platform, <a href="#developer-support">let us know</a>. We&#39;d be happy to publish it here.</p>
+<h2 id='wordpress'>WordPress</h2>
+<p>OOPSpam has <a href="https://wordpress.org/plugins/oopspam-anti-spam/">a WordPress plugin</a> that integrates with the API. It filters both comments and contact form submissions.</p>
+<h3 id='supported-contact-form-solutions'>Supported Contact Form solutions</h3>
+<ul>
+<li>Ninja Forms</li>
+<li>Gravity Forms</li>
+</ul>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>As the plugin works with OOPSpam API, it supports all spam protection capabilities out of the box.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>The plugin currently supports the following settings:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<ul>
+<li>Sensitivity level adjustment</li>
+<li>Do not analyze IP addresses</li>
+<li>Country Restrictions</li>
+<li>Language Restrictions</li>
+<li>and other settings</li>
+</ul>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p><img src="images/screenshots/sc_wp-6d2f0ec6.png" alt="&quot;OOPSpam WordPress plugin screenshot&quot;" /></p>
+<h1 id='tips'>💡 Tips</h1>
+<ul>
+<li>Responded <code>Score</code> parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.</li>
+<li>Make async HTTP request instead of sync as the system check senderIP against multiple blocklisted IPs lists until it finds it.</li>
+<li>Don&#39;t send 127.0.0.1, ::1, 1.1.1.1 including private IPs as a value of <code>senderIP</code>, they are by default blocked.</li>
+</ul>
+<h1 id='errors'>🚨 Errors</h1>
+<p>The OOPSpam API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -544,50 +1118,34 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Unauthorized -- Your API key is wrong.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Not Found -- The resource requested could not be found.</td>
 </tr>
 <tr>
 <td>406</td>
 <td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests -- The API key making the request has exceeded our rate limits.</td>
 </tr>
 <tr>
 <td>500</td>
 <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="shell">cURL</a>
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="php">php</a>
                 <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="csharp">csharp</a>
+                <a href="#" data-language-name="go">go</a>
           </div>
       </div>
     </div>
