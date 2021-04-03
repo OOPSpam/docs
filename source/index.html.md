@@ -76,6 +76,8 @@ You submit messages to us via the API and it produces Spam Score with a detailed
 
 You can test the API right on your browser with your data on [OOPSpam Dashboard](https://app.oopspam.com/#test-with-your-data) or [the RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter).
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9739f63cd7bc67da898f?action=collection%2Fimport)
+
 The API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.
 
 # 👩‍🏫 Developer Support
@@ -447,7 +449,7 @@ echo $response->getBody();
 }
 ```
 
-> Note that OOPSpam API tries to return the result as soon as one of the analyses fails. Hence some field may not appear in the response body. Say ```senderIP``` is blocked then it will return following response without doing other analyses:
+> Note that OOPSpam API tries to return the result as soon as one of the analyses detects spam. Hence some field may not appear in the response body. Say ```senderIP``` is blocked then it will return following response without doing other analyses:
 
 ```json
 {
@@ -461,6 +463,8 @@ echo $response->getBody();
 
 
 The endpoint analyses given parameters and returns overall spam score (```Score```) including detailed detection results in structured JSON.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9739f63cd7bc67da898f?action=collection%2Fimport)
 
 ### HTTP Request
 
