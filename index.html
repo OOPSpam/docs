@@ -419,6 +419,8 @@
 
 <p>You can test the API right on your browser with your data on <a href="https://app.oopspam.com/#test-with-your-data">OOPSpam Dashboard</a> or <a href="https://rapidapi.com/oopspam/api/oopspam-spam-filter">the RapidAPI marketplace</a>.</p>
 
+<p><a href="https://app.getpostman.com/run-collection/9739f63cd7bc67da898f?action=collection%2Fimport"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+
 <p>The API is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>. All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.</p>
 <h1 id='developer-support'>👩‍🏫 Developer Support</h1>
 <p>As Developers we understand that no API Reference can answer every question.</p>
@@ -774,7 +776,7 @@ headers have the following meaning:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Note that OOPSpam API tries to return the result as soon as one of the analyses fails. Hence some field may not appear in the response body. Say <code>senderIP</code> is blocked then it will return following response without doing other analyses:</p>
+<p>Note that OOPSpam API tries to return the result as soon as one of the analyses detects spam. Hence some field may not appear in the response body. Say <code>senderIP</code> is blocked then it will return following response without doing other analyses:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
@@ -785,6 +787,8 @@ headers have the following meaning:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>The endpoint analyses given parameters and returns overall spam score (<code>Score</code>) including detailed detection results in structured JSON.</p>
+
+<p><a href="https://app.getpostman.com/run-collection/9739f63cd7bc67da898f?action=collection%2Fimport"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /v1/spamdetection/</code></p>
 
