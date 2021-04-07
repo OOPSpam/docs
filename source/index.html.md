@@ -522,7 +522,7 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                   </tbody>
                 </table>
 
-### HTTP Response Body Parameters
+### Response Body Parameters
 
 <table class="table">
                             <thead>
