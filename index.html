@@ -317,7 +317,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="👋 Introduction">👋 Introduction</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="👋  Introduction">👋  Introduction</a>
           </li>
           <li>
             <a href="#developer-support" class="toc-h1 toc-link" data-title="👩‍🏫 Developer Support">👩‍🏫 Developer Support</a>
@@ -369,7 +369,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>👋 Introduction</h1>
+        <h1 id='introduction'>👋  Introduction</h1>
 <blockquote>
 <p>BASE URLs</p>
 
@@ -388,10 +388,11 @@
 <li>Contact forms</li>
 <li>Comment systems</li>
 <li>Live chats</li>
-<li>and any platform where contents exchaged</li>
+<li>Email content</li>
+<li>and any platform where contents exchanged</li>
 </ol>
 
-<p>You submit messages to us via the API and it produces Spam Score with a detailed report. Using <code>Score</code> you can adjust the sensitivity level of spam filter to your use case.</p>
+<p>Submit messages to the API and it will produce Spam <code>Score</code> with a detailed report. Using <code>Score</code> you can adjust the sensitivity level (also known as <em>spam threshold</em>) of spam filtering to fit your use case.</p>
 
 <blockquote>
 <p>Example request and all possible response fields</p>
@@ -1083,6 +1084,7 @@ headers have the following meaning:</p>
 <ul>
 <li>Ninja Forms</li>
 <li>Gravity Forms</li>
+<li>Contact Form 7</li>
 </ul>
 
 <p>As the plugin works with OOPSpam API, it supports all spam protection capabilities out of the box.</p>
@@ -1101,7 +1103,7 @@ headers have the following meaning:</p>
 <h1 id='tips'>💡 Tips</h1>
 <ul>
 <li>Responded <code>Score</code> parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.</li>
-<li>Make async HTTP request instead of sync as the system check senderIP against multiple blocklisted IPs lists until it finds it.</li>
+<li>Make async HTTP request instead of sync as the system check <code>senderIP</code> against multiple blocklisted IPs lists until it finds it.</li>
 <li>Don&#39;t send 127.0.0.1, ::1, 1.1.1.1 including private IPs as a value of <code>senderIP</code>, they are by default blocked.</li>
 </ul>
 <h1 id='errors'>🚨 Errors</h1>
