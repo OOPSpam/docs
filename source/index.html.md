@@ -25,7 +25,7 @@ search: true
 code_clipboard: true
 ---
 
-# 👋 Introduction
+# 👋  Introduction
 
 > BASE URLs
 
@@ -42,9 +42,10 @@ It is usually used for:
 1. Contact forms
 2. Comment systems
 3. Live chats
-4. and any platform where contents exchaged
+4. Email content
+5. and any platform where contents exchanged
 
-You submit messages to us via the API and it produces Spam Score with a detailed report. Using ```Score``` you can adjust the sensitivity level of spam filter to your use case.
+Submit messages to the API and it will produce Spam ```Score``` with a detailed report. Using ```Score``` you can adjust the sensitivity level (also known as _spam threshold_) of spam filtering to fit your use case.
 
 > Example request and all possible response fields
 
@@ -772,6 +773,7 @@ OOPSpam has [a WordPress plugin](https://wordpress.org/plugins/oopspam-anti-spam
 
 - Ninja Forms
 - Gravity Forms
+- Contact Form 7
 
 As the plugin works with OOPSpam API, it supports all spam protection capabilities out of the box.
 
@@ -789,5 +791,5 @@ The plugin currently supports the following settings:
 # 💡 Tips
 
 - Responded ```Score``` parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.
-- Make async HTTP request instead of sync as the system check senderIP against multiple blocklisted IPs lists until it finds it.
+- Make async HTTP request instead of sync as the system check ```senderIP``` against multiple blocklisted IPs lists until it finds it.
 - Don't send 127.0.0.1, ::1, 1.1.1.1 including private IPs as a value of ```senderIP```, they are by default blocked.
