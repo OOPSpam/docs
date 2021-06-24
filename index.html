@@ -350,6 +350,9 @@
                   <li>
                     <a href="#wordpress" class="toc-h2 toc-link" data-title="WordPress">WordPress</a>
                   </li>
+                  <li>
+                    <a href="#integromat" class="toc-h2 toc-link" data-title="Integromat">Integromat</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1077,7 +1080,7 @@ headers have the following meaning:</p>
 </details>
   
 <h1 id='integration'>🔌 Integration</h1>
-<p>You can integrate OOPSpam API with any platform where content is exchanged. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into your platform, <a href="#developer-support">let us know</a>. We&#39;d be happy to publish it here.</p>
+<p>You can integrate OOPSpam API with any platform where message is exchanged. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into any platform, <a href="#developer-support">let us know</a>. We&#39;d be happy to publish it here.</p>
 <h2 id='wordpress'>WordPress</h2>
 <p>OOPSpam has <a href="https://wordpress.org/plugins/oopspam-anti-spam/">a WordPress plugin</a> that integrates with the API. It filters both comments and contact form submissions.</p>
 <h3 id='supported-contact-form-solutions'>Supported Contact Form solutions</h3>
@@ -1100,6 +1103,26 @@ headers have the following meaning:</p>
 </ul>
 
 <p><img src="images/screenshots/sc_wp-6d2f0ec6.png" alt="&quot;OOPSpam WordPress plugin screenshot&quot;" /></p>
+<h2 id='integromat'>Integromat</h2>
+<p><a href="https://www.integromat.com/en">Integromat</a> (similar to Zapier) is a platform that allows you to automate your workflow without a custom integration to OOPSpam API. All you have to do is drop <a href="https://www.integromat.com/en/integrations/oopspam-anti-spam">OOPSpam Integromat App</a> to your scenario and enter API key.</p>
+
+<p>Let&#39;s look at the following example.</p>
+
+<p><img src="images/screenshots/OOPSpamApp-Integromat-657ba0dd.png" alt="&quot;Contact Form 7 integrates with OOPSpam Anti-Spam on Integromat&quot;" /></p>
+
+<p>On this scenario, we add and connect Contact Form 7, OOPSpam Anti-Spam and Airtable apps.</p>
+
+<ol>
+<li>Contact Form 7 app receives form submissions and passes data to OOPSpam app.</li>
+<li>OOPSpam analyzes and passes the spam score to the filter between OOPSpam and Airtable app.</li>
+<li>Filter allows data to be passed to Airtable app only if the spam score is less than 3.</li>
+<li>Airtable receives data and insert it to a spreadsheet.</li>
+<li>✅ Done!</li>
+</ol>
+
+<p><img src="images/screenshots/airtable-cf7-0e33471a.png" alt="&quot;Airtable spreadsheet&quot;" /></p>
+
+<p>Every contact form, comment, email and chat apps on Integromat can be connect in similar fashion.</p>
 <h1 id='tips'>💡 Tips</h1>
 <ul>
 <li>Responded <code>Score</code> parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.</li>
