@@ -342,10 +342,13 @@
                   <li>
                     <a href="#spam-detection" class="toc-h2 toc-link" data-title="Spam Detection">Spam Detection</a>
                   </li>
+                  <li>
+                    <a href="#report" class="toc-h2 toc-link" data-title="Report">Report</a>
+                  </li>
               </ul>
           </li>
           <li>
-            <a href="#integration" class="toc-h1 toc-link" data-title="🔌 Integration">🔌 Integration</a>
+            <a href="#3rd-party-integration" class="toc-h1 toc-link" data-title="🔌 3rd Party Integration">🔌 3rd Party Integration</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#wordpress" class="toc-h2 toc-link" data-title="WordPress">WordPress</a>
@@ -376,9 +379,9 @@
 <blockquote>
 <p>BASE URLs</p>
 
-<p>RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com">https://oopspam.p.rapidapi.com</a></p>
+<p>RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com/v1">https://oopspam.p.rapidapi.com/v1</a></p>
 
-<p>OOPSpam: <a href="https://api.oopspam.com">https://api.oopspam.com/</a></p>
+<p>OOPSpam: <a href="https://api.oopspam.com/v1">https://api.oopspam.com/v1</a></p>
 </blockquote>
 
 <p>Welcome to the <a href="https://oopspam.com">OOPSpam API</a>!</p>
@@ -398,7 +401,7 @@
 <p>Submit messages to the API and it will produce Spam <code>Score</code> with a detailed report. Using <code>Score</code> you can adjust the sensitivity level (also known as <em>spam threshold</em>) of spam filtering to fit your use case.</p>
 
 <blockquote>
-<p>Example request and all possible response fields</p>
+<p>Example request body and all possible response fields</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"senderIP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91.203.67.110"</span><span class="p">,</span><span class="w">
@@ -465,7 +468,7 @@
 </div>
 </aside>
 <h2 id='using-the-api-via-dashboard'>Using the API via Dashboard</h2>
-<p>The base URL : <code>https://api.oopspam.com/</code></p>
+<p>The base URL : <code>https://api.oopspam.com/v1</code></p>
 
 <p>If you decided to subscribe directly on our site, you have <a href="https://app.oopspam.com/Identity/Account/Register">OOPSpam Dashboard</a> at your disposal.</p>
 
@@ -487,7 +490,7 @@
 <img src="images/screenshots/sc2-64802d52.png" alt="OOPSpam Dashboard" />
 <img src="images/screenshots/sc3-a0a886dc.png" alt="OOPSpam Dashboard" /></p>
 <h2 id='using-the-api-via-rapidapi'>Using the API via RapidAPI</h2>
-<p>The base URL : <code>https://oopspam.p.rapidapi.com/</code></p>
+<p>The base URL : <code>https://oopspam.p.rapidapi.com/v1</code></p>
 
 <aside>
 <div class="notice">
@@ -794,15 +797,15 @@ headers have the following meaning:</p>
 
 <p><a href="https://app.getpostman.com/run-collection/9739f63cd7bc67da898f?action=collection%2Fimport"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /v1/spamdetection/</code></p>
+<p><code>POST /spamdetection</code></p>
 
 <aside>
 <div  class="success">
 👉 <strong>Reminder - the base URLs</strong>
 <p>You can consume OOPSpam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
 <ul>
-<li>RapidAPI: <code>https://oopspam.p.rapidapi.com</code></li>
-<li>OOPSpam: <code>https://api.oopspam.com</code></li>
+<li>RapidAPI: <code>https://oopspam.p.rapidapi.com/v1</code></li>
+<li>OOPSpam: <code>https://api.oopspam.com/v1</code></li>
 </ul>
 </div>
 </aside>
@@ -1078,9 +1081,44 @@ headers have the following meaning:</p>
 
 </div>
 </details>
-  
-<h1 id='integration'>🔌 Integration</h1>
-<p>You can integrate OOPSpam API with any platform where message is exchanged. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into any platform, <a href="#developer-support">let us know</a>. We&#39;d be happy to publish it here.</p>
+<h2 id='report'>Report</h2><h3 id='http-request-2'>HTTP Request</h3>
+<blockquote>
+<p>Example request and response body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"senderIP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91.203.67.110"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"allowedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"shouldBeSpam"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>POST /spamdetection/report</code></p>
+
+<p>You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on <a href="https://app.oopspam.com/">OOPSpam Dashboard</a> under the Reported page. The status of each report will be either <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. We then analyze them and improve detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.</p>
+
+<p>The request body is identical to <a href="#spam-detection">/spamdetection</a> endpoint. The only difference is an extra boolean field <code>shouldBeSpam</code> which takes the value of <code>true</code> or <code>false</code>. This field tells us if a content is false negative or false positive.</p>
+
+<table class="table">
+                  <thead>
+                  <tr>
+                      <th scope="col">Field</th>
+                      <th scope="col">Definition</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                        <td><code>shouldBeSpam</code></td>
+                      <td><strong>boolean (required)</strong> A value represents whether the reported misdetection should be spam or ham. Pass <code>true</code> for spam, <code>false</code> for ham.</td>
+                    </tr>
+                    </tbody>
+                    </table>
+<h1 id='3rd-party-integration'>🔌 3rd Party Integration</h1>
+<p>You can integrate OOPSpam API with any platform where message is exchanged using HTTP. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into any platform, <a href="#developer-support">let us know</a>. We&#39;d be happy to publish it here.</p>
 <h2 id='wordpress'>WordPress</h2>
 <p>OOPSpam has <a href="https://wordpress.org/plugins/oopspam-anti-spam/">a WordPress plugin</a> that integrates with the API. It filters both comments and contact form submissions.</p>
 <h3 id='supported-contact-form-solutions'>Supported Contact Form solutions</h3>
