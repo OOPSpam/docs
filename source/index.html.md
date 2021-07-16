@@ -29,9 +29,9 @@ code_clipboard: true
 
 > BASE URLs
 
-> RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com">https://oopspam.p.rapidapi.com</a>
+> RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com/v1">https://oopspam.p.rapidapi.com/v1</a>
 
-> OOPSpam: <a href="https://api.oopspam.com">https://api.oopspam.com/</a>
+> OOPSpam: <a href="https://api.oopspam.com/v1">https://api.oopspam.com/v1</a>
 
 Welcome to the [OOPSpam API](https://oopspam.com)!
 
@@ -47,7 +47,7 @@ It is usually used for:
 
 Submit messages to the API and it will produce Spam ```Score``` with a detailed report. Using ```Score``` you can adjust the sensitivity level (also known as _spam threshold_) of spam filtering to fit your use case.
 
-> Example request and all possible response fields
+> Example request body and all possible response fields
 
 ```json
 {
@@ -121,7 +121,7 @@ Check out [Using the API via Dashboard](#using-the-api-via-dashboard) and [Using
 
 ## Using the API via Dashboard
 
-The base URL : `https://api.oopspam.com/`
+The base URL : `https://api.oopspam.com/v1`
 
 If you decided to subscribe directly on our site, you have [OOPSpam Dashboard](https://app.oopspam.com/Identity/Account/Register) at your disposal.
 
@@ -143,7 +143,7 @@ It allows you to:
 
 ## Using the API via RapidAPI
 
-The base URL : `https://oopspam.p.rapidapi.com/`
+The base URL : `https://oopspam.p.rapidapi.com/v1`
 
 <aside>
 <div class="notice">
@@ -469,15 +469,15 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
 
 ### HTTP Request
 
-`POST /v1/spamdetection/`
+`POST /spamdetection`
 
 <aside>
 <div  class="success">
 👉 <strong>Reminder - the base URLs</strong>
 <p>You can consume OOPSpam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
 <ul>
-<li>RapidAPI: <code>https://oopspam.p.rapidapi.com</code></li>
-<li>OOPSpam: <code>https://api.oopspam.com</code></li>
+<li>RapidAPI: <code>https://oopspam.p.rapidapi.com/v1</code></li>
+<li>OOPSpam: <code>https://api.oopspam.com/v1</code></li>
 </ul>
 </div>
 </aside>
@@ -759,11 +759,54 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
 
 </div>
 </details>
-  
 
-# 🔌 Integration
+## Report
 
-You can integrate OOPSpam API with any platform where message is exchanged. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into any platform, [let us know](#developer-support). We'd be happy to publish it here.
+### HTTP Request
+
+> Example request and response body
+
+```json
+{
+    "senderIP": "91.203.67.110",
+    "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    "checkForLength": true,
+    "allowedLanguages" : ["en"],
+    "allowedCountries" : ["it","us"],
+    "shouldBeSpam": true
+}
+```
+
+```json
+{
+  "message": "success"
+}
+```
+
+`POST /spamdetection/report`
+
+You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on [OOPSpam Dashboard](https://app.oopspam.com/) under the Reported page. The status of each report will be either <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. We then analyze them and improve detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.
+
+The request body is identical to [/spamdetection](#spam-detection) endpoint. The only difference is an extra boolean field `shouldBeSpam` which takes the value of `true` or `false`. This field tells us if a content is false negative or false positive.
+
+<table class="table">
+                  <thead>
+                  <tr>
+                      <th scope="col">Field</th>
+                      <th scope="col">Definition</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                        <td><code>shouldBeSpam</code></td>
+                      <td><strong>boolean (required)</strong> A value represents whether the reported misdetection should be spam or ham. Pass <code>true</code> for spam, <code>false</code> for ham.</td>
+                    </tr>
+                    </tbody>
+                    </table>
+
+# 🔌 3rd Party Integration
+
+You can integrate OOPSpam API with any platform where message is exchanged using HTTP. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into any platform, [let us know](#developer-support). We'd be happy to publish it here.
 
 ## WordPress
 
