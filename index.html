@@ -1081,7 +1081,9 @@ headers have the following meaning:</p>
 
 </div>
 </details>
-<h2 id='report'>Report</h2><h3 id='http-request-2'>HTTP Request</h3>
+<h2 id='report'>Report</h2>
+<p>You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on <a href="https://app.oopspam.com/">OOPSpam Dashboard</a> under the Reported page. The status of each report will be either <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. We then analyze them and improve detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
 <blockquote>
 <p>Example request and response body</p>
 </blockquote>
@@ -1098,8 +1100,6 @@ headers have the following meaning:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><code>POST /spamdetection/report</code></p>
-
-<p>You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on <a href="https://app.oopspam.com/">OOPSpam Dashboard</a> under the Reported page. The status of each report will be either <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. We then analyze them and improve detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.</p>
 
 <p>The request body is identical to <a href="#spam-detection">/spamdetection</a> endpoint. The only difference is an extra boolean field <code>shouldBeSpam</code> which takes the value of <code>true</code> or <code>false</code>. This field tells us if a content is false negative or false positive.</p>
 
