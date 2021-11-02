@@ -720,8 +720,8 @@ headers have the following meaning:</p>
 <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
 
 <span class="c">// Make sure to use correct base URL</span>
-<span class="c">// url := "https://api.oopspam.com/v1/spamdetection"</span>
-    <span class="n">url</span> <span class="o">:=</span> <span class="s">"https://oopspam.p.rapidapi.com/v1/spamdetection"</span>
+    <span class="n">url</span> <span class="o">:=</span> <span class="s">"https://api.oopspam.com/v1/spamdetection"</span>
+<span class="c">//  url := "https://oopspam.p.rapidapi.com/v1/spamdetection"</span>
 
     <span class="n">payload</span> <span class="o">:=</span> <span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">checkForLength</span><span class="se">\"</span><span class="s">: true,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">content</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">senderIP</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">185.234.219.246</span><span class="se">\"\n</span><span class="s">}"</span><span class="p">)</span>
 
@@ -729,9 +729,9 @@ headers have the following meaning:</p>
 
     <span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"content-type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
 <span class="c">// Make sure to use correct HEADERS based on your endpoint</span>
-<span class="c">// req.Header.Add("X-Api-Key", "YOUR_API_KEY")</span>
-    <span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"x-rapidapi-key"</span><span class="p">,</span> <span class="s">"YOUR_API_KEY"</span><span class="p">)</span>
-    <span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"x-rapidapi-host"</span><span class="p">,</span> <span class="s">"oopspam.p.rapidapi.com"</span><span class="p">)</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"X-Api-Key"</span><span class="p">,</span> <span class="s">"YOUR_API_KEY"</span><span class="p">)</span>
+<span class="c">//  req.Header.Add("x-rapidapi-key", "YOUR_API_KEY")</span>
+<span class="c">//  req.Header.Add("x-rapidapi-host", "oopspam.p.rapidapi.com")</span>
 
     <span class="n">res</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 
@@ -1182,7 +1182,7 @@ headers have the following meaning:</p>
 
 <p>Every contact form, comment, email and chat apps on Integromat can be connect in similar fashion.</p>
 <h2 id='zapier'>Zapier</h2>
-<p>Reach out to us via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a> to get invite to our Zapier app.</p>
+<p>Reach out to us via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a> to get an invite to our Zapier app.</p>
 <h2 id='bubble-io'>Bubble.io</h2>
 <p>While Bubble plugin is still on a beta version. You are welcome to <a href="https://bubble.io/plugin/oopspam-spam-detection-1582908608700x936823858020745200">check it out</a>. We&#39;ll add more info later.</p>
 <h1 id='tips'>💡 Tips</h1>
