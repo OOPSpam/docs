@@ -356,6 +356,12 @@
                   <li>
                     <a href="#integromat" class="toc-h2 toc-link" data-title="Integromat">Integromat</a>
                   </li>
+                  <li>
+                    <a href="#zapier" class="toc-h2 toc-link" data-title="Zapier">Zapier</a>
+                  </li>
+                  <li>
+                    <a href="#bubble-io" class="toc-h2 toc-link" data-title="Bubble.io">Bubble.io</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -417,7 +423,10 @@
     </span><span class="nl">"isContentSpam"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spam"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"langMatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"countryMatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"numberOfSpamWords"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numberOfSpamWords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"spamWords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"dear"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nl">"isContentTooShort"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -581,8 +590,8 @@ headers have the following meaning:</p>
 <span class="nb">require</span> <span class="s1">'openssl'</span>
 
 <span class="c1"># Make sure to use correct base URL</span>
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://oopspam.p.rapidapi.com/v1/spamdetection"</span><span class="p">)</span>
-<span class="c1"># url = URI("https://api.oopspam.com/v1/spamdetection")</span>
+<span class="c1">#url = URI("https://oopspam.p.rapidapi.com/v1/spamdetection")</span>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://api.oopspam.com/v1/spamdetection"</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 <span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
@@ -592,9 +601,9 @@ headers have the following meaning:</p>
 <span class="n">request</span><span class="p">[</span><span class="s2">"content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/json'</span>
 
 <span class="c1"># Make sure to use correct HEADERS based on your endpoint</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"x-rapidapi-key"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'YOUR_API_KEY'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"x-rapidapi-host"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'oopspam.p.rapidapi.com'</span>
-<span class="c1"># request["X-Api-Key"] = 'YOUR_API_KEY'</span>
+<span class="c1">#request["x-rapidapi-key"] = 'YOUR_API_KEY'</span>
+<span class="c1">#request["x-rapidapi-host"] = 'oopspam.p.rapidapi.com'</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"X-Api-Key"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'YOUR_API_KEY'</span>
 
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">checkForLength</span><span class="se">\"</span><span class="s2">: true,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">content</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">senderIP</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">185.234.219.246</span><span class="se">\"\n</span><span class="s2">}"</span>
 
@@ -603,31 +612,31 @@ headers have the following meaning:</p>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="c1"># Make sure to use correct base URL
-</span><span class="n">url</span> <span class="o">=</span> <span class="s">"https://oopspam.p.rapidapi.com/v1/spamdetection"</span>
-<span class="c1"># url = "https://api.oopspam.com/v1/spamdetection"
-</span>
+#url = "https://oopspam.p.rapidapi.com/v1/spamdetection"
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.oopspam.com/v1/spamdetection"</span>
+
 <span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">checkForLength</span><span class="se">\"</span><span class="s">: true,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">content</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">senderIP</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">185.234.219.246</span><span class="se">\"\n</span><span class="s">}"</span>
 
 <span class="c1"># Make sure to use correct HEADERS based on your endpoint
 </span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
-    <span class="c1"># 'X-Api-Key': "YOUR_API_KEY",
-</span>    <span class="s">'x-rapidapi-key'</span><span class="p">:</span> <span class="s">"YOUR_API_KEY"</span><span class="p">,</span>
-    <span class="s">'x-rapidapi-host'</span><span class="p">:</span> <span class="s">"oopspam.p.rapidapi.com"</span>
-    <span class="p">}</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">"YOUR_API_KEY"</span><span class="p">,</span>
+    <span class="c1">#'x-rapidapi-key': "YOUR_API_KEY",
+</span>    <span class="c1">#'x-rapidapi-host': "oopspam.p.rapidapi.com"
+</span>    <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
 <span class="c"># Make sure to use correct base URL</span>
-<span class="c"># --url https://api.oopspam.com/v1/spamdetection \</span>
-    <span class="nt">--url</span> https://oopspam.p.rapidapi.com/v1/spamdetection <span class="se">\</span>
+ <span class="nt">--url</span> https://api.oopspam.com/v1/spamdetection <span class="se">\</span>
+<span class="c">#   --url https://oopspam.p.rapidapi.com/v1/spamdetection \</span>
     <span class="nt">--header</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 <span class="c"># Make sure to use correct HEADERS based on your endpoint</span>
-<span class="c"># --header 'X-Api-Key: YOUR_API_KEY'</span>
-    <span class="nt">--header</span> <span class="s1">'x-rapidapi-host: oopspam.p.rapidapi.com'</span> <span class="se">\</span>
-    <span class="nt">--header</span> <span class="s1">'x-rapidapi-key: YOUR_API_KEY'</span> <span class="se">\</span>
+    <span class="nt">--header</span> <span class="s1">'X-Api-Key: YOUR_API_KEY'</span>
+<span class="c">#   --header 'x-rapidapi-host: oopspam.p.rapidapi.com' \</span>
+<span class="c">#   --header 'x-rapidapi-key: YOUR_API_KEY' \</span>
     <span class="nt">--data</span> <span class="s1">'{
     "checkForLength": true,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
@@ -663,40 +672,40 @@ headers have the following meaning:</p>
 <span class="p">});</span>
 
 <span class="c1">// Make sure to use correct base URL</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://oopspam.p.rapidapi.com/v1/spamdetection</span><span class="dl">"</span><span class="p">);</span>
-<span class="c1">// xhr.open("POST", "https://api.oopspam.com/v1/spamdetection");</span>
+<span class="c1">//xhr.open("POST", "https://oopspam.p.rapidapi.com/v1/spamdetection");</span>
+ <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://api.oopspam.com/v1/spamdetection</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">content-type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// Make sure to use correct HEADERS based on your endpoint</span>
-<span class="c1">// xhr.setRequestHeader("X-Api-Key", "YOUR_API_KEY");</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">x-rapidapi-key</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">YOUR_API_KEY</span><span class="dl">"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">x-rapidapi-host</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">oopspam.p.rapidapi.com</span><span class="dl">"</span><span class="p">);</span>
+   <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">X-Api-Key</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">YOUR_API_KEY</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// xhr.setRequestHeader("x-rapidapi-key", "YOUR_API_KEY");</span>
+<span class="c1">// xhr.setRequestHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">HttpRequest</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
 <span class="c1">//  Make sure to use correct base URL</span>
-<span class="c1">//  .uri(URI.create("https://oopspam.p.rapidapi.com/v1/spamdetection"))</span>
+<span class="c1">//      .uri(URI.create("https://oopspam.p.rapidapi.com/v1/spamdetection"))</span>
         <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="no">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"https://api.oopspam.com/v1/spamdetection"</span><span class="o">))</span>
         <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
     <span class="c1">// Make sure to use correct HEADERS based on your endpoint</span>
-    <span class="c1">// .header("X-Api-Key", "YOUR_API_KEY")</span>
-        <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"x-rapidapi-key"</span><span class="o">,</span> <span class="s">"YOUR_API_KEY"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"x-rapidapi-host"</span><span class="o">,</span> <span class="s">"oopspam.p.rapidapi.com"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"X-Api-Key"</span><span class="o">,</span> <span class="s">"YOUR_API_KEY"</span><span class="o">)</span>
+<span class="c1">//      .header("x-rapidapi-key", "YOUR_API_KEY")</span>
+<span class="c1">//      .header("x-rapidapi-host", "oopspam.p.rapidapi.com")</span>
         <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="nc">HttpRequest</span><span class="o">.</span><span class="na">BodyPublishers</span><span class="o">.</span><span class="na">ofString</span><span class="o">(</span><span class="s">"{\n  \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n \"senderIP\": \"185.234.219.246\"\n}"</span><span class="o">))</span>
         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 <span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">HttpClient</span><span class="o">.</span><span class="na">newHttpClient</span><span class="o">().</span><span class="na">send</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="nc">HttpResponse</span><span class="o">.</span><span class="na">BodyHandlers</span><span class="o">.</span><span class="na">ofString</span><span class="o">());</span>
 <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">());</span>
 </code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="c1">//  Make sure to use correct base URL</span>
-<span class="c1">// var client = new RestClient("https://api.oopspam.com/v1/spamdetection");</span>
-<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://oopspam.p.rapidapi.com/v1/spamdetection"</span><span class="p">);</span>
+   <span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://api.oopspam.com/v1/spamdetection"</span><span class="p">);</span>
+<span class="c1">// var client = new RestClient("https://oopspam.p.rapidapi.com/v1/spamdetection");</span>
 
 <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"content-type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
 <span class="c1">// Make sure to use correct HEADERS based on your endpoint</span>
-<span class="c1">// request.AddHeader("X-Api-Key", "YOUR_API_KEY");</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"x-rapidapi-key"</span><span class="p">,</span> <span class="s">"YOUR_API_KEY"</span><span class="p">);</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"x-rapidapi-host"</span><span class="p">,</span> <span class="s">"oopspam.p.rapidapi.com"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"X-Api-Key"</span><span class="p">,</span> <span class="s">"YOUR_API_KEY"</span><span class="p">);</span>
+<span class="c1">// request.AddHeader("x-rapidapi-key", "YOUR_API_KEY");</span>
+<span class="c1">// request.AddHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\n  \"checkForLength\": true,\n  \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\"\n}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
 <span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">package</span> <span class="n">main</span>
@@ -746,21 +755,21 @@ headers have the following meaning:</p>
 }'</span><span class="p">);</span>
 
 <span class="c1">// Make sure to use correct base URL</span>
-<span class="c1">// $request-&gt;setRequestUrl('https://api.oopspam.com/v1/spamdetection');</span>
-<span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setRequestUrl</span><span class="p">(</span><span class="s1">'https://oopspam.p.rapidapi.com/v1/spamdetection'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setRequestUrl</span><span class="p">(</span><span class="s1">'https://api.oopspam.com/v1/spamdetection'</span><span class="p">);</span>
+<span class="c1">// $request-&gt;setRequestUrl('https://oopspam.p.rapidapi.com/v1/spamdetection');</span>
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setRequestMethod</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">);</span>
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setBody</span><span class="p">(</span><span class="nv">$body</span><span class="p">);</span>
 
 <span class="c1">// Make sure to use correct HEADERS based on your endpoint</span>
-<span class="c1">// $request-&gt;setHeaders([</span>
-<span class="c1">//  'content-type' =&gt; 'application/json',</span>
-<span class="c1">//  'X-Api-Key' =&gt; 'YOUR_API_KEY'</span>
-<span class="c1">// ]);</span>
 <span class="nv">$request</span><span class="o">-&gt;</span><span class="nf">setHeaders</span><span class="p">([</span>
     <span class="s1">'content-type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-rapidapi-key'</span> <span class="o">=&gt;</span> <span class="s1">'YOUR_API_KEY'</span><span class="p">,</span>
-    <span class="s1">'x-rapidapi-host'</span> <span class="o">=&gt;</span> <span class="s1">'oopspam.p.rapidapi.com'</span>
+    <span class="s1">'X-Api-Key'</span> <span class="o">=&gt;</span> <span class="s1">'YOUR_API_KEY'</span>
 <span class="p">]);</span>
+<span class="c1">// $request-&gt;setHeaders([</span>
+<span class="c1">//  'content-type' =&gt; 'application/json',</span>
+<span class="c1">//  'x-rapidapi-key' =&gt; 'YOUR_API_KEY',</span>
+<span class="c1">//  'x-rapidapi-host' =&gt; 'oopspam.p.rapidapi.com'</span>
+<span class="c1">// ]);</span>
 
 <span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">enqueue</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span><span class="o">-&gt;</span><span class="nf">send</span><span class="p">();</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">getResponse</span><span class="p">();</span>
@@ -777,7 +786,10 @@ headers have the following meaning:</p>
     </span><span class="nl">"isContentSpam"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spam"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"langMatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"countryMatch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"numberOfSpamWords"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numberOfSpamWords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"spamWords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"dear"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nl">"isContentTooShort"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -884,6 +896,10 @@ headers have the following meaning:</p>
                             <tr>
                                 <td><code>numberOfSpamWords</code></td>
                                 <td><strong>number</strong> - A value representing a number of spam words within the content.</td>
+                            </tr>
+                             <tr>
+                                <td><code>spamWords</code></td>
+                                <td><strong>array</strong> - A value representing the top 10 spam words in a content</td>
                             </tr>
                             <tr>
                                 <td><code>isContentTooShort</code></td>
@@ -1165,6 +1181,10 @@ headers have the following meaning:</p>
 <p><img src="images/screenshots/airtable-cf7-0e33471a.png" alt="&quot;Airtable spreadsheet&quot;" /></p>
 
 <p>Every contact form, comment, email and chat apps on Integromat can be connect in similar fashion.</p>
+<h2 id='zapier'>Zapier</h2>
+<p>Reach out to us via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a> to get invite to our Zapier app.</p>
+<h2 id='bubble-io'>Bubble.io</h2>
+<p>While Bubble plugin is still on a beta version. You are welcome to <a href="https://bubble.io/plugin/oopspam-spam-detection-1582908608700x936823858020745200">check it out</a>. We&#39;ll add more info later.</p>
 <h1 id='tips'>💡 Tips</h1>
 <ul>
 <li>Responded <code>Score</code> parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.</li>
