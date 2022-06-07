@@ -40,10 +40,10 @@ OOPSpam API is a privacy-first and highly accurate anti-spam filter.
 It is usually used for:
 
 1. Contact forms
-2. Comment systems
-3. Live chats
-4. Email content
-5. and any platform where contents exchanged
+2. Comment & Review systems
+3. Live & Private chats
+4. Email marketing
+5. and any platform where message and content exchanged
 
 Submit messages to the API and it will produce Spam ```Score``` with a detailed report. Using ```Score``` you can adjust the sensitivity level (also known as _spam threshold_) of spam filtering to fit your use case.
 
@@ -67,13 +67,16 @@ Submit messages to the API and it will produce Spam ```Score``` with a detailed 
     "isContentSpam": "spam",
     "langMatch": true,
     "countryMatch": false,
-    "numberOfSpamWords": 0,
+    "numberOfSpamWords": 1,
+    "spamWords": [
+      "dear"
+    ],
     "isContentTooShort": false
   }
 }
 ```
 
-![OOPSpam API request and response example](/images/reqresp.png)
+![OOPSpam API request and response example](https://www.oopspam.com/assets/TestGraphic.png)
 
 You can test the API right on your browser with your data on [OOPSpam Dashboard](https://app.oopspam.com/#test-with-your-data) or [the RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter).
 
@@ -91,10 +94,10 @@ If you have a question about our API just start a conversation with us using the
 
 # 🔑 Authentication
 
-The OOPSpam API uses API keys to identify and authorise calls. You can register for a new API key in two ways:
+The OOPSpam API uses API keys to identify and authorize calls. You can register for a new API key in two ways:
 
-1. [OOPSpam on RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter/)
-2. [Directly on our dashboard](https://app.oopspam.com/Identity/Account/Register)
+1. **Recommended** [Directly on our dashboard](https://app.oopspam.com/Identity/Account/Register)
+2. [OOPSpam on RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter/)
 
 The account on RapidAPI and on our Dashboard are dissociated. Each of these registration methods has its own base URL and API-KEY. You must therefore adapt your scripts according to your subscription by adapting the URL and your API KEY.
 
@@ -201,7 +204,7 @@ headers have the following meaning:
 
 Header | Description
 --------- | -----------
-```X-RateLimit-Limit``` ```x-ratelimit-requests-limit`` |  The number of requests per month for the plan you are currently subscribed
+```X-RateLimit-Limit``` ```x-ratelimit-requests-limit``` |  The number of requests per month for the plan you are currently subscribed
 ```X-RateLimit-Remaining``` ```x-ratelimit-requests-remaining``` |  The number of requests remaining before you reach the limit of requests your application is allowed to make
 ```x-ratelimit-requests-reset``` |  Time at which the request counter is reset. Available only to RapidAPI endpoint
 
@@ -226,8 +229,8 @@ require 'net/http'
 require 'openssl'
 
 # Make sure to use correct base URL
-url = URI("https://oopspam.p.rapidapi.com/v1/spamdetection")
-# url = URI("https://api.oopspam.com/v1/spamdetection")
+#url = URI("https://oopspam.p.rapidapi.com/v1/spamdetection")
+url = URI("https://api.oopspam.com/v1/spamdetection")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -237,9 +240,9 @@ request = Net::HTTP::Post.new(url)
 request["content-type"] = 'application/json'
 
 # Make sure to use correct HEADERS based on your endpoint
-request["x-rapidapi-key"] = 'YOUR_API_KEY'
-request["x-rapidapi-host"] = 'oopspam.p.rapidapi.com'
-# request["X-Api-Key"] = 'YOUR_API_KEY'
+#request["x-rapidapi-key"] = 'YOUR_API_KEY'
+#request["x-rapidapi-host"] = 'oopspam.p.rapidapi.com'
+request["X-Api-Key"] = 'YOUR_API_KEY'
 
 request.body = "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\"\n}"
 
@@ -251,17 +254,17 @@ puts response.read_body
 import requests
 
 # Make sure to use correct base URL
-url = "https://oopspam.p.rapidapi.com/v1/spamdetection"
-# url = "https://api.oopspam.com/v1/spamdetection"
+#url = "https://oopspam.p.rapidapi.com/v1/spamdetection"
+url = "https://api.oopspam.com/v1/spamdetection"
 
 payload = "{\n    \"checkForLength\": true,\n    \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n    \"senderIP\": \"185.234.219.246\"\n}"
 
 # Make sure to use correct HEADERS based on your endpoint
 headers = {
     'content-type': "application/json",
-    # 'X-Api-Key': "YOUR_API_KEY",
-    'x-rapidapi-key': "YOUR_API_KEY",
-    'x-rapidapi-host': "oopspam.p.rapidapi.com"
+    'X-Api-Key': "YOUR_API_KEY",
+    #'x-rapidapi-key': "YOUR_API_KEY",
+    #'x-rapidapi-host': "oopspam.p.rapidapi.com"
     }
 
 response = requests.request("POST", url, data=payload, headers=headers)
@@ -272,13 +275,13 @@ print(response.text)
 ```shell
 curl --request POST \
 # Make sure to use correct base URL
-# --url https://api.oopspam.com/v1/spamdetection \
-	--url https://oopspam.p.rapidapi.com/v1/spamdetection \
+ --url https://api.oopspam.com/v1/spamdetection \
+#	--url https://oopspam.p.rapidapi.com/v1/spamdetection \
 	--header 'content-type: application/json' \
 # Make sure to use correct HEADERS based on your endpoint
-# --header 'X-Api-Key: YOUR_API_KEY'
-	--header 'x-rapidapi-host: oopspam.p.rapidapi.com' \
-	--header 'x-rapidapi-key: YOUR_API_KEY' \
+    --header 'X-Api-Key: YOUR_API_KEY'
+#	--header 'x-rapidapi-host: oopspam.p.rapidapi.com' \
+#	--header 'x-rapidapi-key: YOUR_API_KEY' \
 	--data '{
     "checkForLength": true,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
@@ -317,15 +320,15 @@ xhr.addEventListener("readystatechange", function () {
 });
 
 // Make sure to use correct base URL
-xhr.open("POST", "https://oopspam.p.rapidapi.com/v1/spamdetection");
-// xhr.open("POST", "https://api.oopspam.com/v1/spamdetection");
+//xhr.open("POST", "https://oopspam.p.rapidapi.com/v1/spamdetection");
+ xhr.open("POST", "https://api.oopspam.com/v1/spamdetection");
 
 xhr.setRequestHeader("content-type", "application/json");
 
 // Make sure to use correct HEADERS based on your endpoint
-// xhr.setRequestHeader("X-Api-Key", "YOUR_API_KEY");
-xhr.setRequestHeader("x-rapidapi-key", "YOUR_API_KEY");
-xhr.setRequestHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
+   xhr.setRequestHeader("X-Api-Key", "YOUR_API_KEY");
+// xhr.setRequestHeader("x-rapidapi-key", "YOUR_API_KEY");
+// xhr.setRequestHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
 
 xhr.send(data);
 ```
@@ -333,13 +336,13 @@ xhr.send(data);
 ```java
 HttpRequest request = HttpRequest.newBuilder()
 //  Make sure to use correct base URL
-//  .uri(URI.create("https://oopspam.p.rapidapi.com/v1/spamdetection"))
+//      .uri(URI.create("https://oopspam.p.rapidapi.com/v1/spamdetection"))
 		.uri(URI.create("https://api.oopspam.com/v1/spamdetection"))
 		.header("content-type", "application/json")
     // Make sure to use correct HEADERS based on your endpoint
-    // .header("X-Api-Key", "YOUR_API_KEY")
-		.header("x-rapidapi-key", "YOUR_API_KEY")
-		.header("x-rapidapi-host", "oopspam.p.rapidapi.com")
+        .header("X-Api-Key", "YOUR_API_KEY")
+//	    .header("x-rapidapi-key", "YOUR_API_KEY")
+//		.header("x-rapidapi-host", "oopspam.p.rapidapi.com")
 		.method("POST", HttpRequest.BodyPublishers.ofString("{\n  \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n \"senderIP\": \"185.234.219.246\"\n}"))
 		.build();
 HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
@@ -348,15 +351,15 @@ System.out.println(response.body());
 
 ```csharp
 //  Make sure to use correct base URL
-// var client = new RestClient("https://api.oopspam.com/v1/spamdetection");
-var client = new RestClient("https://oopspam.p.rapidapi.com/v1/spamdetection");
+   var client = new RestClient("https://api.oopspam.com/v1/spamdetection");
+// var client = new RestClient("https://oopspam.p.rapidapi.com/v1/spamdetection");
 
 var request = new RestRequest(Method.POST);
 request.AddHeader("content-type", "application/json");
 // Make sure to use correct HEADERS based on your endpoint
-// request.AddHeader("X-Api-Key", "YOUR_API_KEY");
-request.AddHeader("x-rapidapi-key", "YOUR_API_KEY");
-request.AddHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
+request.AddHeader("X-Api-Key", "YOUR_API_KEY");
+// request.AddHeader("x-rapidapi-key", "YOUR_API_KEY");
+// request.AddHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
 request.AddParameter("application/json", "{\n  \"checkForLength\": true,\n  \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\"\n}", ParameterType.RequestBody);
 IRestResponse response = client.Execute(request);
 ```
@@ -374,8 +377,8 @@ import (
 func main() {
 
 // Make sure to use correct base URL
-// url := "https://api.oopspam.com/v1/spamdetection"
-	url := "https://oopspam.p.rapidapi.com/v1/spamdetection"
+    url := "https://api.oopspam.com/v1/spamdetection"
+//	url := "https://oopspam.p.rapidapi.com/v1/spamdetection"
 
 	payload := strings.NewReader("{\n    \"checkForLength\": true,\n    \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n    \"senderIP\": \"185.234.219.246\"\n}")
 
@@ -383,9 +386,9 @@ func main() {
 
 	req.Header.Add("content-type", "application/json")
 // Make sure to use correct HEADERS based on your endpoint
-// req.Header.Add("X-Api-Key", "YOUR_API_KEY")
-	req.Header.Add("x-rapidapi-key", "YOUR_API_KEY")
-	req.Header.Add("x-rapidapi-host", "oopspam.p.rapidapi.com")
+    req.Header.Add("X-Api-Key", "YOUR_API_KEY")
+//	req.Header.Add("x-rapidapi-key", "YOUR_API_KEY")
+//	req.Header.Add("x-rapidapi-host", "oopspam.p.rapidapi.com")
 
 	res, _ := http.DefaultClient.Do(req)
 
@@ -412,21 +415,21 @@ $body->append('{
 }');
 
 // Make sure to use correct base URL
-// $request->setRequestUrl('https://api.oopspam.com/v1/spamdetection');
-$request->setRequestUrl('https://oopspam.p.rapidapi.com/v1/spamdetection');
+$request->setRequestUrl('https://api.oopspam.com/v1/spamdetection');
+// $request->setRequestUrl('https://oopspam.p.rapidapi.com/v1/spamdetection');
 $request->setRequestMethod('POST');
 $request->setBody($body);
 
 // Make sure to use correct HEADERS based on your endpoint
-// $request->setHeaders([
-// 	'content-type' => 'application/json',
-// 	'X-Api-Key' => 'YOUR_API_KEY'
-// ]);
 $request->setHeaders([
 	'content-type' => 'application/json',
-	'x-rapidapi-key' => 'YOUR_API_KEY',
-	'x-rapidapi-host' => 'oopspam.p.rapidapi.com'
+	'X-Api-Key' => 'YOUR_API_KEY'
 ]);
+// $request->setHeaders([
+// 	'content-type' => 'application/json',
+// 	'x-rapidapi-key' => 'YOUR_API_KEY',
+// 	'x-rapidapi-host' => 'oopspam.p.rapidapi.com'
+// ]);
 
 $client->enqueue($request)->send();
 $response = $client->getResponse();
@@ -444,7 +447,10 @@ echo $response->getBody();
     "isContentSpam": "spam",
     "langMatch": true,
     "countryMatch": false,
-    "numberOfSpamWords": 0,
+    "numberOfSpamWords": 1,
+    "spamWords": [
+      "dear"
+    ],
     "isContentTooShort": false
   }
 }
@@ -461,7 +467,6 @@ echo $response->getBody();
   }
 }
 ```
-
 
 The endpoint analyses given parameters and returns overall spam score (```Score```) including detailed detection results in structured JSON.
 
@@ -560,6 +565,10 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                             <tr>
                                 <td><code>numberOfSpamWords</code></td>
                                 <td><strong>number</strong> - A value representing a number of spam words within the content.</td>
+                            </tr>
+                             <tr>
+                                <td><code>spamWords</code></td>
+                                <td><strong>array</strong> - A value representing the top 10 spam words in a content</td>
                             </tr>
                             <tr>
                                 <td><code>isContentTooShort</code></td>
@@ -762,6 +771,8 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
 
 ## Report
 
+You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on [OOPSpam Dashboard](https://app.oopspam.com/) under the Reported page. The status of each report will be either <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. We then analyze them and improve detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.
+
 ### HTTP Request
 
 > Example request and response body
@@ -785,8 +796,6 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
 
 `POST /spamdetection/report`
 
-You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on [OOPSpam Dashboard](https://app.oopspam.com/) under the Reported page. The status of each report will be either <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. We then analyze them and improve detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.
-
 The request body is identical to [/spamdetection](#spam-detection) endpoint. The only difference is an extra boolean field `shouldBeSpam` which takes the value of `true` or `false`. This field tells us if a content is false negative or false positive.
 
 <table class="table">
@@ -804,6 +813,10 @@ The request body is identical to [/spamdetection](#spam-detection) endpoint. The
                     </tbody>
                     </table>
 
+Here is an example listing on the dashboard:
+
+![OOPSpam Dashboard Reported page](images/screenshots/sc_reported.png)
+
 # 🔌 3rd Party Integration
 
 You can integrate OOPSpam API with any platform where message is exchanged using HTTP. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into any platform, [let us know](#developer-support). We'd be happy to publish it here.
@@ -817,6 +830,11 @@ OOPSpam has [a WordPress plugin](https://wordpress.org/plugins/oopspam-anti-spam
 - Ninja Forms
 - Gravity Forms
 - Contact Form 7
+- Elementor Forms
+- Fluent Forms
+- WPForms
+- Formidable Forms
+- GiveWP donation forms
 
 As the plugin works with OOPSpam API, it supports all spam protection capabilities out of the box.
 
@@ -830,7 +848,7 @@ The plugin currently supports the following settings:
 
 !["OOPSpam WordPress plugin screenshot"](images/screenshots/sc_wp.png)
 
-## Integromat
+## Make (formerly Integromat)
 
 [Integromat](https://www.integromat.com/en) (similar to Zapier) is a platform that allows you to automate your workflow without a custom integration to OOPSpam API. All you have to do is drop [OOPSpam Integromat App](https://www.integromat.com/en/integrations/oopspam-anti-spam) to your scenario and enter API key.
 
@@ -849,6 +867,19 @@ On this scenario, we add and connect Contact Form 7, OOPSpam Anti-Spam and Airta
 !["Airtable spreadsheet"](images/screenshots/airtable-cf7.png)
 
 Every contact form, comment, email and chat apps on Integromat can be connect in similar fashion.
+
+## Zapier
+
+Reach out to us via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a> to get an invite to our Zapier app.
+
+## Bubble.io
+
+Check out [our Bubble plugin](https://bubble.io/plugin/oopspam-spam-detection-1582908608700x936823858020745200).
+Here is an example how you can use the plugin to stop spam on your Bubble contact forms.
+
+!["OOPSpam Bubble.io plugin in action"](images/screenshots/Bubble_io_plugin.png)
+
+Check out [How to set up OOPSpam with Bubble.io app](https://www.oopspam.com/blog/spam-protection-for-bubble.io) article for more information.
 
 # 💡 Tips
 
