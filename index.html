@@ -848,7 +848,7 @@ headers have the following meaning:</p>
                     </tr>
                     <tr>
                       <td><code>senderIP</code></td>
-                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple denylist IP lists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
+                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple IP denylists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
                             <ul>
                                 <li>This field should include spammer's IP, in other words, whoever submitted regarding content to you, not your IP.</li>
@@ -863,7 +863,7 @@ padding-right: 5px;
 padding-left: 5px;
 color: white;
 font-weight: bold;">new</small></td>
-                        <td><strong>string (optional)</strong> Is the email address of the original content/message sender. This field value will be looked up in multiple denylist email lists that previously detected sending spam. Although <code>email</code> is an optional field, we recommend sending it.
+                        <td><strong>string (optional)</strong> Is the email address of the original content/message sender. This field value will be looked up in multiple email denylists that previously detected sending spam. Although <code>email</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
                             <ul>
                                 <li>This field should include spammer's email, in other words, whoever submitted regarding content to you, not your email.</li>
@@ -871,7 +871,10 @@ font-weight: bold;">new</small></td>
                             </td>
                     </tr>
                   <tr>
-                      <td><code>checkForLength</code> <small style="background-color: #fbcf50;">default:true</small></td>
+                      <td><code>checkForLength</code> <small style="background-color: #fbcf50;border-radius: 1em;
+padding-right: 5px;
+padding-left: 5px;
+font-weight: bold;">default:true</small></td>
                       <td><strong>boolean (optional)</strong> If the content is shorter than 20 characters, it will be considered spam (<code>Score: 5</code>) and returns <code>isContentTooShort: true</code>.</td>
                   </tr>
                   <tr>
@@ -1230,7 +1233,7 @@ Here is an example how you can use the plugin to stop spam on your Bubble contac
 <h1 id='tips'>💡 Tips</h1>
 <ul>
 <li>Responded <code>Score</code> parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.</li>
-<li>Make async HTTP request instead of sync as the system check <code>senderIP</code> against multiple denylist IP lists until it finds it.</li>
+<li>Make async HTTP request instead of sync as the system check <code>senderIP</code> against multiple IP denylists until it finds it.</li>
 <li>Don&#39;t send 127.0.0.1, ::1, 1.1.1.1 including private IPs as a value of <code>senderIP</code>, they are by default blocked.</li>
 </ul>
 <h1 id='errors'>🚨 Errors</h1>
