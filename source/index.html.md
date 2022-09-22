@@ -37,6 +37,12 @@ Welcome to the [OOPSpam API](https://oopspam.com)!
 
 OOPSpam API is a privacy-first and highly accurate anti-spam filter.
 
+<aside>
+<div  class="success">
+👉 Are you looking for a WordPress plugin? <a href="https://wordpress.org/plugins/oopspam-anti-spam/">Check out OOPSpam in the WordPress Plugin Directory</a>
+</div>
+</aside>
+
 It is usually used for:
 
 1. Contact forms
@@ -52,6 +58,7 @@ Submit messages to the API and it will produce Spam ```Score``` with a detailed 
 ```json
 {
     "senderIP": "91.203.67.110",
+    "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "checkForLength": true,
     "allowedLanguages" : ["en"],
@@ -64,6 +71,7 @@ Submit messages to the API and it will produce Spam ```Score``` with a detailed 
   "Score": 6,
   "Details": {
     "isIPBlocked": false,
+    "isEmailBlocked": true,
     "isContentSpam": "spam",
     "langMatch": true,
     "countryMatch": false,
@@ -103,8 +111,9 @@ The account on RapidAPI and on our Dashboard are dissociated. Each of these regi
 
 OOPSpam API expects the API key to be included in all API requests to the server in a header that looks like the following:
 
-- For RapidAPI endpoint: ```X-Rapidapi-Key: API_KEY```
 - For OOPSpam Dashboard endpoint: ```X-Api-Key: API_KEY```
+- For RapidAPI endpoint: ```X-Rapidapi-Key: API_KEY```
+
 
 <aside>
 <div  class="success">
@@ -184,13 +193,6 @@ You can find your API KEY under 'Security' tab.
 
 # 🚦 Rate Limiting
 
-> Headers via RapidAPI endpoint
-
-```sass
-x-ratelimit-requests-limit: 40
-x-ratelimit-requests-remaining: 1
-```
-
 > Headers via OOPSpam endpoint
 
 ```sass
@@ -198,8 +200,15 @@ X-RateLimit-Limit: 1000
 X-RateLimit-Remaining: 998
 ```
 
+> Headers via RapidAPI endpoint
+
+```sass
+x-ratelimit-requests-limit: 40
+x-ratelimit-requests-remaining: 1
+```
+
 Depending on your subscription, limits are placed on the number of API requests you may make using your API key.
-All responses from the API contain information about the current state of rate-limiting. The special ```X-RateLimit-```
+All responses from the API contain information about remaining and total rate limit. The special ```X-RateLimit-```
 headers have the following meaning:
 
 Header | Description
@@ -244,7 +253,7 @@ request["content-type"] = 'application/json'
 #request["x-rapidapi-host"] = 'oopspam.p.rapidapi.com'
 request["X-Api-Key"] = 'YOUR_API_KEY'
 
-request.body = "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\"\n}"
+request.body = "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}"
 
 response = http.request(request)
 puts response.read_body
@@ -257,7 +266,7 @@ import requests
 #url = "https://oopspam.p.rapidapi.com/v1/spamdetection"
 url = "https://api.oopspam.com/v1/spamdetection"
 
-payload = "{\n    \"checkForLength\": true,\n    \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n    \"senderIP\": \"185.234.219.246\"\n}"
+payload = "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}"
 
 # Make sure to use correct HEADERS based on your endpoint
 headers = {
@@ -286,6 +295,7 @@ curl --request POST \
     "checkForLength": true,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
+    "email": "testing@example.com",
     "allowedCountries": [
         "it",
         "us"
@@ -301,6 +311,7 @@ const data = JSON.stringify({
 	"checkForLength": true,
 	"content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
 	"senderIP": "185.234.219.246",
+    "email": "testing@example.com",
   "allowedCountries": [
 		"it",
 		"us"
@@ -343,7 +354,7 @@ HttpRequest request = HttpRequest.newBuilder()
         .header("X-Api-Key", "YOUR_API_KEY")
 //	    .header("x-rapidapi-key", "YOUR_API_KEY")
 //		.header("x-rapidapi-host", "oopspam.p.rapidapi.com")
-		.method("POST", HttpRequest.BodyPublishers.ofString("{\n  \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n \"senderIP\": \"185.234.219.246\"\n}"))
+		.method("POST", HttpRequest.BodyPublishers.ofString("{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}"))
 		.build();
 HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 System.out.println(response.body());
@@ -360,7 +371,7 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("X-Api-Key", "YOUR_API_KEY");
 // request.AddHeader("x-rapidapi-key", "YOUR_API_KEY");
 // request.AddHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
-request.AddParameter("application/json", "{\n  \"checkForLength\": true,\n  \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\"\n}", ParameterType.RequestBody);
+request.AddParameter("application/json", "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}", ParameterType.RequestBody);
 IRestResponse response = client.Execute(request);
 ```
 
@@ -380,7 +391,7 @@ func main() {
     url := "https://api.oopspam.com/v1/spamdetection"
 //	url := "https://oopspam.p.rapidapi.com/v1/spamdetection"
 
-	payload := strings.NewReader("{\n    \"checkForLength\": true,\n    \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n    \"senderIP\": \"185.234.219.246\"\n}")
+	payload := strings.NewReader("{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}")
 
 	req, _ := http.NewRequest("POST", url, payload)
 
@@ -411,7 +422,8 @@ $body = new http\Message\Body;
 $body->append('{
     "checkForLength": true,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
-    "senderIP": "185.234.219.246"
+    "senderIP": "185.234.219.246",
+    "email": "testing@example.com",
 }');
 
 // Make sure to use correct base URL
@@ -444,6 +456,7 @@ echo $response->getBody();
   "Score": 6,
   "Details": {
     "isIPBlocked": true,
+    "isEmailBlocked": true,
     "isContentSpam": "spam",
     "langMatch": true,
     "countryMatch": false,
@@ -456,7 +469,7 @@ echo $response->getBody();
 }
 ```
 
-> Note that OOPSpam API tries to return the result as soon as one of the analyses detects spam. Hence some field may not appear in the response body. Say ```senderIP``` is blocked then it will return following response without doing other analyses:
+> Note that OOPSpam API tries to return the result as soon as one of the analyses detects spam. Hence some fields may not appear in the response body. Say ```senderIP``` is blocked then it will return following response without doing other analyses:
 
 ```json
 {
@@ -481,8 +494,8 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
 👉 <strong>Reminder - the base URLs</strong>
 <p>You can consume OOPSpam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
 <ul>
-<li>RapidAPI: <code>https://oopspam.p.rapidapi.com/v1</code></li>
 <li>OOPSpam: <code>https://api.oopspam.com/v1</code></li>
+<li>RapidAPI: <code>https://oopspam.p.rapidapi.com/v1</code></li>
 </ul>
 </div>
 </aside>
@@ -503,11 +516,20 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                     </tr>
                     <tr>
                       <td><code>senderIP</code></td>
-                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple blocklisted IPs lists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
+                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple denylist IP lists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
                             <ul>
                                 <li>This field should include spammer's IP, in other words, whoever submitted regarding content to you, not your IP.</li>
                                 <li>IP addresses <i>127.0.0.1</i>, <i>1.1.1.1</i>, <i>::1</i> including private IPs are by default blocked.</li>
+                            </ul>
+                            </td>
+                    </tr>
+                     <tr>
+                      <td><code>email</code></td>
+                        <td><strong>string (optional)</strong> Is the email address of the original content/message sender. This field value will be looked up in multiple denylist email lists that previously detected sending spam. Although <code>email</code> is an optional field, we recommend sending it.
+                            <p><strong>Important:</strong> </p>
+                            <ul>
+                                <li>This field should include spammer's email, in other words, whoever submitted regarding content to you, not your email.</li>
                             </ul>
                             </td>
                     </tr>
@@ -552,7 +574,11 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                             </tr>
                             <tr>
                                 <td><code>isIPBlocked</code></td>
-                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>senderIP</code> is blocklisted.</td>
+                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>senderIP</code> is blocked.</td>
+                            </tr>
+                            <tr>
+                                <td><code>isEmailBlocked</code></td>
+                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>email</code> is blocked.</td>
                             </tr>
                             <tr>
                                 <td><code>langMatch</code></td>
@@ -780,6 +806,7 @@ You can use this endpoint to report any false positives and false negatives to u
 ```json
 {
     "senderIP": "91.203.67.110",
+    "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "checkForLength": true,
     "allowedLanguages" : ["en"],
@@ -825,7 +852,7 @@ You can integrate OOPSpam API with any platform where message is exchanged using
 
 OOPSpam has [a WordPress plugin](https://wordpress.org/plugins/oopspam-anti-spam/) that integrates with the API. It filters both comments and contact form submissions.
 
-### Supported Contact Form solutions
+### Supported solutions
 
 - Ninja Forms
 - Gravity Forms
@@ -835,6 +862,7 @@ OOPSpam has [a WordPress plugin](https://wordpress.org/plugins/oopspam-anti-spam
 - WPForms
 - Formidable Forms
 - GiveWP donation forms
+- WooCommerce Order and Registration
 
 As the plugin works with OOPSpam API, it supports all spam protection capabilities out of the box.
 
@@ -850,11 +878,11 @@ The plugin currently supports the following settings:
 
 ## Make (formerly Integromat)
 
-[Integromat](https://www.integromat.com/en) (similar to Zapier) is a platform that allows you to automate your workflow without a custom integration to OOPSpam API. All you have to do is drop [OOPSpam Integromat App](https://www.integromat.com/en/integrations/oopspam-anti-spam) to your scenario and enter API key.
+[Make](https://www.make.com/en?utm_source=oopspam&utm_medium=partner&utm_campaign=oopspam-partner-program) (similar to Zapier) is a visual automation platform that lets you send information between OOPSpam API and thousands of apps with just a few clicks. All you have to do is drop [OOPSpam Make App](https://www.make.com/en/integrations/oopspam-anti-spam) to your scenario and enter API key.
 
 Let's look at the following example.
 
-!["Contact Form 7 integrates with OOPSpam Anti-Spam on Integromat"](images/screenshots/OOPSpamApp-Integromat.png)
+!["Contact Form 7 integrates with OOPSpam Anti-Spam on Make"](images/screenshots/OOPSpamApp-Integromat.png)
 
 On this scenario, we add and connect Contact Form 7, OOPSpam Anti-Spam and Airtable apps.
 
@@ -866,7 +894,7 @@ On this scenario, we add and connect Contact Form 7, OOPSpam Anti-Spam and Airta
 
 !["Airtable spreadsheet"](images/screenshots/airtable-cf7.png)
 
-Every contact form, comment, email and chat apps on Integromat can be connect in similar fashion.
+Every contact form, comment, email and chat apps on Make can be connect in similar fashion.
 
 ## Zapier
 
@@ -874,7 +902,7 @@ Reach out to us via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a>
 
 ## Bubble.io
 
-Check out [our Bubble plugin](https://bubble.io/plugin/oopspam-spam-detection-1582908608700x936823858020745200).
+[OOPSpam Bubble plugin](https://bubble.io/plugin/oopspam-spam-detection-1582908608700x936823858020745200) can be used to block spam registration and contact form submissions.
 Here is an example how you can use the plugin to stop spam on your Bubble contact forms.
 
 !["OOPSpam Bubble.io plugin in action"](images/screenshots/Bubble_io_plugin.png)
@@ -884,5 +912,5 @@ Check out [How to set up OOPSpam with Bubble.io app](https://www.oopspam.com/blo
 # 💡 Tips
 
 - Responded ```Score``` parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.
-- Make async HTTP request instead of sync as the system check ```senderIP``` against multiple blocklisted IPs lists until it finds it.
+- Make async HTTP request instead of sync as the system check ```senderIP``` against multiple denylist IP lists until it finds it.
 - Don't send 127.0.0.1, ::1, 1.1.1.1 including private IPs as a value of ```senderIP```, they are by default blocked.
