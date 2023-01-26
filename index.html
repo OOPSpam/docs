@@ -348,23 +348,6 @@
               </ul>
           </li>
           <li>
-            <a href="#3rd-party-integration" class="toc-h1 toc-link" data-title="🔌 3rd Party Integration">🔌 3rd Party Integration</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#wordpress" class="toc-h2 toc-link" data-title="WordPress">WordPress</a>
-                  </li>
-                  <li>
-                    <a href="#make-formerly-integromat" class="toc-h2 toc-link" data-title="Make (formerly Integromat)">Make (formerly Integromat)</a>
-                  </li>
-                  <li>
-                    <a href="#zapier" class="toc-h2 toc-link" data-title="Zapier">Zapier</a>
-                  </li>
-                  <li>
-                    <a href="#bubble-io" class="toc-h2 toc-link" data-title="Bubble.io">Bubble.io</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#tips" class="toc-h1 toc-link" data-title="💡 Tips">💡 Tips</a>
           </li>
           <li>
@@ -374,6 +357,7 @@
         <ul class="toc-footer">
             <li><a href='https://app.oopspam.com'>Get your API Key via Dashboard</a></li>
             <li><a href='https://rapidapi.com/oopspam/api/oopspam-spam-filter/'>Get your API Key via RapidAPI</a></li>
+            <li><a href='https://oopspam.com/help'>OOPSpam Help Center</a></li>
             <li><hr/></li>
             <li><a href='https://oopspam.com'>⬅ Back to OOPSpam</a></li>
         </ul>
@@ -857,12 +841,7 @@ headers have the following meaning:</p>
                             </td>
                     </tr>
                      <tr>
-                      <td><code>email</code> <small style="background-color: green;
-border-radius: 1em;
-padding-right: 5px;
-padding-left: 5px;
-color: white;
-font-weight: bold;">new</small></td>
+                      <td><code>email</code></td>
                         <td><strong>string (optional)</strong> Is the email address of the original content/message sender. This field value will be looked up in multiple email denylists that previously detected sending spam. Although <code>email</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
                             <ul>
@@ -1171,92 +1150,10 @@ font-weight: bold;">default:true</small></td>
 <p>Here is an example listing on the dashboard:</p>
 
 <p><img src="images/screenshots/sc_reported-0068b5e3.png" alt="OOPSpam Dashboard Reported page" /></p>
-<h1 id='3rd-party-integration'>🔌 3rd Party Integration</h1>
-<p>You can integrate OOPSpam API with any platform where message is exchanged using HTTP. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into any platform, <a href="#developer-support">let us know</a>. We&#39;d be happy to publish it here.</p>
-<h2 id='wordpress'>WordPress</h2>
-<p>OOPSpam has <a href="https://wordpress.org/plugins/oopspam-anti-spam/">a WordPress plugin</a> that integrates with the API. It filters both comments and contact form submissions.</p>
-<h3 id='supported-solutions'>Supported solutions</h3>
-<ul>
-<li>Ninja Forms</li>
-<li>Toolset Forms</li>
-<li>Gravity Forms</li>
-<li>Contact Form 7</li>
-<li>Elementor Forms</li>
-<li>WS Form</li>
-<li>Bricks Form</li>
-<li>Fluent Forms</li>
-<li>WPForms</li>
-<li>Formidable Forms</li>
-<li>GiveWP donation forms</li>
-<li>WooCommerce Order and Registration</li>
-</ul>
-
-<p>As the plugin works with OOPSpam API, it supports all spam protection capabilities out of the box.</p>
-
-<p>The plugin currently supports the following settings:</p>
-
-<ul>
-<li>Sensitivity level adjustment</li>
-<li>Do not analyze IP addresses</li>
-<li>Country Restrictions</li>
-<li>Language Restrictions</li>
-<li>and other settings</li>
-</ul>
-
-<p><img src="images/screenshots/sc_wp-6d2f0ec6.png" alt="&quot;OOPSpam WordPress plugin screenshot&quot;" /></p>
-<h2 id='make-formerly-integromat'>Make (formerly Integromat)</h2>
-<p><a href="https://www.make.com/en?utm_source=oopspam&amp;utm_medium=partner&amp;utm_campaign=oopspam-partner-program">Make</a> (similar to Zapier) is a visual automation platform that lets you send information between OOPSpam API and thousands of apps with just a few clicks. All you have to do is drop <a href="https://www.make.com/en/integrations/oopspam-anti-spam">OOPSpam Make App</a> to your scenario and enter API key.</p>
-
-<p>Let&#39;s look at the following example.</p>
-
-<p><img src="images/screenshots/OOPSpamApp-Integromat-657ba0dd.png" alt="&quot;Contact Form 7 integrates with OOPSpam Anti-Spam on Make&quot;" /></p>
-
-<p>On this scenario, we add and connect Contact Form 7, OOPSpam Anti-Spam and Airtable apps.</p>
-
-<ol>
-<li>Contact Form 7 app receives form submissions and passes data to OOPSpam app.</li>
-<li>OOPSpam analyzes and passes the spam score to the filter between OOPSpam and Airtable app.</li>
-<li>Filter allows data to be passed to Airtable app only if the spam score is less than 3.</li>
-<li>Airtable receives data and insert it to a spreadsheet.</li>
-<li>✅ Done!</li>
-</ol>
-
-<p><img src="images/screenshots/airtable-cf7-0e33471a.png" alt="&quot;Airtable spreadsheet&quot;" /></p>
-
-<p>Every contact form, comment, email and chat apps on Make can be connect in similar fashion.</p>
-<h2 id='zapier'>Zapier</h2><h3 id='connect-oopspam-to-hundreds-of-other-apps-with-zapier'>Connect OOPSpam to hundreds of other apps with Zapier</h3>
-<p><a href="https://zapier.com/apps/OOPSpam/integrations">Zapier</a> lets you connect OOPSpam to 2,000+ other web services. Automated connections called Zaps, set up in minutes with no coding, can automate your day-to-day tasks and build workflows between apps that otherwise wouldn&#39;t be possible.</p>
-
-<p>Each Zap has one or more <strong>Triggers</strong>, where your information comes from and which causes OOPSpam <em>Check for Spam</em> <strong>Action</strong> in OOPSpam.</p>
-<h3 id='getting-started-with-zapier'>Getting Started with Zapier</h3>
-<p>Sign up for a free <a href="https://zapier.com/apps/OOPSpam/integrations">Zapier</a> account, from there you can jump right in.</p>
-
-<!-- To help you hit the ground running, here are some popular pre-made Zaps. -->
-
-<!-- <script src="https://zapier.com/zapbook/embed/widget.js?services=OOPSpam&container=true&limit=5,"></script> -->
-<h3 id='how-do-i-connect-oopspam-to-zapier'>How do I connect OOPSpam to Zapier?</h3>
-<ol>
-<li>Log in to your <a href="https://zapier.com/sign-up">Zapier account</a> or create a new account.</li>
-<li>Navigate to &quot;My Apps&quot; from the top menu bar.</li>
-<li>Now click on &quot;Connect a new account...&quot; and search for &quot;OOPSpam&quot;</li>
-<li>Use your credentials to connect your OOPSpam account to Zapier.</li>
-<li>Once that&#39;s done you can start creating an automation! Use a pre-made Zap or create your own with the Zap Editor. Creating a Zap requires no coding knowledge and you&#39;ll be walked step-by-step through the setup. </li>
-<li>Need inspiration? See everything that&#39;s possible with <a href="https://zapier.com/apps/OOPSpam/integrations">OOPSpam and Zapier</a>.</li>
-</ol>
-
-<p>If you have any additional questions, you can open a ticket with Zapier Support from https://zapier.com/OOPSpam/get-help or contact OOPSpam support via contact@oopspam.com.</p>
-<h2 id='bubble-io'>Bubble.io</h2>
-<p><a href="https://bubble.io/plugin/oopspam-spam-detection-1582908608700x936823858020745200">OOPSpam Bubble plugin</a> can be used to block spam registration and contact form submissions.
-Here is an example how you can use the plugin to stop spam on your Bubble contact forms.</p>
-
-<p><img src="images/screenshots/Bubble_io_plugin-51b968f5.png" alt="&quot;OOPSpam Bubble.io plugin in action&quot;" /></p>
-
-<p>Check out <a href="https://www.oopspam.com/blog/spam-protection-for-bubble.io">How to set up OOPSpam with Bubble.io app</a> article for more information.</p>
 <h1 id='tips'>💡 Tips</h1>
 <ul>
 <li>Responded <code>Score</code> parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.</li>
 <li>Make async HTTP request instead of sync as the system check <code>senderIP</code> against multiple IP denylists until it finds it.</li>
-<li>Don&#39;t send 127.0.0.1, ::1, 1.1.1.1 including private IPs as a value of <code>senderIP</code>, they are by default blocked.</li>
 </ul>
 <h1 id='errors'>🚨 Errors</h1>
 <p>The OOPSpam API uses the following error codes:</p>
