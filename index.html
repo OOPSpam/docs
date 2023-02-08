@@ -532,6 +532,8 @@
 
 <p><img src="images/screenshots/sc_rapidApi-c0901abe.png" alt="RapidAPI Developer Dashboard" /></p>
 <h1 id='rate-limiting'>🚦 Rate Limiting</h1>
+<p>OOPSpam API uses sliding window algorithm for rate limiting. </p>
+
 <blockquote>
 <p>Headers via OOPSpam endpoint</p>
 </blockquote>
@@ -544,7 +546,7 @@
 <div class="highlight"><pre class="highlight sass tab-sass"><code><span class="na">x-ratelimit-requests-limit</span><span class="p">:</span> <span class="m">40</span>
 <span class="na">x-ratelimit-requests-remaining</span><span class="p">:</span> <span class="m">1</span>
 </code></pre></div>
-<p>Depending on your subscription, limits are placed on the number of API requests you may make using your API key.
+<p>Depending on your subscription, limits are placed on the number of API requests you may make using your API key per 30-days..
 All responses from the API contain information about remaining and total rate limit. The special <code>X-RateLimit-</code>
 headers have the following meaning:</p>
 
