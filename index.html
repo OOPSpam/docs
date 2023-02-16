@@ -407,6 +407,7 @@
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"UrlFriendly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"allowedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -860,6 +861,19 @@ padding-right: 5px;
 padding-left: 5px;
 font-weight: bold;">default:true</small></td>
                       <td><strong>boolean (optional)</strong> If the content is shorter than 20 characters, it will be considered spam (<code>Score: 5</code>) and returns <code>isContentTooShort: true</code>.</td>
+                  </tr>
+                   <tr>
+                      <td><code>UrlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
+padding-right: 5px;
+padding-left: 5px;
+font-weight: bold;">default:false</small><small style="
+    background-color: red;
+    border-radius: 1em;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+    color: white;">beta</small></td>
+                      <td><strong>boolean (optional)</strong> Make the <code>content</code> parameter more link-friendly and reduce the impact of links on the spam score.</td>
                   </tr>
                   <tr>
                       <td><code>allowedLanguages</code></td>
