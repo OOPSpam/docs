@@ -14,6 +14,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='https://app.oopspam.com'>Get your API Key via Dashboard</a>
   - <a href='https://rapidapi.com/oopspam/api/oopspam-spam-filter/'>Get your API Key via RapidAPI</a>
+  - <a href='https://oopspam.com/help'>OOPSpam Help Center</a>
   - <hr/> 
   - <a href='https://oopspam.com'>⬅ Back to OOPSpam</a>
 
@@ -61,6 +62,7 @@ Submit messages to the API and it will produce Spam ```Score``` with a detailed 
     "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "checkForLength": true,
+    "UrlFriendly": false,
     "allowedLanguages" : ["en"],
     "allowedCountries" : ["it","us"]
 }
@@ -150,7 +152,6 @@ It allows you to:
 </aside>
 
 ![OOPSpam Dashboard](images/screenshots/sc1.png)
-![OOPSpam Dashboard](images/screenshots/sc2.png)
 ![OOPSpam Dashboard](images/screenshots/sc3.png)
 
 ## Using the API via RapidAPI
@@ -193,6 +194,9 @@ You can find your API KEY under 'Security' tab.
 
 # 🚦 Rate Limiting
 
+OOPSpam API uses sliding window algorithm for rate limiting. 
+
+
 > Headers via OOPSpam endpoint
 
 ```sass
@@ -207,7 +211,7 @@ x-ratelimit-requests-limit: 40
 x-ratelimit-requests-remaining: 1
 ```
 
-Depending on your subscription, limits are placed on the number of API requests you may make using your API key.
+Depending on your subscription, limits are placed on the number of API requests you may make using your API key per 30-days..
 All responses from the API contain information about remaining and total rate limit. The special ```X-RateLimit-```
 headers have the following meaning:
 
@@ -516,7 +520,7 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                     </tr>
                     <tr>
                       <td><code>senderIP</code></td>
-                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple denylist IP lists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
+                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple IP denylists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
                             <ul>
                                 <li>This field should include spammer's IP, in other words, whoever submitted regarding content to you, not your IP.</li>
@@ -526,7 +530,7 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                     </tr>
                      <tr>
                       <td><code>email</code></td>
-                        <td><strong>string (optional)</strong> Is the email address of the original content/message sender. This field value will be looked up in multiple denylist email lists that previously detected sending spam. Although <code>email</code> is an optional field, we recommend sending it.
+                        <td><strong>string (optional)</strong> Is the email address of the original content/message sender. This field value will be looked up in multiple email denylists that previously detected sending spam. Although <code>email</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
                             <ul>
                                 <li>This field should include spammer's email, in other words, whoever submitted regarding content to you, not your email.</li>
@@ -534,8 +538,24 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                             </td>
                     </tr>
                   <tr>
-                      <td><code>checkForLength</code> <small style="background-color: #fbcf50;">default:true</small></td>
+                      <td><code>checkForLength</code> <small style="background-color: #fbcf50;border-radius: 1em;
+padding-right: 5px;
+padding-left: 5px;
+font-weight: bold;">default:true</small></td>
                       <td><strong>boolean (optional)</strong> If the content is shorter than 20 characters, it will be considered spam (<code>Score: 5</code>) and returns <code>isContentTooShort: true</code>.</td>
+                  </tr>
+                   <tr>
+                      <td><code>urlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
+padding-right: 5px;
+padding-left: 5px;
+font-weight: bold;">default:false</small><small style="
+	background-color: red;
+	border-radius: 1em;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-weight: bold;
+	color: white;">beta</small></td>
+                      <td><strong>boolean (optional)</strong> Make the <code>content</code> parameter more link-friendly and reduce the impact of links on the spam score.</td>
                   </tr>
                   <tr>
                       <td><code>allowedLanguages</code></td>
@@ -844,73 +864,16 @@ Here is an example listing on the dashboard:
 
 ![OOPSpam Dashboard Reported page](images/screenshots/sc_reported.png)
 
-# 🔌 3rd Party Integration
+# 🧪 Testing
 
-You can integrate OOPSpam API with any platform where message is exchanged using HTTP. While we try to integrate it into the different platforms, our main focus is to put more work on development, improvements, and documentation/tutorials. If you integrate OOPSpam into any platform, [let us know](#developer-support). We'd be happy to publish it here.
+After integrating the API, you may want to test various use cases. To help you get started, here's a table displaying the blocked IP addresses, email addresses, and content.
 
-## WordPress
 
-OOPSpam has [a WordPress plugin](https://wordpress.org/plugins/oopspam-anti-spam/) that integrates with the API. It filters both comments and contact form submissions.
-
-### Supported solutions
-
-- Ninja Forms
-- Gravity Forms
-- Contact Form 7
-- Elementor Forms
-- Fluent Forms
-- WPForms
-- Formidable Forms
-- GiveWP donation forms
-- WooCommerce Order and Registration
-
-As the plugin works with OOPSpam API, it supports all spam protection capabilities out of the box.
-
-The plugin currently supports the following settings:
-
-- Sensitivity level adjustment
-- Do not analyze IP addresses
-- Country Restrictions
-- Language Restrictions
-- and other settings
-
-!["OOPSpam WordPress plugin screenshot"](images/screenshots/sc_wp.png)
-
-## Make (formerly Integromat)
-
-[Make](https://www.make.com/en?utm_source=oopspam&utm_medium=partner&utm_campaign=oopspam-partner-program) (similar to Zapier) is a visual automation platform that lets you send information between OOPSpam API and thousands of apps with just a few clicks. All you have to do is drop [OOPSpam Make App](https://www.make.com/en/integrations/oopspam-anti-spam) to your scenario and enter API key.
-
-Let's look at the following example.
-
-!["Contact Form 7 integrates with OOPSpam Anti-Spam on Make"](images/screenshots/OOPSpamApp-Integromat.png)
-
-On this scenario, we add and connect Contact Form 7, OOPSpam Anti-Spam and Airtable apps.
-
-1. Contact Form 7 app receives form submissions and passes data to OOPSpam app.
-2. OOPSpam analyzes and passes the spam score to the filter between OOPSpam and Airtable app.
-3. Filter allows data to be passed to Airtable app only if the spam score is less than 3.
-4. Airtable receives data and insert it to a spreadsheet.
-5. ✅ Done!
-
-!["Airtable spreadsheet"](images/screenshots/airtable-cf7.png)
-
-Every contact form, comment, email and chat apps on Make can be connect in similar fashion.
-
-## Zapier
-
-Reach out to us via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a> to get an invite to our Zapier app.
-
-## Bubble.io
-
-[OOPSpam Bubble plugin](https://bubble.io/plugin/oopspam-spam-detection-1582908608700x936823858020745200) can be used to block spam registration and contact form submissions.
-Here is an example how you can use the plugin to stop spam on your Bubble contact forms.
-
-!["OOPSpam Bubble.io plugin in action"](images/screenshots/Bubble_io_plugin.png)
-
-Check out [How to set up OOPSpam with Bubble.io app](https://www.oopspam.com/blog/spam-protection-for-bubble.io) article for more information.
+| content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       	| IP                           	| Email                              	|
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------	|------------------------------------	|
+| Good day, \r\n\r\nMy name is Eric and unlike a lot of emails you might get, I wanted to instead provide you with a word of encouragement – Congratulations\r\n\r\nWhat for?  \r\n\r\nPart of my job is to check out websites and the work you’ve done with pos-cash.de definitely stands out. \r\n\r\nIt’s clear you took building a website seriously and made a real investment of time and resources into making it top quality.\r\n\r\nThere is, however, a catch… more accurately, a question…\r\n\r\nSo when someone like me happens to find your site – maybe at the top of the search results (nice job BTW) or just through a random link, how do you know? \r\n\r\n 	| 45.152.198.112, 196.16.74.95 	| testing@example.com, test@test.com 	|
 
 # 💡 Tips
 
 - Responded ```Score``` parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.
-- Make async HTTP request instead of sync as the system check ```senderIP``` against multiple denylist IP lists until it finds it.
-- Don't send 127.0.0.1, ::1, 1.1.1.1 including private IPs as a value of ```senderIP```, they are by default blocked.
+- Make async HTTP request instead of sync as the system check ```senderIP``` against multiple IP denylists until it finds it.
