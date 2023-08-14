@@ -62,9 +62,10 @@ Submit messages to the API and it will produce Spam ```Score``` with a detailed 
     "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "checkForLength": true,
-    "UrlFriendly": false,
+    "urlFriendly": false,
     "allowedLanguages" : ["en"],
-    "allowedCountries" : ["it","us"]
+    "allowedCountries" : ["it","us"],
+    "blockedCountries" : ["it","us"]
 }
 ```
 
@@ -306,7 +307,10 @@ curl --request POST \
     ],
     "allowedLanguages": [
         "en"
-    ]
+    ],
+    "blockedCountries": [
+        "ru"
+    ],
 }'
 ```
 
@@ -322,6 +326,9 @@ const data = JSON.stringify({
 	],
 	"allowedLanguages": [
 		"en"
+	],
+    "blockedCountries": [
+		"ru"
 	]
 });
 
@@ -567,6 +574,12 @@ font-weight: bold;">default:false</small><small style="
                           <p><strong>Important:</strong> </p>
                           <code>senderIP</code> is required for this to work. </td>
                       </tr>
+                       <tr>
+                      <td><code>blockedCountries</code></td>
+                      <td><strong>array (optional)</strong> Block content from a certain country or countries. All you need to do is pass <a target="_blank" href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">the two-letter country code</a> as an array.
+                          <p><strong>Important:</strong> </p>
+                          <code>senderIP</code> is required for this to work. </td>
+                      </tr>
                   </tbody>
                 </table>
 
@@ -622,7 +635,7 @@ font-weight: bold;">default:false</small><small style="
                             </tr>
                             <tr>
                                 <td><code>countryMatch</code></td>
-                                <td><strong>boolean</strong> - Represents whether an IP address (the value of <code>senderIP</code>) originates from one of the countries you passed through <code>allowedCountries</code> parameter. In case of a mismatch, the API returns the maximum spam <code>Score</code> of 6. </td>
+                                <td><strong>boolean</strong> - Represents whether an IP address (the value of <code>senderIP</code>) originates from one of the countries you passed through <code>allowedCountries</code> and <code>blockedCountries</code> parameters. In case of a mismatch, the API returns the maximum spam <code>Score</code> of 6. </td>
                             </tr>
                             </tbody>
                         </table>
@@ -831,6 +844,7 @@ You can use this endpoint to report any false positives and false negatives to u
     "checkForLength": true,
     "allowedLanguages" : ["en"],
     "allowedCountries" : ["it","us"],
+    "blockedCountries" : ["ru"],
     "shouldBeSpam": true
 }
 ```
