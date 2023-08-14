@@ -407,9 +407,10 @@
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"UrlFriendly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"urlFriendly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
-    </span><span class="nl">"allowedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">]</span><span class="w">
+    </span><span class="nl">"allowedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"blockedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
@@ -645,7 +646,10 @@ headers have the following meaning:</p>
     ],
     "allowedLanguages": [
         "en"
-    ]
+    ],
+    "blockedCountries": [
+        "ru"
+    ],
 }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">checkForLength</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -658,6 +662,9 @@ headers have the following meaning:</p>
     <span class="p">],</span>
     <span class="dl">"</span><span class="s2">allowedLanguages</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="dl">"</span><span class="s2">en</span><span class="dl">"</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">blockedCountries</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">ru</span><span class="dl">"</span>
     <span class="p">]</span>
 <span class="p">});</span>
 
@@ -884,6 +891,12 @@ font-weight: bold;">default:false</small><small style="
                           <p><strong>Important:</strong> </p>
                           <code>senderIP</code> is required for this to work. </td>
                       </tr>
+                       <tr>
+                      <td><code>blockedCountries</code></td>
+                      <td><strong>array (optional)</strong> Block content from a certain country or countries. All you need to do is pass <a target="_blank" href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">the two-letter country code</a> as an array.
+                          <p><strong>Important:</strong> </p>
+                          <code>senderIP</code> is required for this to work. </td>
+                      </tr>
                   </tbody>
                 </table>
 <h3 id='response-body-parameters'>Response Body Parameters</h3>
@@ -937,7 +950,7 @@ font-weight: bold;">default:false</small><small style="
                             </tr>
                             <tr>
                                 <td><code>countryMatch</code></td>
-                                <td><strong>boolean</strong> - Represents whether an IP address (the value of <code>senderIP</code>) originates from one of the countries you passed through <code>allowedCountries</code> parameter. In case of a mismatch, the API returns the maximum spam <code>Score</code> of 6. </td>
+                                <td><strong>boolean</strong> - Represents whether an IP address (the value of <code>senderIP</code>) originates from one of the countries you passed through <code>allowedCountries</code> and <code>blockedCountries</code> parameters. In case of a mismatch, the API returns the maximum spam <code>Score</code> of 6. </td>
                             </tr>
                             </tbody>
                         </table>
@@ -1140,6 +1153,7 @@ font-weight: bold;">default:false</small><small style="
     </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"allowedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"blockedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ru"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"shouldBeSpam"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
