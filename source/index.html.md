@@ -30,9 +30,9 @@ code_clipboard: true
 
 > BASE URLs
 
-> RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com/v1">https://oopspam.p.rapidapi.com/v1</a>
-
 > OOPSpam: <a href="https://api.oopspam.com/v1">https://api.oopspam.com/v1</a>
+
+> RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com/v1">https://oopspam.p.rapidapi.com/v1</a>
 
 Welcome to the [OOPSpam API](https://oopspam.com)!
 
@@ -50,9 +50,11 @@ It is usually used for:
 2. Comment & Review systems
 3. Live & Private chats
 4. Email marketing
-5. and any platform where message and content exchanged
+5. Sign up protection (from fake accounts)
+6. E-commerce card-testing attack & chargeback protection
+7. and any platform where messages and content are exchanged
 
-Submit messages to the API and it will produce Spam ```Score``` with a detailed report. Using ```Score``` you can adjust the sensitivity level (also known as _spam threshold_) of spam filtering to fit your use case.
+Submit messages to the API and it will generate a spam ```Score``` with a detailed report. Using the ```Score``` you can adjust the sensitivity level (also known as _spam threshold_) of spam filtering to suit your use case. Our recommendation is to consider Score:3 and higher as spam, and anything lower than that should be considered ham (not spam).
 
 > Example request body and all possible response fields
 
@@ -65,7 +67,7 @@ Submit messages to the API and it will produce Spam ```Score``` with a detailed 
     "urlFriendly": false,
     "allowedLanguages" : ["en"],
     "allowedCountries" : ["it","us"],
-    "blockedCountries" : ["it","us"]
+    "blockedCountries" : ["ru","cn"]
 }
 ```
 
@@ -89,11 +91,14 @@ Submit messages to the API and it will produce Spam ```Score``` with a detailed 
 
 ![OOPSpam API request and response example](https://www.oopspam.com/assets/TestGraphic.png)
 
-You can test the API right on your browser with your data on [OOPSpam Dashboard](https://app.oopspam.com/#test-with-your-data) or [the RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter).
+You can test the API directly in your browser with your data on the [OOPSpam Dashboard](https://app.oopspam.com/#test-with-your-data) or [the RapidAPI Marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter).
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9739f63cd7bc67da898f?action=collection%2Fimport)
 
-The API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/14518409-422afe44-9793-4a24-aaee-e0d47e083234?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D14518409-422afe44-9793-4a24-aaee-e0d47e083234%26entityType%3Dcollection%26workspaceId%3D73b5fac9-5b29-4680-9bb8-47a1a4768457)
+
+[![Run in Insomnia](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=&uri=https%3A%2F%2Fwww.oopspam.com%2Fdocs%2Fimages%2Fscreenshots%2FOOPSpam_API.json)
+
+The API is built around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.
 
 # 👩‍🏫 Developer Support
 
@@ -112,7 +117,7 @@ The OOPSpam API uses API keys to identify and authorize calls. You can register 
 
 The account on RapidAPI and on our Dashboard are dissociated. Each of these registration methods has its own base URL and API-KEY. You must therefore adapt your scripts according to your subscription by adapting the URL and your API KEY.
 
-OOPSpam API expects the API key to be included in all API requests to the server in a header that looks like the following:
+The OOPSpam API expects the API key to be included in all API requests to the server in a header that looks like this:
 
 - For OOPSpam Dashboard endpoint: ```X-Api-Key: API_KEY```
 - For RapidAPI endpoint: ```X-Rapidapi-Key: API_KEY```
@@ -138,13 +143,15 @@ Check out [Using the API via Dashboard](#using-the-api-via-dashboard) and [Using
 
 The base URL : `https://api.oopspam.com/v1`
 
-If you decided to subscribe directly on our site, you have [OOPSpam Dashboard](https://app.oopspam.com/Identity/Account/Register) at your disposal.
+If you have chosen to subscribe directly on our site, you will have the [OOPSpam Dashboard](https://app.oopspam.com/Identity/Account/Register) at your disposal.
 
-It allows you to:
+It allows you to
 
-- To follow your consumption in real time
+- Follow your usage in real time
 - Manage your subscription and change it if necessary
-- Test the endpoint without writing a line of code.
+- Test the endpoint without writing a single line of code.
+- Access to the [Domain Reputation Watch](https://www.oopspam.com/blog/domain-reputation)
+- Access to live chat support
 
 <aside>
 <div class="success">
@@ -166,27 +173,29 @@ The base URL : `https://oopspam.p.rapidapi.com/v1`
 </div>
 </aside>
 
-If you decided to subscribe to the API via [RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter/) then all information related to your subscription are available on the RapidAPI developer dashboard.
+If you have chosen to subscribe to the API through the [RapidAPI Marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter/), all information related to your subscription is available in the RapidAPI Developer Dashboard.
 
-The RapidAPI developer dashboard is where you can see all of your apps, locate API keys, view analytics, and manage billing settings.
+The RapidAPI Developer Dashboard allows you to view all your applications, locate API keys, view analytics, and manage billing settings.
 
-To access the dashboard, simply login to RapidAPI and select 'My Apps' in the top-right menu. Alternatively, you can head directly to [https://rapidapi.com/developer/dashboard](https://rapidapi.com/developer/dashboard).
+To access the dashboard, simply login to RapidAPI and select 'My Apps' from the top right menu. Alternatively, you can go directly to [https://rapidapi.com/developer/dashboard](https://rapidapi.com/developer/dashboard).
 
-In the main dashboard, you will see account-wide analytics and account information. To get more detailed information, you can select tabs on the left-hand side of the screen.
+The main dashboard displays account-wide analytics and account information. 
+
+For more detailed information, you can select tabs on the left side of the screen.
 
 ### App Specific Analytics
 
-Using the RapidAPI dashboard, you can also view analytics specific to each app in your account. To do so, switch over to the 'Analytics' tab of your application in the dashboard.
+The RapidAPI Dashboard also allows you to view analytics specific to each application in your account. To do this, go to the Analytics tab for your application in the dashboard.
 
-On the top of the page, you'll be able to see:
+At the top of the page, you'll see
 
-- A chart with all the calls being made to the API
-- Logs with all the request data
+- A graph of all calls made to the API
+- Logs with all request data
 
 In each graph, you can view the following metrics:
 
 - ```API Calls```: how many requests are being made
-- ```Error rates```: how many requests are error some
+- ```Error rates```: how many requests are error
 - ```Latency```: how long (on average) requests take to execute
 
 You can find your API KEY under 'Security' tab.
@@ -212,17 +221,17 @@ x-ratelimit-requests-limit: 40
 x-ratelimit-requests-remaining: 1
 ```
 
-Depending on your subscription, limits are placed on the number of API requests you may make using your API key per 30-days..
+Depending on your subscription, limits are placed on the number of API requests you may make using your API key per 30-days.
 All responses from the API contain information about remaining and total rate limit. The special ```X-RateLimit-```
 headers have the following meaning:
 
 Header | Description
 --------- | -----------
-```X-RateLimit-Limit``` ```x-ratelimit-requests-limit``` |  The number of requests per month for the plan you are currently subscribed
+```X-RateLimit-Limit``` ```x-ratelimit-requests-limit``` |  The number of requests per month for the plan you are currently subscribed to
 ```X-RateLimit-Remaining``` ```x-ratelimit-requests-remaining``` |  The number of requests remaining before you reach the limit of requests your application is allowed to make
-```x-ratelimit-requests-reset``` |  Time at which the request counter is reset. Available only to RapidAPI endpoint
+```x-ratelimit-requests-reset``` |  Time at which the requests counter is reset. Available only for RapidAPI endpoint only
 
-If you exceeds this threshold your application will be unable to make further requests until the rate limit resets.
+If you exceed this limit, your application will not be able to make any more requests until the rate limit is reset.
 
 <aside>
 <div class="notice">
@@ -530,7 +539,7 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                         <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple IP denylists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
                             <ul>
-                                <li>This field should include spammer's IP, in other words, whoever submitted regarding content to you, not your IP.</li>
+                                <li>This field should include spammer's IP, in other words, whoever submitted content to you, not your IP.</li>
                                 <li>IP addresses <i>127.0.0.1</i>, <i>1.1.1.1</i>, <i>::1</i> including private IPs are by default blocked.</li>
                             </ul>
                             </td>
@@ -540,7 +549,7 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                         <td><strong>string (optional)</strong> Is the email address of the original content/message sender. This field value will be looked up in multiple email denylists that previously detected sending spam. Although <code>email</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
                             <ul>
-                                <li>This field should include spammer's email, in other words, whoever submitted regarding content to you, not your email.</li>
+                                <li>This field should include spammer's email, in other words, whoever submitted content to you, not your email.</li>
                             </ul>
                             </td>
                     </tr>
@@ -566,7 +575,7 @@ font-weight: bold;">default:false</small><small style="
                   </tr>
                   <tr>
                       <td><code>allowedLanguages</code></td>
-                      <td><strong>array (optional)</strong> This allows blocking content based on a content language. Let us know in what language(s) you expect the content to be by passing <a href="#iso-639">two-letter language(s) code</a> to the parameter as an array.</td>
+                      <td><strong>array (optional)</strong> This allows blocking content based on content language. Let us know in what language(s) you expect the content to be by passing <a href="#iso-639">two-letter language(s) code</a> to the parameter as an array.</td>
                   </tr>
                   <tr>
                       <td><code>allowedCountries</code></td>
@@ -595,15 +604,15 @@ font-weight: bold;">default:false</small><small style="
                             <tbody>
                             <tr>
                                 <td><code>Score</code></td>
-                                <td><strong>number</strong> - A value between 0-6 representing an overall spam score based on passed parameters. The higher this value, the more likely to be spam.
+                                <td><strong>number</strong> - A value between 0-6 that represents an overall spam score based on the parameters passed. The higher the score, the more likely it is to be spam.
                                 <aside  >
                                 <div class="success">
-                            👉 While it depends on a use case, usually a <code>Score</code> 3 or higher can be considered spam.</div></aside>
+                            👉 While it depends on yhe use case, generally a <code>Score</code> 3 and above can be considered spam.</div></aside>
                                 </td>
                             </tr>
                             <tr>
                                 <td><code>Details</code></td>
-                                <td>A dictionary containing the result of different analyses. </td>
+                                <td>A dictionary containing the results of different analyses. </td>
                             </tr>
                             <tr>
                                 <td><code>isIPBlocked</code></td>
@@ -611,11 +620,11 @@ font-weight: bold;">default:false</small><small style="
                             </tr>
                             <tr>
                                 <td><code>isEmailBlocked</code></td>
-                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>email</code> is blocked.</td>
+                                <td><strong>boolean</strong> - Represents whether the value of the parameter <code>email</code> is blocked.</td>
                             </tr>
                             <tr>
                                 <td><code>langMatch</code></td>
-                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>allowedLanguages</code> matches with the detected language by Language Detection algorithm.</td>
+                                <td><strong>boolean</strong> - Represents whether the value of the parameter <code>allowedLanguages</code> matches with the detected language by Language Detection algorithm.</td>
                             </tr>
                             <tr>
                                 <td><code>isContentSpam</code></td>
@@ -631,7 +640,7 @@ font-weight: bold;">default:false</small><small style="
                             </tr>
                             <tr>
                                 <td><code>isContentTooShort</code></td>
-                                <td><strong>boolean</strong> - Represents whether the value of parameter <code>content</code> is too short (max. 20 characters) to be considered a meaningful sentence. Any content that is too short will be considered spam. </td>
+                                <td><strong>boolean</strong> - Represents whether the value of the parameter <code>content</code> is too short (20 characters or less) to be considered a meaningful sentence. Any content that is too short is considered spam. </td>
                             </tr>
                             <tr>
                                 <td><code>countryMatch</code></td>
@@ -830,7 +839,7 @@ font-weight: bold;">default:false</small><small style="
 
 ## Report
 
-You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on [OOPSpam Dashboard](https://app.oopspam.com/) under the Reported page. The status of each report will be either <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. We then analyze them and improve detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.
+You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on [OOPSpam Dashboard](https://app.oopspam.com/) under the Reported page. The status of each report will either be <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. The system (or human intervention if necessary) will then analyze them and improve the detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.
 
 ### HTTP Request
 
@@ -880,7 +889,7 @@ Here is an example listing on the dashboard:
 
 # 🧪 Testing
 
-After integrating the API, you may want to test various use cases. To help you get started, here's a table displaying the blocked IP addresses, email addresses, and content.
+After integrating the API, you may want to test different use cases. To help you get started, here's a table of blocked IP addresses, email addresses, and content.
 
 
 | content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       	| IP                           	| Email                              	|
@@ -889,5 +898,5 @@ After integrating the API, you may want to test various use cases. To help you g
 
 # 💡 Tips
 
-- Responded ```Score``` parameter value ranges from 0 to 6. A value 3 or higher can be considered spam.
-- Make async HTTP request instead of sync as the system check ```senderIP``` against multiple IP denylists until it finds it.
+- Responded ```Score``` parameter value ranges from 0 to 6. Any value of 3 or higher can be regarded as spam.
+- Make an async HTTP request instead of a sync one, as the system will check the sender IP against multiple IP denial lists until it finds it.

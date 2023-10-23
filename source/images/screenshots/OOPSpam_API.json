@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "422afe44-9793-4a24-aaee-e0d47e083234",
+		"name": "OOPSpam API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14518409",
+		"_collection_link": "https://www.postman.com/onar/workspace/oopspam-workspace/collection/14518409-422afe44-9793-4a24-aaee-e0d47e083234?action=share&source=collection_link&creator=14518409"
+	},
+	"item": [
+		{
+			"name": "Request via OOPSpam Dashboard endpoint",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "YOUR-API-KEY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"checkForLength\": true,\n    \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n    \"senderIP\": \"185.234.219.246\",\n    \"allowedCountries\": [\n        \"it\",\n        \"us\"\n    ],\n    \"allowedLanguages\": [\n        \"en\"\n    ],\n    \"blockedCountries\": [\n        \"ru\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://api.oopspam.com/v1/spamdetection",
+					"protocol": "https",
+					"host": [
+						"api",
+						"oopspam",
+						"com"
+					],
+					"path": [
+						"v1",
+						"spamdetection"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request via RapidAPI endpoint",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-rapidapi-host",
+						"value": "oopspam.p.rapidapi.com"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "YOUR-API-KEY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"checkForLength\": true,\n    \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n    \"senderIP\": \"185.234.219.246\",\n    \"allowedCountries\": [\n        \"it\",\n        \"us\"\n    ],\n    \"allowedLanguages\": [\n        \"en\"\n    ],\n    \"blockedCountries\": [\n        \"ru\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://oopspam.p.rapidapi.com/v1/spamdetection",
+					"protocol": "https",
+					"host": [
+						"oopspam",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"spamdetection"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
