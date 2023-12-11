@@ -63,6 +63,7 @@ Submit messages to the API and it will generate a spam ```Score``` with a detail
     "senderIP": "91.203.67.110",
     "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    "blockTempEmail": false,
     "checkForLength": true,
     "urlFriendly": false,
     "allowedLanguages" : ["en"],
@@ -307,6 +308,7 @@ curl --request POST \
 #	--header 'x-rapidapi-key: YOUR_API_KEY' \
 	--data '{
     "checkForLength": true,
+    "blockTempEmail": false,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -326,6 +328,7 @@ curl --request POST \
 ```javascript
 const data = JSON.stringify({
 	"checkForLength": true,
+    "blockTempEmail": false,
 	"content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
 	"senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -441,6 +444,7 @@ $request = new http\Client\Request;
 $body = new http\Message\Body;
 $body->append('{
     "checkForLength": true,
+    "blockTempEmail": false,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -553,6 +557,13 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                             </ul>
                             </td>
                     </tr>
+                    <tr>
+                      <td><code>blockTempEmail</code> <small style="background-color: #fbcf50;border-radius: 1em;
+padding-right: 5px;
+padding-left: 5px;
+font-weight: bold;">default:false</small></td>
+                      <td><strong>boolean (optional)</strong> Block temporary/disposable emails.</td>
+                  </tr>
                   <tr>
                       <td><code>checkForLength</code> <small style="background-color: #fbcf50;border-radius: 1em;
 padding-right: 5px;
@@ -850,6 +861,7 @@ You can use this endpoint to report any false positives and false negatives to u
     "senderIP": "91.203.67.110",
     "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    "blockTempEmail": false,
     "checkForLength": true,
     "allowedLanguages" : ["en"],
     "allowedCountries" : ["it","us"],
