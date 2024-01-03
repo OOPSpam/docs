@@ -416,6 +416,7 @@
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"blockTempEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"logIt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"urlFriendly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
@@ -654,6 +655,7 @@ headers have the following meaning:</p>
     <span class="nt">--data</span> <span class="s1">'{
     "checkForLength": true,
     "blockTempEmail": false,
+    "logIt": false,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -671,6 +673,7 @@ headers have the following meaning:</p>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">checkForLength</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">blockTempEmail</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">logIt</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">content</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">senderIP</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">185.234.219.246</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">testing@example.com</span><span class="dl">"</span><span class="p">,</span>
@@ -775,6 +778,7 @@ headers have the following meaning:</p>
 <span class="nv">$body</span><span class="o">-&gt;</span><span class="nf">append</span><span class="p">(</span><span class="s1">'{
     "checkForLength": true,
     "blockTempEmail": false,
+    "logIt": false,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -893,6 +897,13 @@ padding-right: 5px;
 padding-left: 5px;
 font-weight: bold;">default:true</small></td>
                       <td><strong>boolean (optional)</strong> If the content is shorter than 20 characters, it will be considered spam (<code>Score: 5</code>) and returns <code>isContentTooShort: true</code>.</td>
+                  </tr>
+                   <tr>
+                      <td><code>logIt</code> <small style="background-color: #fbcf50;border-radius: 1em;
+padding-right: 5px;
+padding-left: 5px;
+font-weight: bold;">default:false</small></td>
+                      <td><strong>boolean (optional)</strong> Allows you to view logs in the OOPSpam Dashboard.</td>
                   </tr>
                    <tr>
                       <td><code>urlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
@@ -1177,6 +1188,7 @@ font-weight: bold;">default:false</small><small style="
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"blockTempEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"logIt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"allowedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">],</span><span class="w">
