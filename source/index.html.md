@@ -2,7 +2,7 @@
 title: OOPSpam API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell: cURL
+  - shell
   - ruby
   - python
   - php
@@ -24,6 +24,10 @@ includes:
 search: true
 
 code_clipboard: true
+
+meta:
+  - name: description
+    content: Documentation for the Kittn API
 ---
 
 # 👋  Introduction
