@@ -64,6 +64,7 @@ Submit messages to the API and it will generate a spam ```Score``` with a detail
     "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "blockTempEmail": false,
+    "logIt": false,
     "checkForLength": true,
     "urlFriendly": false,
     "allowedLanguages" : ["en"],
@@ -309,6 +310,7 @@ curl --request POST \
 	--data '{
     "checkForLength": true,
     "blockTempEmail": false,
+    "logIt": false,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -329,6 +331,7 @@ curl --request POST \
 const data = JSON.stringify({
 	"checkForLength": true,
     "blockTempEmail": false,
+    "logIt": false,
 	"content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
 	"senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -445,6 +448,7 @@ $body = new http\Message\Body;
 $body->append('{
     "checkForLength": true,
     "blockTempEmail": false,
+    "logIt": false,
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -572,6 +576,13 @@ font-weight: bold;">default:true</small></td>
                       <td><strong>boolean (optional)</strong> If the content is shorter than 20 characters, it will be considered spam (<code>Score: 5</code>) and returns <code>isContentTooShort: true</code>.</td>
                   </tr>
                    <tr>
+                      <td><code>logIt</code> <small style="background-color: #fbcf50;border-radius: 1em;
+padding-right: 5px;
+padding-left: 5px;
+font-weight: bold;">default:false</small></td>
+                      <td><strong>boolean (optional)</strong> Allows you to view logs in the OOPSpam Dashboard.</td>
+                  </tr>
+                   <tr>
                       <td><code>urlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
 padding-right: 5px;
 padding-left: 5px;
@@ -618,7 +629,7 @@ font-weight: bold;">default:false</small><small style="
                                 <td><strong>number</strong> - A value between 0-6 that represents an overall spam score based on the parameters passed. The higher the score, the more likely it is to be spam.
                                 <aside  >
                                 <div class="success">
-                            👉 While it depends on yhe use case, generally a <code>Score</code> 3 and above can be considered spam.</div></aside>
+                            👉 While it depends on your use case, generally a <code>Score</code> 3 and above can be considered spam.</div></aside>
                                 </td>
                             </tr>
                             <tr>
@@ -862,6 +873,7 @@ You can use this endpoint to report any false positives and false negatives to u
     "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "blockTempEmail": false,
+    "logIt": false,
     "checkForLength": true,
     "allowedLanguages" : ["en"],
     "allowedCountries" : ["it","us"],
