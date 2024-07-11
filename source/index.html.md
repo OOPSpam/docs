@@ -921,9 +921,11 @@ This endpoint evaluates the reputation of a given domain name by cross-referenci
 
 Note: The list of providers may be updated periodically to ensure comprehensive coverage.
 
- <div class="success">                           
+<aside>
+<div  class="success">
 👉 If you want to periodically check your domains for their reputation and get an email alert when they are blocked, use the Domain Watch feature on the OOPSpam Dashboard. This tool allows you to set up automatic monitoring and receive timely notifications about any changes in your domains' status.
 </div>
+</aside>
 
 ![Domain Reputation Watch by OOPSpam](https://www.oopspam.com/blog/assets/posts/do-watch/do-watch-screenshot.png)
 
