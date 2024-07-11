@@ -915,7 +915,7 @@ Here is an example listing on the dashboard:
 
 ![OOPSpam Dashboard Reported page](images/screenshots/sc_reported.png)
 
-### Domain Reputation
+## Domain Reputation
 
 This endpoint evaluates the reputation of a given domain name by cross-referencing it against multiple authoritative sources, including Google, Microsoft, Mozilla, and various other reputable security providers.
 
