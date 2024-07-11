@@ -923,9 +923,9 @@ Note: The list of providers may be updated periodically to ensure comprehensive 
 
  <div class="success">                           
 👉 If you want to periodically check your domains for their reputation and get an email alert when they are blocked, use the Domain Watch feature on the OOPSpam Dashboard. This tool allows you to set up automatic monitoring and receive timely notifications about any changes in your domains' status.
-<img width="100%" alt="Domain Reputation Watch by OOPSpam" src="https://www.oopspam.com/blog/assets/posts/do-watch/do-watch-screenshot.png">
 </div>
 
+![Domain Reputation Watch by OOPSpam](https://www.oopspam.com/blog/assets/posts/do-watch/do-watch-screenshot.png)
 
 > Example request
 
