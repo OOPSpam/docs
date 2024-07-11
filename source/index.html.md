@@ -156,7 +156,7 @@ It allows you to
 - Follow your usage in real time
 - Manage your subscription and change it if necessary
 - Test the endpoint without writing a single line of code.
-- Access to the [Domain Reputation Watch](https://www.oopspam.com/blog/domain-reputation)
+- Access to the [Domain Reputation Watch](https://www.oopspam.com/blog/domain-reputation) and the API
 - Access to live chat support
 
 <aside>
@@ -914,6 +914,83 @@ The request body is identical to [/spamdetection](#spam-detection) endpoint. The
 Here is an example listing on the dashboard:
 
 ![OOPSpam Dashboard Reported page](images/screenshots/sc_reported.png)
+
+### Domain Reputation
+
+This endpoint evaluates the reputation of a given domain name by cross-referencing it against multiple authoritative sources, including Google, Microsoft, Mozilla, and various other reputable security providers.
+
+Note: The list of providers may be updated periodically to ensure comprehensive coverage.
+
+> Example request
+
+```json
+{
+	"domain": "example.com"
+}
+```
+
+### HTTP Request
+
+`POST /reputation/domain`
+
+### Request Body Parameters
+
+<table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Field</th>
+                                <th scope="col">Definition</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>domain</code></td>
+                                <td><strong>string</strong> - The fully qualified domain name to be checked without `https`, `http`, `www`. 
+                            </tr>
+                            </tbody>
+                        </table>
+
+> An example response for a blocked domain
+
+```json
+{
+	"Blocked": true,
+	"Blocker": [
+		"SURBL",
+		"Spamhaus"
+	]
+}
+```
+
+> An example response for a safe domain
+
+```json
+{
+	"Blocked": false,
+	"Blocker": []
+}
+```
+
+### Response Body Parameters
+
+<table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Field</th>
+                                <th scope="col">Definition</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>Blocked</code></td>
+                                <td><strong>boolean</strong> - Indicates whether the specified `domain` parameter is flagged as blocked or unsafe by any of the reputation sources.
+                            </tr>
+                            <tr>
+                                <td><code>Blocker</code></td>
+                                <td><strong>array</strong> - Lists the names of specific providers that have flagged the domain, if any.
+                            </tr>
+                            </tbody>
+                        </table>
 
 # 🧪 Testing
 
