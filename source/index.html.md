@@ -923,7 +923,7 @@ Note: The list of providers may be updated periodically to ensure comprehensive 
 
 <aside>
 <div  class="success">
-👉 If you want to periodically check your domains for their reputation and get an email alert when they are blocked, use the Domain Watch feature on the OOPSpam Dashboard. This tool allows you to set up automatic monitoring and receive timely notifications about any changes in your domains' status.
+👉 If you want to periodically check your domains for their reputation and get an email alert when they are blocked, use <a href="https://www.oopspam.com/blog/domain-reputation">the Domain Watch</a> feature on <a href="https://app.oopspam.com/DomainWatcher">the OOPSpam Dashboard</a>. This tool allows you to set up automatic monitoring and receive timely notifications about any changes in your domains' status.
 </div>
 </aside>
 
