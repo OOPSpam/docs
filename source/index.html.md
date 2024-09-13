@@ -332,15 +332,10 @@ if __name__ == "__main__":
 
 ```shell
 curl --request POST \
-# Make sure to use correct base URL
- --url https://api.oopspam.com/v1/spamdetection \
-#	--url https://oopspam.p.rapidapi.com/v1/spamdetection \
-	--header 'content-type: application/json' \
-# Make sure to use correct HEADERS based on your endpoint
-    --header 'X-Api-Key: YOUR_API_KEY'
-#	--header 'x-rapidapi-host: oopspam.p.rapidapi.com' \
-#	--header 'x-rapidapi-key: YOUR_API_KEY' \
-	--data '{
+  --url https://api.oopspam.com/v1/spamdetection \
+  --header 'Content-Type: application/json' \
+  --header 'X-Api-Key: YOUR_API_KEY' \
+  --data '{
     "checkForLength": true,
     "blockTempEmail": false,
     "logIt": false,
@@ -356,8 +351,8 @@ curl --request POST \
     ],
     "blockedCountries": [
         "ru"
-    ],
-}'
+    ]
+  }'
 ```
 
 ```javascript
