@@ -255,50 +255,79 @@ If you exceed this limit, your application will not be able to make any more req
 ```ruby
 require 'uri'
 require 'net/http'
-require 'openssl'
+require 'json'
 
-# Make sure to use correct base URL
-#url = URI("https://oopspam.p.rapidapi.com/v1/spamdetection")
-url = URI("https://api.oopspam.com/v1/spamdetection")
+API_KEY = 'YOUR_API_KEY'
+API_URL = 'https://api.oopspam.com/v1/spamdetection'
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+def check_for_spam
+  uri = URI(API_URL)
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
-request = Net::HTTP::Post.new(url)
-request["content-type"] = 'application/json'
+  request = Net::HTTP::Post.new(uri)
+  request['Content-Type'] = 'application/json'
+  request['X-Api-Key'] = API_KEY
 
-# Make sure to use correct HEADERS based on your endpoint
-#request["x-rapidapi-key"] = 'YOUR_API_KEY'
-#request["x-rapidapi-host"] = 'oopspam.p.rapidapi.com'
-request["X-Api-Key"] = 'YOUR_API_KEY'
+  request_body = {
+    checkForLength: true,
+    content: "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+    senderIP: "185.234.219.246",
+    email: "testing@example.com"
+  }
 
-request.body = "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}"
+  request.body = request_body.to_json
 
-response = http.request(request)
-puts response.read_body
+  response = http.request(request)
+
+  if response.is_a?(Net::HTTPSuccess)
+    JSON.parse(response.body)
+  else
+    raise "Request failed with status: #{response.code}, body: #{response.body}"
+  end
+end
+
+begin
+  result = check_for_spam
+  puts result
+rescue StandardError => e
+  puts "An error occurred: #{e.message}"
+end
 ```
 
 ```python
 import requests
+import json
 
-# Make sure to use correct base URL
-#url = "https://oopspam.p.rapidapi.com/v1/spamdetection"
-url = "https://api.oopspam.com/v1/spamdetection"
+API_KEY = 'YOUR_API_KEY'
+API_URL = 'https://api.oopspam.com/v1/spamdetection'
 
-payload = "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}"
-
-# Make sure to use correct HEADERS based on your endpoint
-headers = {
-    'content-type': "application/json",
-    'X-Api-Key': "YOUR_API_KEY",
-    #'x-rapidapi-key': "YOUR_API_KEY",
-    #'x-rapidapi-host': "oopspam.p.rapidapi.com"
+def check_for_spam():
+    headers = {
+        'Content-Type': 'application/json',
+        'X-Api-Key': API_KEY
     }
 
-response = requests.request("POST", url, data=payload, headers=headers)
+    payload = {
+        'checkForLength': True,
+        'content': "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+        'senderIP': "185.234.219.246",
+        'email': "testing@example.com"
+    }
 
-print(response.text)
+    try:
+        response = requests.post(API_URL, json=payload, headers=headers)
+        response.raise_for_status()  # Raises an HTTPError for bad responses
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        return None
+
+if __name__ == "__main__":
+    result = check_for_spam()
+    if result:
+        print(json.dumps(result, indent=2))  # Pretty print the JSON response
 ```
 
 ```shell
@@ -332,153 +361,216 @@ curl --request POST \
 ```
 
 ```javascript
-const data = JSON.stringify({
-	"checkForLength": true,
-    "blockTempEmail": false,
-    "logIt": false,
-	"content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
-	"senderIP": "185.234.219.246",
-    "email": "testing@example.com",
-  "allowedCountries": [
-		"it",
-		"us"
-	],
-	"allowedLanguages": [
-		"en"
-	],
-    "blockedCountries": [
-		"ru"
-	]
-});
+const apiKey = 'YOUR_API_KEY';
+const apiUrl = 'https://api.oopspam.com/v1/spamdetection';
 
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+const requestData = {
+  checkForLength: true,
+  blockTempEmail: false,
+  logIt: false,
+  content: "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+  senderIP: "185.234.219.246",
+  email: "testing@example.com",
+  allowedCountries: ["it", "us"],
+  allowedLanguages: ["en"],
+  blockedCountries: ["ru"]
+};
 
-xhr.addEventListener("readystatechange", function () {
-	if (this.readyState === this.DONE) {
-		console.log(this.responseText);
-	}
-});
+async function checkForSpam() {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Api-Key': apiKey
+      },
+      body: JSON.stringify(requestData)
+    });
 
-// Make sure to use correct base URL
-//xhr.open("POST", "https://oopspam.p.rapidapi.com/v1/spamdetection");
- xhr.open("POST", "https://api.oopspam.com/v1/spamdetection");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-xhr.setRequestHeader("content-type", "application/json");
-
-// Make sure to use correct HEADERS based on your endpoint
-   xhr.setRequestHeader("X-Api-Key", "YOUR_API_KEY");
-// xhr.setRequestHeader("x-rapidapi-key", "YOUR_API_KEY");
-// xhr.setRequestHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
-
-xhr.send(data);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+  }
+}
 ```
 
 ```java
 HttpRequest request = HttpRequest.newBuilder()
-//  Make sure to use correct base URL
-//      .uri(URI.create("https://oopspam.p.rapidapi.com/v1/spamdetection"))
-		.uri(URI.create("https://api.oopspam.com/v1/spamdetection"))
-		.header("content-type", "application/json")
-    // Make sure to use correct HEADERS based on your endpoint
-        .header("X-Api-Key", "YOUR_API_KEY")
-//	    .header("x-rapidapi-key", "YOUR_API_KEY")
-//		.header("x-rapidapi-host", "oopspam.p.rapidapi.com")
-		.method("POST", HttpRequest.BodyPublishers.ofString("{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}"))
-		.build();
-HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
+    .uri(URI.create("https://api.oopspam.com/v1/spamdetection"))
+    .header("content-type", "application/json")
+    .header("X-Api-Key", "YOUR_API_KEY")  // Replace with your actual API key
+    .method("POST", HttpRequest.BodyPublishers.ofString("{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}"))
+    .build();
+
+try {
+    HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+    System.out.println(response.body());
+} catch (Exception e) {
+    e.printStackTrace();
+}
+
 ```
 
 ```csharp
-//  Make sure to use correct base URL
-   var client = new RestClient("https://api.oopspam.com/v1/spamdetection");
-// var client = new RestClient("https://oopspam.p.rapidapi.com/v1/spamdetection");
+using RestSharp;
+using Newtonsoft.Json; // or System.Text.Json
 
-var request = new RestRequest(Method.POST);
-request.AddHeader("content-type", "application/json");
-// Make sure to use correct HEADERS based on your endpoint
-request.AddHeader("X-Api-Key", "YOUR_API_KEY");
-// request.AddHeader("x-rapidapi-key", "YOUR_API_KEY");
-// request.AddHeader("x-rapidapi-host", "oopspam.p.rapidapi.com");
-request.AddParameter("application/json", "{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}", ParameterType.RequestBody);
-IRestResponse response = client.Execute(request);
+// Create a class to represent the request body
+public class SpamRequest
+{
+    [JsonProperty("checkForLength")]
+    public bool CheckForLength { get; set; }
+
+    [JsonProperty("content")]
+    public string Content { get; set; }
+
+    [JsonProperty("senderIP")]
+    public string SenderIP { get; set; }
+
+    [JsonProperty("email")]
+    public string Email { get; set; }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Create a client with the correct base URL
+        var client = new RestClient("https://api.oopspam.com/v1/spamdetection");
+
+        // Create a request
+        var request = new RestRequest(Method.POST);
+        request.AddHeader("Content-Type", "application/json");
+        request.AddHeader("X-Api-Key", "YOUR_API_KEY"); // Use actual API key
+
+        // Create the request body object with exact property names
+        var spamRequest = new SpamRequest
+        {
+            CheckForLength = true,
+            Content = "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+            SenderIP = "185.234.219.246",
+            Email = "testing@example.com"
+        };
+
+        // Serialize the object to JSON with the exact names
+        string requestBody = JsonConvert.SerializeObject(spamRequest);
+
+        // Add the JSON payload to the request body
+        request.AddParameter("application/json", requestBody, ParameterType.RequestBody);
+
+        // Execute the request
+        IRestResponse response = client.Execute(request);
+        System.Console.WriteLine(response.Content);
+    }
+}
 ```
 
 ```go
 package main
 
 import (
-	"fmt"
-	"strings"
-	"net/http"
-	"io/ioutil"
+    "fmt"
+    "io/ioutil"
+    "net/http"
+    "strings"
+    "log"
 )
 
 func main() {
 
-// Make sure to use correct base URL
+    // Make sure to use correct base URL
     url := "https://api.oopspam.com/v1/spamdetection"
-//	url := "https://oopspam.p.rapidapi.com/v1/spamdetection"
 
-	payload := strings.NewReader("{\n \"checkForLength\": true,\n \"content\": \"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.\",\n  \"senderIP\": \"185.234.219.246\",\n  \"email\": \"testing@example.com\"\n}")
+    payload := strings.NewReader(`{
+        "checkForLength": true,
+        "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+        "senderIP": "185.234.219.246",
+        "email": "testing@example.com"
+    }`)
 
-	req, _ := http.NewRequest("POST", url, payload)
+    req, err := http.NewRequest("POST", url, payload)
+    if err != nil {
+        log.Fatalf("Error creating request: %v", err)
+    }
 
-	req.Header.Add("content-type", "application/json")
-// Make sure to use correct HEADERS based on your endpoint
+    // Set the required headers
+    req.Header.Add("Content-Type", "application/json")
     req.Header.Add("X-Api-Key", "YOUR_API_KEY")
-//	req.Header.Add("x-rapidapi-key", "YOUR_API_KEY")
-//	req.Header.Add("x-rapidapi-host", "oopspam.p.rapidapi.com")
 
-	res, _ := http.DefaultClient.Do(req)
+    client := &http.Client{}
+    res, err := client.Do(req)
+    if err != nil {
+        log.Fatalf("Error sending request: %v", err)
+    }
+    defer res.Body.Close()
 
-	defer res.Body.Close()
-	body, _ := ioutil.ReadAll(res.Body)
+    body, err := ioutil.ReadAll(res.Body)
+    if err != nil {
+        log.Fatalf("Error reading response body: %v", err)
+    }
 
-	fmt.Println(res)
-	fmt.Println(string(body))
-
+    fmt.Println("Response Status:", res.Status)
+    fmt.Println("Response Body:", string(body))
 }
 ```
 
 ```php
 <?php
 
-$client = new http\Client;
-$request = new http\Client\Request;
+const API_KEY = 'YOUR_API_KEY';
+const API_URL = 'https://api.oopspam.com/v1/spamdetection';
 
-$body = new http\Message\Body;
-$body->append('{
-    "checkForLength": true,
-    "blockTempEmail": false,
-    "logIt": false,
-    "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
-    "senderIP": "185.234.219.246",
-    "email": "testing@example.com",
-}');
+function checkForSpam() {
+    $payload = json_encode([
+        'checkForLength' => true,
+        'blockTempEmail' => false,
+        'logIt' => false,
+        'content' => "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
+        'senderIP' => "185.234.219.246",
+        'email' => "testing@example.com",
+    ]);
 
-// Make sure to use correct base URL
-$request->setRequestUrl('https://api.oopspam.com/v1/spamdetection');
-// $request->setRequestUrl('https://oopspam.p.rapidapi.com/v1/spamdetection');
-$request->setRequestMethod('POST');
-$request->setBody($body);
+    $ch = curl_init(API_URL);
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $payload,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => [
+            'Content-Type: application/json',
+            'X-Api-Key: ' . API_KEY
+        ]
+    ]);
 
-// Make sure to use correct HEADERS based on your endpoint
-$request->setHeaders([
-	'content-type' => 'application/json',
-	'X-Api-Key' => 'YOUR_API_KEY'
-]);
-// $request->setHeaders([
-// 	'content-type' => 'application/json',
-// 	'x-rapidapi-key' => 'YOUR_API_KEY',
-// 	'x-rapidapi-host' => 'oopspam.p.rapidapi.com'
-// ]);
+    $response = curl_exec($ch);
 
-$client->enqueue($request)->send();
-$response = $client->getResponse();
+    if ($response === false) {
+        $error = curl_error($ch);
+        curl_close($ch);
+        throw new Exception("cURL Error: $error");
+    }
 
-echo $response->getBody();
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($httpCode >= 400) {
+        throw new Exception("HTTP Error: $httpCode, Response: $response");
+    }
+
+    return json_decode($response, true);
+}
+
+try {
+    $result = checkForSpam();
+    echo json_encode($result, JSON_PRETTY_PRINT);
+} catch (Exception $e) {
+    echo "An error occurred: " . $e->getMessage();
+}
 ```
 
 > The above command may return JSON structured like this:
