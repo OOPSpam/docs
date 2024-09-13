@@ -676,15 +676,10 @@ headers have the following meaning:</p>
     <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># Pretty print the JSON response
 </span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
-<span class="c"># Make sure to use correct base URL</span>
- <span class="nt">--url</span> https://api.oopspam.com/v1/spamdetection <span class="se">\</span>
-<span class="c">#   --url https://oopspam.p.rapidapi.com/v1/spamdetection \</span>
-    <span class="nt">--header</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-<span class="c"># Make sure to use correct HEADERS based on your endpoint</span>
-    <span class="nt">--header</span> <span class="s1">'X-Api-Key: YOUR_API_KEY'</span>
-<span class="c">#   --header 'x-rapidapi-host: oopspam.p.rapidapi.com' \</span>
-<span class="c">#   --header 'x-rapidapi-key: YOUR_API_KEY' \</span>
-    <span class="nt">--data</span> <span class="s1">'{
+  <span class="nt">--url</span> https://api.oopspam.com/v1/spamdetection <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'X-Api-Key: YOUR_API_KEY'</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'{
     "checkForLength": true,
     "blockTempEmail": false,
     "logIt": false,
@@ -700,8 +695,8 @@ headers have the following meaning:</p>
     ],
     "blockedCountries": [
         "ru"
-    ],
-}'</span>
+    ]
+  }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">apiKey</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">apiUrl</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://api.oopspam.com/v1/spamdetection</span><span class="dl">'</span><span class="p">;</span>
 
