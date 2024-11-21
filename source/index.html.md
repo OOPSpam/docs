@@ -631,7 +631,7 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                   <tbody>
                    <tr>
                         <td><code>content</code></td>
-                      <td><strong>string (required)</strong> Is a content/message you would like to be analyzed.</td>
+                      <td><strong>string (optional)</strong> Is a content/message you would like to be analyzed.</td>
                     </tr>
                     <tr>
                       <td><code>senderIP</code></td>
