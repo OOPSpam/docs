@@ -634,6 +634,13 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                       <td><strong>string (optional)</strong> Is a content/message you would like to be analyzed.</td>
                     </tr>
                     <tr>
+                     <tr>
+                        <td><code>context</code></td>
+                      <td><strong>string (optional)</strong> Briefly describe your website's purpose or business (2-3 sentences maximum). This could include a post title or product description. For more details, please refer to the announcement. 
+<p>Use this feature ONLY if your forms include a required textarea field, as it relies on message content to function properly.</p>
+<p>When the context parameter with a value is passed to the API, standard spam detection will be disabled and only Contextual Detection will be applied.<p></td>
+                    </tr>
+                    <tr>
                       <td><code>senderIP</code></td>
                         <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple IP denylists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
                             <p><strong>Important:</strong> </p>
@@ -683,7 +690,7 @@ font-weight: bold;">default:false</small><small style="
 	padding-left: 5px;
 	font-weight: bold;
 	color: white;">new</small></td>
-                      <td><strong>boolean (optional)</strong> Block Data Center IPs filters out traffic from cloud providers.</td>
+                      <td><strong>boolean (optional)</strong> Block Data Center IPs. Filters out submissions from cloud providers.</td>
                   </tr>
                   <tr>
                       <td><code>checkForLength</code> <small style="background-color: #fbcf50;border-radius: 1em;
