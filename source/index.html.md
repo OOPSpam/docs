@@ -68,7 +68,8 @@ Submit messages to the API and it will generate a spam ```Score``` with a detail
     "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "blockTempEmail": false,
-    "logIt": false,
+    "logIt": true,
+    "source": "example.com",
     "checkForLength": true,
     "urlFriendly": false,
     "allowedLanguages" : ["en"],
@@ -338,7 +339,8 @@ curl --request POST \
   --data '{
     "checkForLength": true,
     "blockTempEmail": false,
-    "logIt": false,
+    "logIt": true,
+    "source": "example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -362,7 +364,8 @@ const apiUrl = 'https://api.oopspam.com/v1/spamdetection';
 const requestData = {
   checkForLength: true,
   blockTempEmail: false,
-  logIt: false,
+  logIt: true,
+  source: "example.com",
   content: "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
   senderIP: "185.234.219.246",
   email: "testing@example.com",
@@ -636,13 +639,14 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                     <tr>
                      <tr>
                         <td><code>context</code></td>
-                      <td><strong>string (optional)</strong> Briefly describe your website's purpose or business (2-3 sentences maximum). This could include a post title or product description. For more details, please refer to the announcement. 
+                      <td><strong>string (optional)</strong> Briefly describe your website's purpose or business (2-3 sentences maximum). This could include a post title or product description. For more details, please refer to <a href="https://www.oopspam.com/blog/introducing-contextual-spam-detection">the announcement</a>. 
+                      <p></p>
 <p>Use this feature ONLY if your forms include a required textarea field, as it relies on message content to function properly.</p>
 <p>When the context parameter with a value is passed to the API, standard spam detection will be disabled and only Contextual Detection will be applied.<p></td>
                     </tr>
                     <tr>
                       <td><code>senderIP</code></td>
-                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple IP denylists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it.
+                        <td><strong>string (optional)</strong> Is the IP address of the original content/message sender. This field value will be looked up in multiple IP denylists that previously detected sending spam. Although <code>senderIP</code> is an optional field, we recommend sending it. <p></p>
                             <p><strong>Important:</strong> </p>
                             <ul>
                                 <li>This field should include spammer's IP, in other words, whoever submitted content to you, not your IP.</li>
@@ -704,7 +708,11 @@ font-weight: bold;">default:true</small></td>
 padding-right: 5px;
 padding-left: 5px;
 font-weight: bold;">default:false</small></td>
-                      <td><strong>boolean (optional)</strong> Allows you to view logs in the OOPSpam Dashboard.</td>
+                      <td><strong>boolean (optional)</strong> Allows you to view logs in the OOPSpam Dashboard. No logs are kept by default. Enable logs by setting this to <code>true</code> and including the <code>source</code> parameter with a unique identifier.</td>
+                  </tr>
+                   <tr>
+                      <td><code>source</code></td>
+                      <td><strong>string (optional)</strong> A unique identifier for your application or website (e.g., "example.com"). Required when <code>logIt</code> is set to <code>true</code> to enable logging in the OOPSpam Dashboard.</td>
                   </tr>
                    <tr>
                       <td><code>urlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
@@ -712,7 +720,7 @@ padding-right: 5px;
 padding-left: 5px;
 font-weight: bold;">default:false</small><small style="
 	background-color: red;
-	border-radius: 1em;
+	borderradius: 1em;
 	padding-right: 5px;
 	padding-left: 5px;
 	font-weight: bold;
@@ -770,7 +778,7 @@ font-weight: bold;">default:false</small><small style="
                             </tr>
                             <tr>
                                 <td><code>langMatch</code></td>
-                                <td><strong>boolean</strong> - Represents whether the value of the parameter <code>allowedLanguages</code> matches with the detected language by Language Detection algorithm.</td>
+              -                  <td><strong>boolean</strong> - Represents whether the value of the parameter <code>allowedLanguages</code> matches with the detected language by Language Detection algorithm.</td>
                             </tr>
                             <tr>
                                 <td><code>isContentSpam</code></td>
@@ -997,7 +1005,8 @@ You can use this endpoint to report any false positives and false negatives to u
     "email": "testing@example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "blockTempEmail": false,
-    "logIt": false,
+    "logIt": true,
+    "source": "example.com",
     "checkForLength": true,
     "allowedLanguages" : ["en"],
     "allowedCountries" : ["it","us"],
