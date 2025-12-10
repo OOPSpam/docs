@@ -419,7 +419,8 @@
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"blockTempEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"logIt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"logIt"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"urlFriendly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
@@ -682,7 +683,8 @@ headers have the following meaning:</p>
   <span class="nt">--data</span> <span class="s1">'{
     "checkForLength": true,
     "blockTempEmail": false,
-    "logIt": false,
+    "logIt": true,
+    "source": "example.com",
     "content": "Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.",
     "senderIP": "185.234.219.246",
     "email": "testing@example.com",
@@ -703,7 +705,8 @@ headers have the following meaning:</p>
 <span class="kd">const</span> <span class="nx">requestData</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">checkForLength</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="na">blockTempEmail</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="na">logIt</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">logIt</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">source</span><span class="p">:</span> <span class="dl">"</span><span class="s2">example.com</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">content</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation.</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">senderIP</span><span class="p">:</span> <span class="dl">"</span><span class="s2">185.234.219.246</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">email</span><span class="p">:</span> <span class="dl">"</span><span class="s2">testing@example.com</span><span class="dl">"</span><span class="p">,</span>
@@ -1027,7 +1030,11 @@ font-weight: bold;">default:true</small></td>
 padding-right: 5px;
 padding-left: 5px;
 font-weight: bold;">default:false</small></td>
-                      <td><strong>boolean (optional)</strong> Allows you to view logs in the OOPSpam Dashboard.</td>
+                      <td><strong>boolean (optional)</strong> Allows you to view logs in the OOPSpam Dashboard. No logs are kept by default. Enable logs by setting this to <code>true</code> and including the <code>source</code> parameter with a unique identifier.</td>
+                  </tr>
+                   <tr>
+                      <td><code>source</code></td>
+                      <td><strong>string (optional)</strong> A unique identifier for your application or website (e.g., "example.com"). Required when <code>logIt</code> is set to <code>true</code> to enable logging in the OOPSpam Dashboard.</td>
                   </tr>
                    <tr>
                       <td><code>urlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
@@ -1035,7 +1042,7 @@ padding-right: 5px;
 padding-left: 5px;
 font-weight: bold;">default:false</small><small style="
     background-color: red;
-    border-radius: 1em;
+    borderradius: 1em;
     padding-right: 5px;
     padding-left: 5px;
     font-weight: bold;
@@ -1091,7 +1098,7 @@ font-weight: bold;">default:false</small><small style="
                             </tr>
                             <tr>
                                 <td><code>langMatch</code></td>
-                                <td><strong>boolean</strong> - Represents whether the value of the parameter <code>allowedLanguages</code> matches with the detected language by Language Detection algorithm.</td>
+              -                  <td><strong>boolean</strong> - Represents whether the value of the parameter <code>allowedLanguages</code> matches with the detected language by Language Detection algorithm.</td>
                             </tr>
                             <tr>
                                 <td><code>isContentSpam</code></td>
@@ -1312,7 +1319,8 @@ font-weight: bold;">default:false</small><small style="
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Agent, We are a manufacturing company which specializes in supplying Aluminum Rod with Zinc Alloy Rod to customers worldwide, based in Japan, Asia. We have been unable to follow up payments effectively for transactions with debtor customers in your country due to our distant locations, thus our reason for requesting for your services representation."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"blockTempEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"logIt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"logIt"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"checkForLength"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"allowedLanguages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"allowedCountries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="s2">"us"</span><span class="p">],</span><span class="w">
