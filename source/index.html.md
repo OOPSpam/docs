@@ -639,7 +639,7 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
                     <tr>
                      <tr>
                         <td><code>context</code></td>
-                      <td><strong>string (optional)</strong> Briefly describe your website's purpose or business (2-3 sentences maximum). This could include a post title or product description. For more details, please refer to <a href="https://www.oopspam.com/blog/introducing-contextual-spam-detection">the announcement</a>. 
+                      <td><strong>string (optional)</strong> Briefly describe your website's purpose or business. For best results, include what types of submissions you consider spam and what you consider legitimate. For more details, please refer to <a href="https://www.oopspam.com/blog/introducing-contextual-spam-detection">the announcement</a>. 
                       <p></p>
 <p>Use this feature ONLY if your forms include a required textarea field, as it relies on message content to function properly.</p>
 <p>When the context parameter with a value is passed to the API, standard spam detection will be disabled and only Contextual Detection will be applied.<p></td>
