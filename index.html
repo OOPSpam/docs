@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>OOPSpam API Reference</title>
-    <meta name='description' content='OOPSpam is a spam detection API that detects spam, abuse, and phishing.'>. 
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="OOPSpam API Reference" />
-    <meta property="og:description" content="OOPSpam is a spam detection API that detects spam, abuse, and phishing." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="images/cover-8d2e85c0.png" />
-    <meta property="og:url" content="https://www.oopspam.com/docs" />
+    <title>Spam Detection API Reference | oopspam</title>
+    <meta name="description" content="Spam detection API reference: check form messages, IPs and emails for spam, report mistakes and look up domain reputation. Examples in 8 languages.">
+    <link rel="canonical" href="https://www.oopspam.com/docs/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Spam Detection API Reference | oopspam">
+    <meta property="og:description" content="Spam detection API reference: check form messages, IPs and emails for spam, report mistakes and look up domain reputation. Examples in 8 languages.">
+    <meta property="og:url" content="https://www.oopspam.com/docs/">
+    <meta property="og:image" content="https://www.oopspam.com/docs/images/cover.png">
     <link href="images/favicon-dd28af27.ico" rel="icon" type="image/ico" />
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -289,9 +289,9 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-e4f210a0.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-ced40350.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-024da600.js"></script>
+    <link href="stylesheets/screen-db6cc4ae.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-dadaf4b0.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-a3ec0ac0.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -370,30 +370,31 @@
         <ul class="toc-footer">
             <li><a href='https://app.oopspam.com'>Get your API Key via Dashboard</a></li>
             <li><a href='https://rapidapi.com/oopspam/api/oopspam-spam-filter/'>Get your API Key via RapidAPI</a></li>
-            <li><a href='https://oopspam.com/help'>OOPSpam Help Center</a></li>
+            <li><a href='https://help.oopspam.com/'>oopspam Help Center</a></li>
             <li><hr/></li>
-            <li><a href='https://oopspam.com'>⬅ Back to OOPSpam</a></li>
+            <li><a href='https://www.oopspam.com/'>⬅ Back to oopspam</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>👋  Introduction</h1>
+        <h1 id="spam-detection-api-reference">Spam detection API reference</h1>
+<h2 id='introduction'>👋  Introduction</h2>
 <blockquote>
 <p>BASE URLs</p>
 
-<p>OOPSpam: <a href="https://api.oopspam.com/v1">https://api.oopspam.com/v1</a></p>
+<p>oopspam: <a href="https://api.oopspam.com/v1">https://api.oopspam.com/v1</a></p>
 
 <p>RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com/v1">https://oopspam.p.rapidapi.com/v1</a></p>
 </blockquote>
 
-<p>Welcome to the <a href="https://oopspam.com">OOPSpam API</a>!</p>
+<p>Welcome to the <a href="https://oopspam.com">oopspam API</a>!</p>
 
-<p>OOPSpam API is a privacy-first and highly accurate anti-spam filter.</p>
+<p>oopspam API is a privacy-first and highly accurate anti-spam filter.</p>
 
 <aside>
 <div  class="success">
-👉 Are you looking for a WordPress plugin? <a href="https://wordpress.org/plugins/oopspam-anti-spam/">Check out OOPSpam in the WordPress Plugin Directory</a>
+👉 Are you looking for a WordPress plugin? <a href="https://wordpress.org/plugins/oopspam-anti-spam/">Check out oopspam in the WordPress Plugin Directory</a>
 </div>
 </aside>
 
@@ -443,35 +444,35 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><img src="https://www.oopspam.com/assets/TestGraphic.png" alt="OOPSpam API request and response example" /></p>
+<p><img src="https://www.oopspam.com/assets/TestGraphic.png" alt="oopspam API request and response example" /></p>
 
-<p>You can test the API directly in your browser with your data on the <a href="https://app.oopspam.com/#test-with-your-data">OOPSpam Dashboard</a> or <a href="https://rapidapi.com/oopspam/api/oopspam-spam-filter">the RapidAPI Marketplace</a>.</p>
+<p>You can test the API directly in your browser with your data on the <a href="https://app.oopspam.com/#test-with-your-data">oopspam Dashboard</a> or <a href="https://rapidapi.com/oopspam/api/oopspam-spam-filter">the RapidAPI Marketplace</a>.</p>
 
 <p><a href="https://god.gw.postman.com/run-collection/14518409-422afe44-9793-4a24-aaee-e0d47e083234?action=collection%2Ffork&amp;source=rip_markdown&amp;collection-url=entityId%3D14518409-422afe44-9793-4a24-aaee-e0d47e083234%26entityType%3Dcollection%26workspaceId%3D73b5fac9-5b29-4680-9bb8-47a1a4768457"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 
-<p><a href="https://insomnia.rest/run/?label=&amp;uri=https%3A%2F%2Fwww.oopspam.com%2Fdocs%2Fimages%2Fscreenshots%2FOOPSpam_API.json"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia" /></a></p>
+<p><a href="https://insomnia.rest/run/?label=&amp;uri=https%3A%2F%2Fwww.oopspam.com%2Fdocs%2Fimages%2Fscreenshots%2Foopspam_API.json"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia" /></a></p>
 
 <p>The API is built around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>. All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.</p>
-<h1 id='developer-support'>👩‍🏫 Developer Support</h1>
+<h2 id='developer-support'>👩‍🏫 Developer Support</h2>
 <p>As Developers we understand that no API Reference can answer every question.</p>
 
 <p>We have a Developer to Developer support system where if you are working with our API you can speak directly to a developer.</p>
 
 <p>If you have a question about our API just start a conversation with us using the chat widget on this page or via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a>.</p>
-<h1 id='authentication'>🔑 Authentication</h1>
-<p>The OOPSpam API uses API keys to identify and authorize calls. You can register for a new API key in two ways:</p>
+<h2 id='authentication'>🔑 Authentication</h2>
+<p>The oopspam API uses API keys to identify and authorize calls. You can register for a new API key in two ways:</p>
 
 <ol>
 <li><strong>Recommended</strong> <a href="https://app.oopspam.com/Identity/Account/Register">Directly on our dashboard</a></li>
-<li><a href="https://rapidapi.com/oopspam/api/oopspam-spam-filter/">OOPSpam on RapidAPI marketplace</a></li>
+<li><a href="https://rapidapi.com/oopspam/api/oopspam-spam-filter/">oopspam on RapidAPI marketplace</a></li>
 </ol>
 
 <p>The account on RapidAPI and on our Dashboard are dissociated. Each of these registration methods has its own base URL and API-KEY. You must therefore adapt your scripts according to your subscription by adapting the URL and your API KEY.</p>
 
-<p>The OOPSpam API expects the API key to be included in all API requests to the server in a header that looks like this:</p>
+<p>The oopspam API expects the API key to be included in all API requests to the server in a header that looks like this:</p>
 
 <ul>
-<li>For OOPSpam Dashboard endpoint: <code>X-Api-Key: API_KEY</code></li>
+<li>For oopspam Dashboard endpoint: <code>X-Api-Key: API_KEY</code></li>
 <li>For RapidAPI endpoint: <code>X-Rapidapi-Key: API_KEY</code></li>
 </ul>
 
@@ -490,10 +491,10 @@
 <p>Do not share your API keys in publicly accessible areas or put them in version control or client-side code. It's a good practice to set secrets like the API key as environment variable and then read it in the code.</p>
 </div>
 </aside>
-<h2 id='using-the-api-via-dashboard'>Using the API via Dashboard</h2>
+<h3 id='using-the-api-via-dashboard'>Using the API via Dashboard</h3>
 <p>The base URL : <code>https://api.oopspam.com/v1</code></p>
 
-<p>If you have chosen to subscribe directly on our site, you will have the <a href="https://app.oopspam.com/Identity/Account/Register">OOPSpam Dashboard</a> at your disposal.</p>
+<p>If you have chosen to subscribe directly on our site, you will have the <a href="https://app.oopspam.com/Identity/Account/Register">oopspam Dashboard</a> at your disposal.</p>
 
 <p>It allows you to</p>
 
@@ -511,9 +512,9 @@
 </div>
 </aside>
 
-<p><img src="images/screenshots/sc1-fb699e65.png" alt="OOPSpam Dashboard" />
-<img src="images/screenshots/sc3-3329346e.png" alt="OOPSpam Dashboard" /></p>
-<h2 id='using-the-api-via-rapidapi'>Using the API via RapidAPI</h2>
+<p><img src="images/screenshots/sc1-fb699e65.png" alt="oopspam Dashboard" />
+<img src="images/screenshots/sc3-3329346e.png" alt="oopspam Dashboard" /></p>
+<h3 id='using-the-api-via-rapidapi'>Using the API via RapidAPI</h3>
 <p>The base URL : <code>https://oopspam.p.rapidapi.com/v1</code></p>
 
 <aside>
@@ -532,7 +533,7 @@
 <p>The main dashboard displays account-wide analytics and account information. </p>
 
 <p>For more detailed information, you can select tabs on the left side of the screen.</p>
-<h3 id='app-specific-analytics'>App Specific Analytics</h3>
+<h4 id='app-specific-analytics'>App Specific Analytics</h4>
 <p>The RapidAPI Dashboard also allows you to view analytics specific to each application in your account. To do this, go to the Analytics tab for your application in the dashboard.</p>
 
 <p>At the top of the page, you&#39;ll see</p>
@@ -553,11 +554,11 @@
 <p>You can find your API KEY under &#39;Security&#39; tab.</p>
 
 <p><img src="images/screenshots/sc_rapidApi-c0901abe.png" alt="RapidAPI Developer Dashboard" /></p>
-<h1 id='rate-limiting'>🚦 Rate Limiting</h1>
-<p>OOPSpam API uses sliding window algorithm for rate limiting. </p>
+<h2 id='rate-limiting'>🚦 Rate Limiting</h2>
+<p>oopspam API uses sliding window algorithm for rate limiting. </p>
 
 <blockquote>
-<p>Headers via OOPSpam endpoint</p>
+<p>Headers via oopspam endpoint</p>
 </blockquote>
 <div class="highlight"><pre class="highlight sass tab-sass"><code><span class="na">X-RateLimit-Limit</span><span class="p">:</span> <span class="m">1000</span>
 <span class="na">X-RateLimit-Remaining</span><span class="p">:</span> <span class="m">998</span>
@@ -597,10 +598,10 @@ headers have the following meaning:</p>
 <aside>
 <div class="notice">
 ℹ️ <strong>How Do I See My Current Usage?</strong>
-<p>Besides the above headers, you can see your API usage via RapidAPI Developer dashboard and OOPSpam Dashboard according to your subscription.</p>
+<p>Besides the above headers, you can see your API usage via RapidAPI Developer dashboard and oopspam Dashboard according to your subscription.</p>
 </div>
 </aside>
-<h1 id='endpoints'>🎯 Endpoints</h1><h2 id='spam-detection'>Spam Detection</h2>
+<h2 id='endpoints'>🎯 Endpoints</h2><h3 id='spam-detection'>Spam Detection</h3>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -919,7 +920,7 @@ headers have the following meaning:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Note that OOPSpam API tries to return the result as soon as one of the analyses detects spam. Hence some fields may not appear in the response body. Say <code>senderIP</code> is blocked then it will return following response without doing other analyses:</p>
+<p>Note that oopspam API tries to return the result as soon as one of the analyses detects spam. Hence some fields may not appear in the response body. Say <code>senderIP</code> is blocked then it will return following response without doing other analyses:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
@@ -932,20 +933,20 @@ headers have the following meaning:</p>
 <p>The endpoint analyses given parameters and returns overall spam score (<code>Score</code>) including detailed detection results in structured JSON.</p>
 
 <p><a href="https://app.getpostman.com/run-collection/9739f63cd7bc67da898f?action=collection%2Fimport"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
-<h3 id='http-request'>HTTP Request</h3>
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>POST /spamdetection</code></p>
 
 <aside>
 <div  class="success">
 👉 <strong>Reminder - the base URLs</strong>
-<p>You can consume OOPSpam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
+<p>You can consume oopspam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
 <ul>
-<li>OOPSpam: <code>https://api.oopspam.com/v1</code></li>
+<li>oopspam: <code>https://api.oopspam.com/v1</code></li>
 <li>RapidAPI: <code>https://oopspam.p.rapidapi.com/v1</code></li>
 </ul>
 </div>
 </aside>
-<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<h4 id='request-body-parameters'>Request Body Parameters</h4>
 <table class="table">
                   <thead>
                   <tr>
@@ -1030,11 +1031,11 @@ font-weight: bold;">default:true</small></td>
 padding-right: 5px;
 padding-left: 5px;
 font-weight: bold;">default:false</small></td>
-                      <td><strong>boolean (optional)</strong> Allows you to view logs in the OOPSpam Dashboard. No logs are kept by default. Enable logs by setting this to <code>true</code> and including the <code>source</code> parameter with a unique identifier.</td>
+                      <td><strong>boolean (optional)</strong> Allows you to view logs in the oopspam Dashboard. No logs are kept by default. Enable logs by setting this to <code>true</code> and including the <code>source</code> parameter with a unique identifier.</td>
                   </tr>
                    <tr>
                       <td><code>source</code></td>
-                      <td><strong>string (optional)</strong> A unique identifier for your application or website (e.g., "example.com"). Required when <code>logIt</code> is set to <code>true</code> to enable logging in the OOPSpam Dashboard.</td>
+                      <td><strong>string (optional)</strong> A unique identifier for your application or website (e.g., "example.com"). Required when <code>logIt</code> is set to <code>true</code> to enable logging in the oopspam Dashboard.</td>
                   </tr>
                    <tr>
                       <td><code>urlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
@@ -1067,7 +1068,7 @@ font-weight: bold;">default:false</small><small style="
                       </tr>
                   </tbody>
                 </table>
-<h3 id='response-body-parameters'>Response Body Parameters</h3>
+<h4 id='response-body-parameters'>Response Body Parameters</h4>
 <table class="table">
                             <thead>
                             <tr>
@@ -1308,9 +1309,9 @@ font-weight: bold;">default:false</small><small style="
 
 </div>
 </details>
-<h2 id='report'>Report</h2>
-<p>You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on <a href="https://app.oopspam.com/">OOPSpam Dashboard</a> under the Reported page. The status of each report will either be <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. The system (or human intervention if necessary) will then analyze them and improve the detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='report'>Report</h3>
+<p>You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on <a href="https://app.oopspam.com/">oopspam Dashboard</a> under the Reported page. The status of each report will either be <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. The system (or human intervention if necessary) will then analyze them and improve the detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.</p>
+<h4 id='http-request-2'>HTTP Request</h4>
 <blockquote>
 <p>Example request and response body</p>
 </blockquote>
@@ -1352,19 +1353,19 @@ font-weight: bold;">default:false</small><small style="
 
 <p>Here is an example listing on the dashboard:</p>
 
-<p><img src="images/screenshots/sc_reported-532356c6.png" alt="OOPSpam Dashboard Reported page" /></p>
-<h2 id='domain-reputation'>Domain Reputation</h2>
+<p><img src="images/screenshots/sc_reported-532356c6.png" alt="oopspam Dashboard Reported page" /></p>
+<h3 id='domain-reputation'>Domain Reputation</h3>
 <p>This endpoint evaluates the reputation of a given domain name by cross-referencing it against multiple authoritative sources, including Google, Microsoft, Mozilla, and various other reputable security providers.</p>
 
 <p>Note: The list of providers may be updated periodically to ensure comprehensive coverage.</p>
 
 <aside>
 <div  class="success">
-👉 If you want to periodically check your domains for their reputation and get an email alert when they are blocked, use <a href="https://www.oopspam.com/blog/domain-reputation">the Domain Watch</a> feature on <a href="https://app.oopspam.com/DomainWatcher">the OOPSpam Dashboard</a>. This tool allows you to set up automatic monitoring and receive timely notifications about any changes in your domains' status.
+👉 If you want to periodically check your domains for their reputation and get an email alert when they are blocked, use <a href="https://www.oopspam.com/blog/domain-reputation">the Domain Watch</a> feature on <a href="https://app.oopspam.com/DomainWatcher">the oopspam Dashboard</a>. This tool allows you to set up automatic monitoring and receive timely notifications about any changes in your domains' status.
 </div>
 </aside>
 
-<p><img src="https://www.oopspam.com/blog/assets/posts/do-watch/do-watch-screenshot.png" alt="Domain Reputation Watch by OOPSpam" /></p>
+<p><img src="https://www.oopspam.com/blog/assets/posts/do-watch/do-watch-screenshot.png" alt="Domain Reputation Watch by oopspam" /></p>
 
 <blockquote>
 <p>Example request</p>
@@ -1372,9 +1373,9 @@ font-weight: bold;">default:false</small><small style="
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre></div><h4 id='http-request-3'>HTTP Request</h4>
 <p><code>POST /reputation/domain</code></p>
-<h3 id='request-body-parameters-2'>Request Body Parameters</h3>
+<h4 id='request-body-parameters-2'>Request Body Parameters</h4>
 <table class="table">
                             <thead>
                             <tr>
@@ -1408,7 +1409,7 @@ font-weight: bold;">default:false</small><small style="
     </span><span class="nl">"Blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Blocker"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='response-body-parameters-2'>Response Body Parameters</h3>
+</span></code></pre></div><h4 id='response-body-parameters-2'>Response Body Parameters</h4>
 <table class="table">
                             <thead>
                             <tr>
@@ -1427,7 +1428,7 @@ font-weight: bold;">default:false</small><small style="
                             </tr>
                             </tbody>
                         </table>
-<h1 id='testing'>🧪 Testing</h1>
+<h2 id='testing'>🧪 Testing</h2>
 <p>After integrating the API, you may want to test different use cases. To help you get started, here&#39;s a table of blocked IP addresses, email addresses, and content.</p>
 
 <table><thead>
@@ -1443,13 +1444,13 @@ font-weight: bold;">default:false</small><small style="
 <td>testing@example.com, test@test.com</td>
 </tr>
 </tbody></table>
-<h1 id='tips'>💡 Tips</h1>
+<h2 id='tips'>💡 Tips</h2>
 <ul>
 <li>Responded <code>Score</code> parameter value ranges from 0 to 6. Any value of 3 or higher can be regarded as spam.</li>
 <li>Make an async HTTP request instead of a sync one, as the system will check the sender IP against multiple IP denial lists until it finds it.</li>
 </ul>
-<h1 id='errors'>🚨 Errors</h1>
-<p>The OOPSpam API uses the following error codes:</p>
+<h2 id='errors'>🚨 Errors</h2>
+<p>The oopspam API uses the following error codes:</p>
 
 <table><thead>
 <tr>
