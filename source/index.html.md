@@ -1,5 +1,5 @@
 ---
-title: OOPSpam API Reference
+title: Spam Detection API Reference | oopspam
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -14,9 +14,9 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='https://app.oopspam.com'>Get your API Key via Dashboard</a>
   - <a href='https://rapidapi.com/oopspam/api/oopspam-spam-filter/'>Get your API Key via RapidAPI</a>
-  - <a href='https://oopspam.com/help'>OOPSpam Help Center</a>
+  - <a href='https://help.oopspam.com/'>oopspam Help Center</a>
   - <hr/> 
-  - <a href='https://oopspam.com'>⬅ Back to OOPSpam</a>
+  - <a href='https://www.oopspam.com/'>⬅ Back to oopspam</a>
 
 includes:
   - errors
@@ -25,26 +25,26 @@ search: true
 
 code_clipboard: true
 
-meta:
-  - name: description
-    content: Documentation for the Kittn API
+description: "Spam detection API reference: check form messages, IPs and emails for spam, report mistakes and look up domain reputation. Examples in 8 languages."
 ---
 
-# 👋  Introduction
+<h1 id="spam-detection-api-reference">Spam detection API reference</h1>
+
+## 👋  Introduction
 
 > BASE URLs
 
-> OOPSpam: <a href="https://api.oopspam.com/v1">https://api.oopspam.com/v1</a>
+> oopspam: <a href="https://api.oopspam.com/v1">https://api.oopspam.com/v1</a>
 
 > RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com/v1">https://oopspam.p.rapidapi.com/v1</a>
 
-Welcome to the [OOPSpam API](https://oopspam.com)!
+Welcome to the [oopspam API](https://oopspam.com)!
 
-OOPSpam API is a privacy-first and highly accurate anti-spam filter.
+oopspam API is a privacy-first and highly accurate anti-spam filter.
 
 <aside>
 <div  class="success">
-👉 Are you looking for a WordPress plugin? <a href="https://wordpress.org/plugins/oopspam-anti-spam/">Check out OOPSpam in the WordPress Plugin Directory</a>
+👉 Are you looking for a WordPress plugin? <a href="https://wordpress.org/plugins/oopspam-anti-spam/">Check out oopspam in the WordPress Plugin Directory</a>
 </div>
 </aside>
 
@@ -96,18 +96,18 @@ Submit messages to the API and it will generate a spam ```Score``` with a detail
 }
 ```
 
-![OOPSpam API request and response example](https://www.oopspam.com/assets/TestGraphic.png)
+![oopspam API request and response example](https://www.oopspam.com/assets/TestGraphic.png)
 
-You can test the API directly in your browser with your data on the [OOPSpam Dashboard](https://app.oopspam.com/#test-with-your-data) or [the RapidAPI Marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter).
+You can test the API directly in your browser with your data on the [oopspam Dashboard](https://app.oopspam.com/#test-with-your-data) or [the RapidAPI Marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter).
 
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/14518409-422afe44-9793-4a24-aaee-e0d47e083234?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D14518409-422afe44-9793-4a24-aaee-e0d47e083234%26entityType%3Dcollection%26workspaceId%3D73b5fac9-5b29-4680-9bb8-47a1a4768457)
 
-[![Run in Insomnia](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=&uri=https%3A%2F%2Fwww.oopspam.com%2Fdocs%2Fimages%2Fscreenshots%2FOOPSpam_API.json)
+[![Run in Insomnia](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=&uri=https%3A%2F%2Fwww.oopspam.com%2Fdocs%2Fimages%2Fscreenshots%2Foopspam_API.json)
 
 The API is built around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.
 
-# 👩‍🏫 Developer Support
+## 👩‍🏫 Developer Support
 
 As Developers we understand that no API Reference can answer every question.
 
@@ -115,18 +115,18 @@ We have a Developer to Developer support system where if you are working with ou
 
 If you have a question about our API just start a conversation with us using the chat widget on this page or via <a href="mailto:contact@oopspam.com">contact@oopspam.com</a>.
 
-# 🔑 Authentication
+## 🔑 Authentication
 
-The OOPSpam API uses API keys to identify and authorize calls. You can register for a new API key in two ways:
+The oopspam API uses API keys to identify and authorize calls. You can register for a new API key in two ways:
 
 1. **Recommended** [Directly on our dashboard](https://app.oopspam.com/Identity/Account/Register)
-2. [OOPSpam on RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter/)
+2. [oopspam on RapidAPI marketplace](https://rapidapi.com/oopspam/api/oopspam-spam-filter/)
 
 The account on RapidAPI and on our Dashboard are dissociated. Each of these registration methods has its own base URL and API-KEY. You must therefore adapt your scripts according to your subscription by adapting the URL and your API KEY.
 
-The OOPSpam API expects the API key to be included in all API requests to the server in a header that looks like this:
+The oopspam API expects the API key to be included in all API requests to the server in a header that looks like this:
 
-- For OOPSpam Dashboard endpoint: ```X-Api-Key: API_KEY```
+- For oopspam Dashboard endpoint: ```X-Api-Key: API_KEY```
 - For RapidAPI endpoint: ```X-Rapidapi-Key: API_KEY```
 
 
@@ -146,11 +146,11 @@ Check out [Using the API via Dashboard](#using-the-api-via-dashboard) and [Using
 </div>
 </aside>
 
-## Using the API via Dashboard
+### Using the API via Dashboard
 
 The base URL : `https://api.oopspam.com/v1`
 
-If you have chosen to subscribe directly on our site, you will have the [OOPSpam Dashboard](https://app.oopspam.com/Identity/Account/Register) at your disposal.
+If you have chosen to subscribe directly on our site, you will have the [oopspam Dashboard](https://app.oopspam.com/Identity/Account/Register) at your disposal.
 
 It allows you to
 
@@ -166,10 +166,10 @@ It allows you to
 </div>
 </aside>
 
-![OOPSpam Dashboard](images/screenshots/sc1.png)
-![OOPSpam Dashboard](images/screenshots/sc3.png)
+![oopspam Dashboard](images/screenshots/sc1.png)
+![oopspam Dashboard](images/screenshots/sc3.png)
 
-## Using the API via RapidAPI
+### Using the API via RapidAPI
 
 The base URL : `https://oopspam.p.rapidapi.com/v1`
 
@@ -190,7 +190,7 @@ The main dashboard displays account-wide analytics and account information.
 
 For more detailed information, you can select tabs on the left side of the screen.
 
-### App Specific Analytics
+#### App Specific Analytics
 
 The RapidAPI Dashboard also allows you to view analytics specific to each application in your account. To do this, go to the Analytics tab for your application in the dashboard.
 
@@ -209,12 +209,12 @@ You can find your API KEY under 'Security' tab.
 
 ![RapidAPI Developer Dashboard](/images/screenshots/sc_rapidApi.png)
 
-# 🚦 Rate Limiting
+## 🚦 Rate Limiting
 
-OOPSpam API uses sliding window algorithm for rate limiting. 
+oopspam API uses sliding window algorithm for rate limiting. 
 
 
-> Headers via OOPSpam endpoint
+> Headers via oopspam endpoint
 
 ```sass
 X-RateLimit-Limit: 1000
@@ -243,13 +243,13 @@ If you exceed this limit, your application will not be able to make any more req
 <aside>
 <div class="notice">
 ℹ️ <strong>How Do I See My Current Usage?</strong>
-<p>Besides the above headers, you can see your API usage via RapidAPI Developer dashboard and OOPSpam Dashboard according to your subscription.</p>
+<p>Besides the above headers, you can see your API usage via RapidAPI Developer dashboard and oopspam Dashboard according to your subscription.</p>
 </div>
 </aside>
 
-#  🎯 Endpoints
+##  🎯 Endpoints
 
-## Spam Detection
+### Spam Detection
 
 > Example request
 
@@ -591,7 +591,7 @@ try {
 }
 ```
 
-> Note that OOPSpam API tries to return the result as soon as one of the analyses detects spam. Hence some fields may not appear in the response body. Say ```senderIP``` is blocked then it will return following response without doing other analyses:
+> Note that oopspam API tries to return the result as soon as one of the analyses detects spam. Hence some fields may not appear in the response body. Say ```senderIP``` is blocked then it will return following response without doing other analyses:
 
 ```json
 {
@@ -607,22 +607,22 @@ The endpoint analyses given parameters and returns overall spam score (```Score`
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9739f63cd7bc67da898f?action=collection%2Fimport)
 
-### HTTP Request
+#### HTTP Request
 
 `POST /spamdetection`
 
 <aside>
 <div  class="success">
 👉 <strong>Reminder - the base URLs</strong>
-<p>You can consume OOPSpam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
+<p>You can consume oopspam API via RapidAPI Marketplace or directly through our dashboard. The base URL varies depending on which platform you are using. Here are the endpoints:</p>
 <ul>
-<li>OOPSpam: <code>https://api.oopspam.com/v1</code></li>
+<li>oopspam: <code>https://api.oopspam.com/v1</code></li>
 <li>RapidAPI: <code>https://oopspam.p.rapidapi.com/v1</code></li>
 </ul>
 </div>
 </aside>
 
-### Request Body Parameters
+#### Request Body Parameters
 
 <table class="table">
                   <thead>
@@ -708,11 +708,11 @@ font-weight: bold;">default:true</small></td>
 padding-right: 5px;
 padding-left: 5px;
 font-weight: bold;">default:false</small></td>
-                      <td><strong>boolean (optional)</strong> Allows you to view logs in the OOPSpam Dashboard. No logs are kept by default. Enable logs by setting this to <code>true</code> and including the <code>source</code> parameter with a unique identifier.</td>
+                      <td><strong>boolean (optional)</strong> Allows you to view logs in the oopspam Dashboard. No logs are kept by default. Enable logs by setting this to <code>true</code> and including the <code>source</code> parameter with a unique identifier.</td>
                   </tr>
                    <tr>
                       <td><code>source</code></td>
-                      <td><strong>string (optional)</strong> A unique identifier for your application or website (e.g., "example.com"). Required when <code>logIt</code> is set to <code>true</code> to enable logging in the OOPSpam Dashboard.</td>
+                      <td><strong>string (optional)</strong> A unique identifier for your application or website (e.g., "example.com"). Required when <code>logIt</code> is set to <code>true</code> to enable logging in the oopspam Dashboard.</td>
                   </tr>
                    <tr>
                       <td><code>urlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
@@ -746,7 +746,7 @@ font-weight: bold;">default:false</small><small style="
                   </tbody>
                 </table>
 
-### Response Body Parameters
+#### Response Body Parameters
 
 <table class="table">
                             <thead>
@@ -991,11 +991,11 @@ font-weight: bold;">default:false</small><small style="
 </div>
 </details>
 
-## Report
+### Report
 
-You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on [OOPSpam Dashboard](https://app.oopspam.com/) under the Reported page. The status of each report will either be <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. The system (or human intervention if necessary) will then analyze them and improve the detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.
+You can use this endpoint to report any false positives and false negatives to us. All the submissions will be available on [oopspam Dashboard](https://app.oopspam.com/) under the Reported page. The status of each report will either be <span style="color:green">Solved</span> or <span style="color:orange">Pending</span>. The system (or human intervention if necessary) will then analyze them and improve the detection for your use case. Every processed submission will be marked as <span style="color:green">Solved</span>.
 
-### HTTP Request
+#### HTTP Request
 
 > Example request and response body
 
@@ -1042,9 +1042,9 @@ The request body is identical to [/spamdetection](#spam-detection) endpoint. The
 
 Here is an example listing on the dashboard:
 
-![OOPSpam Dashboard Reported page](images/screenshots/sc_reported.png)
+![oopspam Dashboard Reported page](images/screenshots/sc_reported.png)
 
-## Domain Reputation
+### Domain Reputation
 
 This endpoint evaluates the reputation of a given domain name by cross-referencing it against multiple authoritative sources, including Google, Microsoft, Mozilla, and various other reputable security providers.
 
@@ -1052,11 +1052,11 @@ Note: The list of providers may be updated periodically to ensure comprehensive 
 
 <aside>
 <div  class="success">
-👉 If you want to periodically check your domains for their reputation and get an email alert when they are blocked, use <a href="https://www.oopspam.com/blog/domain-reputation">the Domain Watch</a> feature on <a href="https://app.oopspam.com/DomainWatcher">the OOPSpam Dashboard</a>. This tool allows you to set up automatic monitoring and receive timely notifications about any changes in your domains' status.
+👉 If you want to periodically check your domains for their reputation and get an email alert when they are blocked, use <a href="https://www.oopspam.com/blog/domain-reputation">the Domain Watch</a> feature on <a href="https://app.oopspam.com/DomainWatcher">the oopspam Dashboard</a>. This tool allows you to set up automatic monitoring and receive timely notifications about any changes in your domains' status.
 </div>
 </aside>
 
-![Domain Reputation Watch by OOPSpam](https://www.oopspam.com/blog/assets/posts/do-watch/do-watch-screenshot.png)
+![Domain Reputation Watch by oopspam](https://www.oopspam.com/blog/assets/posts/do-watch/do-watch-screenshot.png)
 
 > Example request
 
@@ -1066,11 +1066,11 @@ Note: The list of providers may be updated periodically to ensure comprehensive 
 }
 ```
 
-### HTTP Request
+#### HTTP Request
 
 `POST /reputation/domain`
 
-### Request Body Parameters
+#### Request Body Parameters
 
 <table class="table">
                             <thead>
@@ -1108,7 +1108,7 @@ Note: The list of providers may be updated periodically to ensure comprehensive 
 }
 ```
 
-### Response Body Parameters
+#### Response Body Parameters
 
 <table class="table">
                             <thead>
@@ -1129,7 +1129,7 @@ Note: The list of providers may be updated periodically to ensure comprehensive 
                             </tbody>
                         </table>
 
-# 🧪 Testing
+## 🧪 Testing
 
 After integrating the API, you may want to test different use cases. To help you get started, here's a table of blocked IP addresses, email addresses, and content.
 
@@ -1138,7 +1138,7 @@ After integrating the API, you may want to test different use cases. To help you
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------	|------------------------------------	|
 | Good day, \r\n\r\nMy name is Eric and unlike a lot of emails you might get, I wanted to instead provide you with a word of encouragement – Congratulations\r\n\r\nWhat for?  \r\n\r\nPart of my job is to check out websites and the work you’ve done with pos-cash.de definitely stands out. \r\n\r\nIt’s clear you took building a website seriously and made a real investment of time and resources into making it top quality.\r\n\r\nThere is, however, a catch… more accurately, a question…\r\n\r\nSo when someone like me happens to find your site – maybe at the top of the search results (nice job BTW) or just through a random link, how do you know? \r\n\r\n 	| 45.152.198.112, 196.16.74.95 	| testing@example.com, test@test.com 	|
 
-# 💡 Tips
+## 💡 Tips
 
 - Responded ```Score``` parameter value ranges from 0 to 6. Any value of 3 or higher can be regarded as spam.
 - Make an async HTTP request instead of a sync one, as the system will check the sender IP against multiple IP denial lists until it finds it.

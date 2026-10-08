@@ -1,6 +1,6 @@
-# 🚨 Errors
+## 🚨 Errors
 
-The OOPSpam API uses the following error codes:
+The oopspam API uses the following error codes:
 
 Error Code | Meaning
 ---------- | -------
