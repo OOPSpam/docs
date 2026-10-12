@@ -38,7 +38,7 @@ description: "Spam detection API reference: check form messages, IPs and emails 
 
 > RapidAPI Marketplace: <a href="https://oopspam.p.rapidapi.com/v1">https://oopspam.p.rapidapi.com/v1</a>
 
-Welcome to the [oopspam API](https://oopspam.com)!
+Welcome to the [oopspam spam detection API](https://www.oopspam.com/spam-detection-api)! New here? The [API overview](https://www.oopspam.com/spam-detection-api) covers what it checks and pricing.
 
 oopspam API is a privacy-first and highly accurate anti-spam filter.
 
