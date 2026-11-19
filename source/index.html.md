@@ -91,7 +91,9 @@ Submit messages to the API and it will generate a spam ```Score``` with a detail
     "spamWords": [
       "dear"
     ],
-    "isContentTooShort": false
+    "isContentTooShort": false,
+    "isItVPN": true,
+    "isItDataCenter": false
   }
 }
 ```
@@ -800,8 +802,38 @@ font-weight: bold;">default:false</small><small style="
                                 <td><code>countryMatch</code></td>
                                 <td><strong>boolean</strong> - Represents whether an IP address (the value of <code>senderIP</code>) originates from one of the countries you passed through <code>allowedCountries</code> and <code>blockedCountries</code> parameters. In case of a mismatch, the API returns the maximum spam <code>Score</code> of 6. </td>
                             </tr>
+                            <tr>
+                                <td><code>isItVPN</code> <small style="
+	background-color: green;
+	border-radius: 1em;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-weight: bold;
+	color: white;">new</small></td>
+                                <td><strong>boolean</strong> - Explains <i>why</i> the submitted IP was flagged as a VPN/proxy. <code>true</code> when the IP is classified as belonging to a proxy/VPN network.</td>
+                            </tr>
+                            <tr>
+                                <td><code>isItDataCenter</code> <small style="
+	background-color: green;
+	border-radius: 1em;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-weight: bold;
+	color: white;">new</small></td>
+                                <td><strong>boolean</strong> - Explains <i>why</i> the submitted IP was flagged as a data center. <code>true</code> when the IP is classified as belonging to a hosting/data center network.</td>
+                            </tr>
                             </tbody>
                         </table>
+
+<aside>
+<div class="success">
+👉 <strong><code>isItVPN</code> and <code>isItDataCenter</code> are informational fields.</strong>
+<p>They describe the reason behind a block, not the block itself — use them to tell your users why their submission was rejected.</p>
+<ul>
+<li>They are returned <strong>only when the IP was flagged</strong>. Otherwise the keys are omitted from the response.</li>
+</ul>
+</div>
+</aside>
 
 
 
