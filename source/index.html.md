@@ -676,26 +676,14 @@ font-weight: bold;">default:false</small></td>
                       <td><code>blockVPN</code> <small style="background-color: #fbcf50;border-radius: 1em;
 padding-right: 5px;
 padding-left: 5px;
-font-weight: bold;">default:false</small><small style="
-	background-color: green;
-	border-radius: 1em;
-	padding-right: 5px;
-	padding-left: 5px;
-	font-weight: bold;
-	color: white;">new</small></td>
+font-weight: bold;">default:false</small></td>
                       <td><strong>boolean (optional)</strong> Block VPN, Proxy, Tor IPs</td>
                   </tr>
                    <tr>
                       <td><code>blockDC</code> <small style="background-color: #fbcf50;border-radius: 1em;
 padding-right: 5px;
 padding-left: 5px;
-font-weight: bold;">default:false</small><small style="
-	background-color: green;
-	border-radius: 1em;
-	padding-right: 5px;
-	padding-left: 5px;
-	font-weight: bold;
-	color: white;">new</small></td>
+font-weight: bold;">default:false</small></td>
                       <td><strong>boolean (optional)</strong> Block Data Center IPs. Filters out submissions from cloud providers.</td>
                   </tr>
                   <tr>
@@ -720,13 +708,7 @@ font-weight: bold;">default:false</small></td>
                       <td><code>urlFriendly</code> <small style="background-color: #fbcf50;border-radius: 1em;
 padding-right: 5px;
 padding-left: 5px;
-font-weight: bold;">default:false</small><small style="
-	background-color: red;
-	borderradius: 1em;
-	padding-right: 5px;
-	padding-left: 5px;
-	font-weight: bold;
-	color: white;">beta</small></td>
+font-weight: bold;">default:false</small></td>
                       <td><strong>boolean (optional)</strong> Make the <code>content</code> parameter more link-friendly and reduce the impact of links on the spam score.</td>
                   </tr>
                   <tr>
@@ -828,7 +810,7 @@ font-weight: bold;">default:false</small><small style="
 <aside>
 <div class="success">
 👉 <strong><code>isItVPN</code> and <code>isItDataCenter</code> are informational fields.</strong>
-<p>They describe the reason behind a block, not the block itself — use them to tell your users why their submission was rejected.</p>
+<p>They describe the reason behind a block, not the block itself. Use them to tell your users why their submission was rejected.</p>
 <ul>
 <li>They are returned <strong>only when the IP was flagged</strong>. Otherwise the keys are omitted from the response.</li>
 </ul>
